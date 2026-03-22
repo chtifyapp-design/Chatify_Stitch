@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#4cd6fb",
+                "error-container": "#93000a",
+                "on-background": "#dee2f5",
+                "on-secondary": "#00287c",
+                "on-primary-fixed-variant": "#004e5f",
+                "surface-tint": "#4cd6fb",
+                "primary-fixed": "#b3ebff",
+                "on-secondary-fixed-variant": "#224095",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#2b303e",
+                "tertiary-fixed-dim": "#d3bbff",
+                "on-tertiary-container": "#4c00a8",
+                "on-primary-container": "#00414f",
+                "tertiary-fixed": "#ebddff",
+                "surface-container-lowest": "#090e1b",
+                "secondary-container": "#224095",
+                "on-surface-variant": "#bcc9ce",
+                "on-primary-fixed": "#001f27",
+                "on-primary": "#003642",
+                "surface-container": "#1a1f2d",
+                "surface-container-highest": "#303443",
+                "surface-bright": "#343948",
+                "surface-dim": "#0e1320",
+                "surface-container-low": "#161b29",
+                "on-secondary-fixed": "#00164e",
+                "outline-variant": "#3d494d",
+                "on-secondary-container": "#9db2ff",
+                "on-surface": "#dee2f5",
+                "tertiary": "#d3bbff",
+                "secondary-fixed-dim": "#b5c4ff",
+                "inverse-primary": "#00677d",
+                "on-tertiary": "#3f008d",
+                "secondary": "#b5c4ff",
+                "surface": "#0e1320",
+                "primary-fixed-dim": "#4cd6fb",
+                "outline": "#869398",
+                "on-tertiary-fixed-variant": "#5b00c5",
+                "surface-variant": "#303443",
+                "error": "#ffb4ab",
+                "tertiary-container": "#b692ff",
+                "surface-container-high": "#252a38",
+                "secondary-fixed": "#dce1ff",
+                "primary-container": "#00b4d8",
+                "on-tertiary-fixed": "#250059",
+                "on-error": "#690005",
+                "inverse-surface": "#dee2f5",
+                "background": "#0e1320"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "mono": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+        }
+        body {
+            background-color: #080D1A;
+            color: #dee2f5;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-3xl shadow-[0_0_20px_rgba(0,180,216,0.15)]">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent font-headline tracking-tight">
+                Chatify
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Chats</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Stories</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Watch Cinema</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Vault</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Memories</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-white/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar with futuristic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlNXbplQTK6M98mEaFHlf_5FUi2BsTeLUkDLsVtMqVPwls_PcGvGPgD4Hsd3UtYl4rAB_vowNSIdws2evg-2jNThS13M3wLGO8v2WTv_uhXuzozzc-YUM0ddDTUBukuJ5Ksmlmiq5HoEL1_O8ZNqRPtbWq6nEJizW3Wp82uVmSLESAREhthNwYPDFAWFemB7JtsE1c8WmNte-XByG8hGT1QS9Gd4JiGlwRjLOYkUwcvAHfbdPLygYvvi-sfpmb6WKiqh0Ma8B5wds"/>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-900/80 backdrop-blur-2xl border-r border-white/5 shadow-[10px_0_30px_rgba(0,0,0,0.5)] hidden xl:block">
+<div class="flex flex-col h-full pt-24 pb-8 font-mono text-sm uppercase tracking-widest">
+<div class="px-6 mb-10 flex items-center gap-4">
+<div class="w-12 h-12 hexagon-mask bg-gradient-to-br from-tertiary to-primary p-[2px]">
+<div class="w-full h-full bg-surface-dim hexagon-mask flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Hexagon shaped profile avatar for administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfLvklvChcno__A8cxmHZqTZsm6Y8xIgxvfsXwUkbjRed-6awkYpySZcKhcjDqLKvKinhHONNIDecZWT4T37bAp2thPW4oT1mKA7tB6pbbVUbM6CkMd2Lmp0NZShLBtDoCPFRNUK7Ff5Vi6GzRbkwZ97N4ipD9qdSUugIFLdwcfHWB3VfewPcfiRbJG_zVJVbV30QV7Pc3-sFs28YED8gEluVC7dtj7SIk44jrEcKjWu6RgGHrseHsNyDCpjFSkwpvaHgWELkfgrA"/>
+</div>
+</div>
+<div>
+<div class="text-cyan-400 font-bold">Commander</div>
+<div class="text-[10px] text-slate-500">Level 42 Admin</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Security</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Archive</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-gradient-to-r from-primary/20 to-tertiary/20 border border-primary/30 text-primary text-[10px] font-bold rounded-lg hover:from-primary/30 transition-all active:scale-95 shadow-[0_0_15px_rgba(76,214,251,0.2)]">
+                    Initialize Protocol
+                </button>
+<div class="mt-8 space-y-4">
+<a class="flex items-center gap-3 text-slate-500 hover:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 hover:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-24 xl:pl-64 min-h-screen">
+<div class="max-w-4xl mx-auto px-6 py-8">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+<div>
+<h1 class="text-5xl font-headline font-bold tracking-tighter text-on-background mb-2">Chats</h1>
+<p class="text-slate-500 font-mono text-xs uppercase tracking-widest">Active Transmissions: 12</p>
+</div>
+<button class="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold rounded-xl shadow-[0_0_20px_rgba(0,180,216,0.4)] hover:shadow-[0_0_30px_rgba(0,180,216,0.6)] transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    New Transmission
+                </button>
+</header>
+<!-- Search & Filters -->
+<div class="space-y-6 mb-8">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+</div>
+<input class="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all glass-panel" placeholder="Scan network for contacts..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase bg-primary text-on-primary shadow-[0_0_10px_rgba(76,214,251,0.3)]">All</button>
+<button class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase bg-white/5 text-slate-400 hover:bg-white/10 transition-colors border border-white/5">Unread</button>
+<button class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase bg-white/5 text-slate-400 hover:bg-white/10 transition-colors border border-white/5">Voice</button>
+<button class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase bg-white/5 text-slate-400 hover:bg-white/10 transition-colors border border-white/5">Groups</button>
+</div>
+</div>
+<!-- Chat List (The Command Modules) -->
+<div class="space-y-2">
+<!-- Chat Row 1 (Active/Unread) -->
+<div class="group relative p-4 flex items-center gap-4 rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-primary to-tertiary">
+<img class="w-full h-full object-cover rounded-full border-2 border-background" data-alt="Profile of a user with a cyan glow effect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUclKorN3XCSICNCK3jLxiHu3-3ui0atMIA0gyUzqnPeRHpntprOOyN3pPzE0V-lTa6v48X4qpnh570ysxHnEen-pj22cT45XNsoZgygyhikl-TcBG0cxPG0ELHAUOtROIGn_YZc2OGJ_IFsIHZJgBmFwizBiL8ZQTdpSLP0sL0tbNoSGTinQ5-73GUa43wg4RRq_fI_3KzTYIlVXipLvqlkiP9nM-QeEbNm1QChf26pi7OfTus0KbIAo0JlW0Un0KQPjBUGhdw-Q"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-background rounded-full shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-mono text-primary font-bold truncate">@XERO_PROTOCOL</h3>
+<span class="font-mono text-[10px] text-slate-500">14:22:04</span>
+</div>
+<p class="text-slate-400 text-sm truncate pr-8">Payload synchronization complete. Ready for next phase.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_8px_rgba(76,214,251,0.5)]">3</div>
+<span class="material-symbols-outlined text-primary text-xs" data-icon="done_all">done_all</span>
+</div>
+</div>
+<!-- Chat Row 2 (Voice) -->
+<div class="group relative p-4 flex items-center gap-4 rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high inner-glow">
+<img class="w-full h-full object-cover" data-alt="Avatar of a contact in dark profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw_iTOaP9Dq-47Bz2hNmJHHN8UUsY0w27orJaYCzOZT-V0EeJ7X3mSKjWyT1P_tR7LI16fX9VAFlo9tcLCiz3brjLaM30tb4tM65mIu40J9SxNHpL73qP5bHGfLjAcPlEDY74tGz6r7k6Y7i2RdNHsER1bIIF1hqmhl3HAylst6iX95vb7XgIlErl9XldNyDhx5tAkRAwX2hU1xKp59NSf5ql9jOvbx6iJdEmPWoF5vmBCmScMGZcaICKubXpMmOoLDKhXp_MKeSo"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-slate-600 border-2 border-background rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-mono text-on-surface font-bold truncate">Nova_Prime</h3>
+<span class="font-mono text-[10px] text-slate-500">12:05:11</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="mic">mic</span>
+<div class="flex items-end gap-[1px] h-4 w-32">
+<div class="bg-primary/40 w-1 h-2 rounded-full"></div>
+<div class="bg-primary w-1 h-3 rounded-full"></div>
+<div class="bg-primary w-1 h-4 rounded-full"></div>
+<div class="bg-primary/60 w-1 h-2 rounded-full"></div>
+<div class="bg-primary w-1 h-3 rounded-full"></div>
+<div class="bg-primary w-1 h-1 rounded-full"></div>
+<div class="bg-primary/30 w-1 h-3 rounded-full"></div>
+<div class="bg-primary w-1 h-4 rounded-full"></div>
+<div class="bg-primary w-1 h-2 rounded-full"></div>
+<div class="bg-primary/50 w-1 h-3 rounded-full"></div>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">0:14</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="material-symbols-outlined text-slate-600 text-xs" data-icon="done">done</span>
+</div>
+</div>
+<!-- Chat Row 3 (VIP/Atithi) -->
+<div class="group relative p-4 flex items-center gap-4 rounded-xl bg-gradient-to-r from-tertiary/10 to-transparent border-l-2 border-tertiary transition-all cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 hexagon-mask bg-gradient-to-br from-tertiary to-primary-container p-[2px] shadow-[0_0_15px_rgba(211,187,255,0.3)]">
+<div class="w-full h-full hexagon-mask bg-background flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="VIP user avatar in a hexagon frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARoNesr0awCXu6JC9NlDg3HRnB8NYAcIpHVdHPUcVPYhaXCnvu1nx0Z8d1GkwPbGSEUcgwS8Gv9Nz5pX7_aug-NrK10FW8Rjcoy4jUltfJn-1nkbUyQw8B-gFpj3MLJd56mD32mDDFj7j5MemJaRL6wt4jdDNwtJUnbnCNf7FUis6aK2f_SWaxnNZ1qRTKtAxbIQtwjvoRXGOhteLUjYOPcNR0LNH8XvE2GWwGRnNy6Wt8NPkGKSxz9859IN60WVAO9qm4RQtvIgg"/>
+</div>
+</div>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-tertiary text-on-tertiary rounded-full flex items-center justify-center border border-background">
+<span class="material-symbols-outlined text-[10px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-mono text-tertiary font-bold truncate tracking-tight">VIP_CONSULATE</h3>
+<span class="font-mono text-[10px] text-tertiary/60">SYSTEM_ROOT</span>
+</div>
+<p class="text-tertiary/80 text-sm truncate italic">The Council awaits your presence in the Vault.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="bg-tertiary text-on-tertiary text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</div>
+</div>
+</div>
+<!-- Chat Row 4 (Standard) -->
+<div class="group relative p-4 flex items-center gap-4 rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high inner-glow">
+<img class="w-full h-full object-cover" data-alt="Contact avatar profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRqzpcfMk7JmeDaqQtV7GsRfvoPzQ0rUzWHywjV0zdTURaL4ZCd20qw1tK-d2pQ6JpD1CNdnH5qxiy9D6GSPYi-K25Mrmfwcacqv9lGhezqkuDdeO5psAdmHOHD5b-OsYz_trBdE_BmzLmawW86oJzI7_IZL84bXv0NULu-5d7lvFjYWbIM7HEKVOgr8qhoepH1HBGqFbdaIDVUqh8kx5eV3dEeKPSbqd3sE5crFAa9iX9zAzymUvaBjVN6kzwQAARrsidy7rRVbg"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-background rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-mono text-on-surface font-bold truncate">Atlas_Heavy</h3>
+<span class="font-mono text-[10px] text-slate-500">Yesterday</span>
+</div>
+<p class="text-slate-500 text-sm truncate pr-8">Did you review the schematics for the Orion gateway yet?</p>
+</div>
+</div>
+<!-- Chat Row 5 (Standard) -->
+<div class="group relative p-4 flex items-center gap-4 rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high inner-glow">
+<img class="w-full h-full object-cover" data-alt="Contact avatar profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrOGt8_aBYolBGIOUaWoSR7Z-M2s1Jm3bS2pSW2Vhl6DnKh8EK7IOlxUEZiuWLsxksLGLYphMu9PFsP3EZFRn2sgFV7XS9nlL6B5Khlvn_2pS7QPt9QOV1z0IB1fn6VwHwXWkUcUE2w_R37b2Rs9EWlbMhEUowFxfD2VcZ8kC2yHJu5FWFCw2o220zsDlCsi39EZTVPMPy9rjvCbiYrU7ARR0XS1OHITkPUj-PFe7Mme4bKfM8r5pdD2R2XnR3EZBKGoZUJAa42fI"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-slate-600 border-2 border-background rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-mono text-on-surface font-bold truncate">Echo_Alpha</h3>
+<span class="font-mono text-[10px] text-slate-500">Yesterday</span>
+</div>
+<p class="text-slate-500 text-sm truncate pr-8">Secure line established. Waiting for verification code.</p>
+</div>
+</div>
+</div>
+<!-- Empty State / Load More Decor -->
+<div class="mt-12 flex flex-col items-center justify-center text-center opacity-40">
+<div class="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent mb-4"></div>
+<p class="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400">End of active transmissions list</p>
+<div class="mt-4 flex gap-2">
+<div class="w-1 h-1 rounded-full bg-primary/40"></div>
+<div class="w-1 h-1 rounded-full bg-primary/40"></div>
+<div class="w-1 h-1 rounded-full bg-primary/40"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full glass-panel border-t border-white/5 z-50 py-3 px-6">
+<div class="flex justify-between items-center max-w-lg mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="chat" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-mono">Chats</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-mono">Explore</span>
+</a>
+<div class="-mt-8">
+<button class="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary to-primary-container text-on-primary flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-mono">Cinema</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-mono">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

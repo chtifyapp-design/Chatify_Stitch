@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify | Friends Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4cd6fb",
+                        "error-container": "#93000a",
+                        "on-background": "#dee2f5",
+                        "on-secondary": "#00287c",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "surface-tint": "#4cd6fb",
+                        "primary-fixed": "#b3ebff",
+                        "on-secondary-fixed-variant": "#224095",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#2b303e",
+                        "tertiary-fixed-dim": "#d3bbff",
+                        "on-tertiary-container": "#4c00a8",
+                        "on-primary-container": "#00414f",
+                        "tertiary-fixed": "#ebddff",
+                        "surface-container-lowest": "#090e1b",
+                        "secondary-container": "#224095",
+                        "on-surface-variant": "#bcc9ce",
+                        "on-primary-fixed": "#001f27",
+                        "on-primary": "#003642",
+                        "surface-container": "#1a1f2d",
+                        "surface-container-highest": "#303443",
+                        "surface-bright": "#343948",
+                        "surface-dim": "#0e1320",
+                        "surface-container-low": "#161b29",
+                        "on-secondary-fixed": "#00164e",
+                        "outline-variant": "#3d494d",
+                        "on-secondary-container": "#9db2ff",
+                        "on-surface": "#dee2f5",
+                        "tertiary": "#d3bbff",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "inverse-primary": "#00677d",
+                        "on-tertiary": "#3f008d",
+                        "secondary": "#b5c4ff",
+                        "surface": "#0e1320",
+                        "primary-fixed-dim": "#4cd6fb",
+                        "outline": "#869398",
+                        "on-tertiary-fixed-variant": "#5b00c5",
+                        "surface-variant": "#303443",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#b692ff",
+                        "surface-container-high": "#252a38",
+                        "secondary-fixed": "#dce1ff",
+                        "primary-container": "#00b4d8",
+                        "on-tertiary-fixed": "#250059",
+                        "on-error": "#690005",
+                        "inverse-surface": "#dee2f5",
+                        "background": "#0e1320"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-accent {
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.15);
+        }
+        body {
+            background-color: #0e1320;
+            color: #dee2f5;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar from Shared Components -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-3xl shadow-[0_0_20px_rgba(0,180,216,0.15)]">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto relative">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent font-headline tracking-tight">Chatify</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-bold tracking-tight" href="#">Chats</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-bold tracking-tight" href="#">Stories</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-bold tracking-tight" href="#">Watch Cinema</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-bold tracking-tight" href="#">Vault</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline font-bold tracking-tight" href="#">Memories</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Portrait of a modern young man avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJB0PQk8SIcBd_PNo17eIEDDEgflb1nNM6E_eCoTbX7bjb9Xgn4MZpOKd_NTa1n7YZFcMnM_nHZQ4ic2DA5qfHU-Qv7iG9RNDseqLct3zOKoeip9Hi1YbrF45yk3X7bRQbqu8r0v6Lw6ZwCGCZaIgm5JsNO8ZiDRDOGwzzU0Tcpba_QivUAEiSW65XublBtbHLZVbWpuS_rATYG8YHviN-hqufs2boxHdRBE4fGCYK-FjRF69a6B7pZ72cx4mVvPsupG0dWPY5aUc"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<!-- SideNavBar from Shared Components -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-900/80 backdrop-blur-2xl border-r border-white/5 shadow-[10px_0_30px_rgba(0,0,0,0.5)] hidden xl:block">
+<div class="flex flex-col h-full pt-24 pb-8 font-mono text-sm uppercase tracking-widest">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/20 hexagon-mask flex items-center justify-center p-0.5">
+<div class="w-full h-full bg-slate-900 hexagon-mask flex items-center justify-center overflow-hidden">
+<img alt="User Hexagon Avatar" class="w-full h-full object-cover" data-alt="Cyberpunk style male avatar in hexagon frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvpmgUccZ52JY7wMC9eShXaT3FkHaap5jOCXJy-smkcXdIj7LloVfwBUmSOz15yLAAC-uJT7IVqmpaLEdh9UHMSLZOZtXKIdNftuhkqVkTIo7uQUF2Vn6UD5gvmmqsVW5FxW7dRwbScJLP_ru9zZQw_ZNIsMPRsih6d7HpW7DCKznbPv_av-uzxMa6C-D1Vg_EWjYAlEtubRzoKAEI2YyrfWzqqK1jBH5nyWp5yuLJllIQXja4N7OG3y_SZvYJfyhqN2_x5URjv38"/>
+</div>
+</div>
+<div>
+<div class="text-cyan-400 font-bold">Commander</div>
+<div class="text-[10px] text-slate-500">Level 42 Admin</div>
+</div>
+</div>
+</div>
+<nav class="flex-grow flex flex-col">
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Security</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Archive</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full py-3 bg-gradient-to-r from-blue-900/40 to-cyan-400/10 border border-cyan-400/30 text-cyan-400 text-[10px] font-bold rounded hover:bg-cyan-400/20 transition-all">
+                    Initialize Protocol
+                </button>
+<div class="pt-4 space-y-2">
+<a class="flex items-center gap-3 text-slate-600 hover:text-slate-400 text-[10px]" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 hover:text-slate-400 text-[10px]" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-24 xl:pl-64 min-h-screen bg-surface-dim relative overflow-hidden">
+<!-- Background Atmospheric Element -->
+<div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-tertiary/5 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="max-w-6xl mx-auto px-6 py-8 relative z-10">
+<!-- Header Section -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-on-surface mb-2">Communications Hub</h1>
+<p class="font-mono text-primary text-xs tracking-[0.2em] uppercase">Status: Connected // All Systems Operational</p>
+</div>
+<div class="flex gap-4">
+<div class="glass-panel rounded-xl px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none text-sm placeholder:text-slate-500 w-48 font-mono" placeholder="Filter transmission..." type="text"/>
+</div>
+</div>
+</header>
+<!-- Main Management Container (Bento Grid Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Navigation Tabs (Vertical/Floating) -->
+<div class="lg:col-span-3 space-y-4">
+<div class="glass-panel p-2 rounded-2xl glow-accent">
+<nav class="flex flex-col gap-1">
+<button class="flex items-center justify-between w-full px-4 py-4 rounded-xl bg-primary/10 text-primary border border-primary/20 group transition-all">
+<span class="flex items-center gap-3 font-headline font-bold">
+<span class="material-symbols-outlined" data-icon="person_check" style="font-variation-settings: 'FILL' 1;">person_check</span>
+                                    Accepted
+                                </span>
+<span class="bg-primary/20 text-[10px] px-2 py-0.5 rounded-full font-mono">24</span>
+</button>
+<button class="flex items-center justify-between w-full px-4 py-4 rounded-xl hover:bg-white/5 text-on-surface-variant group transition-all">
+<span class="flex items-center gap-3 font-headline font-semibold">
+<span class="material-symbols-outlined" data-icon="pending">pending</span>
+                                    Pending
+                                </span>
+<span class="bg-surface-container-highest text-[10px] px-2 py-0.5 rounded-full font-mono">08</span>
+</button>
+<button class="flex items-center justify-between w-full px-4 py-4 rounded-xl hover:bg-white/5 text-on-surface-variant group transition-all">
+<span class="flex items-center gap-3 font-headline font-semibold">
+<span class="material-symbols-outlined" data-icon="outbox">outbox</span>
+                                    Sent
+                                </span>
+</button>
+<button class="flex items-center justify-between w-full px-4 py-4 rounded-xl hover:bg-white/5 text-on-surface-variant group transition-all">
+<span class="flex items-center gap-3 font-headline font-semibold">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                                    Requested
+                                </span>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-mono animate-pulse">NEW</span>
+</button>
+</nav>
+</div>
+<!-- Statistics Card -->
+<div class="glass-panel p-6 rounded-2xl hidden lg:block">
+<div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">Signal Strength</div>
+<div class="flex items-end gap-1 h-12 mb-4">
+<div class="w-2 bg-primary h-4 rounded-t-sm"></div>
+<div class="w-2 bg-primary h-8 rounded-t-sm"></div>
+<div class="w-2 bg-primary h-12 rounded-t-sm"></div>
+<div class="w-2 bg-primary h-10 rounded-t-sm"></div>
+<div class="w-2 bg-primary h-6 rounded-t-sm"></div>
+<div class="w-2 bg-slate-700 h-2 rounded-t-sm"></div>
+</div>
+<div class="text-xs text-on-surface-variant">Active connections at 94% efficiency. Encryption keys rotated.</div>
+</div>
+</div>
+<!-- Content Area: Friends List -->
+<div class="lg:col-span-9 space-y-6">
+<div class="glass-panel rounded-3xl overflow-hidden glow-accent">
+<div class="px-8 py-6 border-b border-white/5 flex items-center justify-between">
+<h2 class="font-headline text-xl font-bold tracking-tight">Synchronized Contacts</h2>
+<div class="text-[10px] font-mono bg-surface-container-high px-3 py-1 rounded-full text-slate-400">ARCHIVE_ID: CX-909</div>
+</div>
+<div class="divide-y divide-white/5">
+<!-- Friend Row 1 -->
+<div class="group px-8 py-5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+<div class="flex items-center gap-5">
+<div class="relative">
+<div class="w-14 h-14 bg-gradient-to-tr from-primary to-blue-600 rounded-2xl p-[2px]">
+<div class="w-full h-full bg-surface-dim rounded-[14px] overflow-hidden">
+<img alt="Friend Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Portrait of a smiling tech-savvy woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeTtd3YTJW-gnn_zzXMpNYFpJQGxMCJKNLYq3Tve0TsdkC6F_T_QWkUjVL7QLnDjezGHFx8mnj64rJ0TJS1IwbiJQdLvGHqvJYJSyKtNm1ClmM9f7nxhA5wWHo5aznTLDzFcWcG1huBaXpDGfgJHj40gCpS3wrcKMkQdnlQhpda1SkPnsRgrydP2StgSHyUUpkZyL_yFTnhKNCNyFFkDSkWdQqDHC2ygMAKracz5O8yp-LPBuld3X6EFvK1JXr4H_Kho5tbcDgpsA"/>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary border-2 border-surface-dim rounded-full"></div>
+</div>
+<div>
+<div class="font-headline font-bold text-lg text-on-surface">Nova_Protocol</div>
+<div class="font-mono text-[10px] text-primary/70 uppercase">Online // Earth Station 4</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+<button class="w-11 h-11 flex items-center justify-center text-slate-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Friend Row 2 -->
+<div class="group px-8 py-5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+<div class="flex items-center gap-5">
+<div class="relative">
+<div class="w-14 h-14 bg-gradient-to-tr from-primary to-blue-600 rounded-2xl p-[2px]">
+<div class="w-full h-full bg-surface-dim rounded-[14px] overflow-hidden">
+<img alt="Friend Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Professional headshot of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLGS6_W-PxMrli7A6MyaSiIncHMjIY5u-VJLhstp1qA4dfZrw6Gy2eSLMxszE_H3_nZuDltNhmR6dxx66_RQi4L5mwDEookWBFldLxpp65xrQzVCbCD8cdQsp5HCQO5Jv75D_HlcwkMmpxrQixSnH14mCVVDw9SnmWQ07Fd6LcD2EegesaGetWK-_iQKROOVLBOajVAhtW4fHEKgcjpNqVEfa9BxabHLdKhr6cBBpBMcJ0i24y9Rlyy9rIulNnuVOS6nfTqYcJNzc"/>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-slate-600 border-2 border-surface-dim rounded-full"></div>
+</div>
+<div>
+<div class="font-headline font-bold text-lg text-on-surface">Apex_Navigator</div>
+<div class="font-mono text-[10px] text-slate-500 uppercase">Offline // 4h ago</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+<button class="w-11 h-11 flex items-center justify-center text-slate-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Friend Row 3 -->
+<div class="group px-8 py-5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+<div class="flex items-center gap-5">
+<div class="relative">
+<div class="w-14 h-14 bg-gradient-to-tr from-tertiary to-primary-container rounded-2xl p-[2px]">
+<div class="w-full h-full bg-surface-dim rounded-[14px] overflow-hidden">
+<img alt="Friend Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Cool stylish man avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDvl6_4EL_61dGpicWNZDJJkw6Ljg0-0qlMiAmsnhbphAHUxb8ZqtI6rsDU3j3xyRL0KGDr0fE2uWr5Wbwl4jKy6pZp60ksOGRO5IQGkBlt6tvzHpTAkmvhd0ugyuTqCJi8-7e4BW4-brVqRyNyWVHW6r3WsXKi4No1Ff-WPYTGSi8FbaMOal-vBx69cIMGrvIVD199jsE5pT-68Z09z_mTaa4DuTqdP-yYrxRz2JwsaVroalt8bahSrH-9-30FSl573QFDuJGfFQ"/>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary border-2 border-surface-dim rounded-full"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<div class="font-headline font-bold text-lg text-on-surface">Atithi_Admin</div>
+<span class="bg-tertiary/20 text-tertiary text-[9px] px-2 py-0.5 rounded-full font-mono font-bold">VIP</span>
+</div>
+<div class="font-mono text-[10px] text-tertiary uppercase">Active // Secure Line</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+<button class="w-11 h-11 flex items-center justify-center text-slate-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Friend Row 4 -->
+<div class="group px-8 py-5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+<div class="flex items-center gap-5">
+<div class="relative">
+<div class="w-14 h-14 bg-gradient-to-tr from-primary to-blue-600 rounded-2xl p-[2px]">
+<div class="w-full h-full bg-surface-dim rounded-[14px] overflow-hidden">
+<img alt="Friend Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Portrait of a young woman with neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDVK_dd6mGkCyoCZgX0IPqzAETxzFEExDsmav2y3eZf6LgmGPkuacrxM4T1ZuID93hiXZtUxDEFZNh6BkT-tu3rXRrM5Lq7OKN-9FaRkaLlHhSvq2jqLNEuFGRxFH_NJekrje3VlqwmWhfR7ow927MkO3e5ncKtuKp-8YCn4riPCENeN1PX4lVJ004esOSvMSbFvLWvCDN-A7WMhYYtdqu9RPdGQdHmTme2F6eH_N37qKwKehppCXlRqKscVjw8Ds0TcddBGNxOH0"/>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary border-2 border-surface-dim rounded-full"></div>
+</div>
+<div>
+<div class="font-headline font-bold text-lg text-on-surface">Void_Walker</div>
+<div class="font-mono text-[10px] text-primary/70 uppercase">Online // Cryptic Hub</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+<button class="w-11 h-11 glass-panel rounded-xl flex items-center justify-center text-primary hover:bg-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+<button class="w-11 h-11 flex items-center justify-center text-slate-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-8 py-6 bg-white/[0.02] flex items-center justify-center">
+<button class="text-xs font-mono text-slate-500 hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+                                Load Remaining Contacts [Total 24]
+                            </button>
+</div>
+</div>
+<!-- Secondary Section: Activity/Pending (Asymmetric Content) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel p-6 rounded-3xl">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold">Suggested Links</h3>
+<span class="material-symbols-outlined text-slate-500" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Suggestion" class="w-full h-full object-cover" data-alt="Portrait of a young woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWR9-xfxjrm4zg22l1Fh96wWUG1uX5F1twVReHcb8NovhjPEHG09jlc0rsz293nk6ih8gyregIi76x4xYFWDIgOiYpTnlIxO1mc9lsNXX_Qi_doC6jq3ETrYhZcZt481GWUj1H7lql2GoHPAKpjh9fyn6TgR5dSFXEFcvrbF3-waWRduAceRCbnI4GPIYrfO4VN7tnkmPdW-d7cUlp_8iPLfxUO12qdbrkGFPS1fRl0SxWi5qZnM7ZL6-dqXIoRltq5M-I684wuXQ"/>
+</div>
+<div class="flex-grow">
+<div class="text-xs font-bold">Spectral_User</div>
+<div class="text-[9px] text-slate-500">Shared vaults: 12</div>
+</div>
+<button class="text-primary hover:bg-primary/10 p-1.5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+</button>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Suggestion" class="w-full h-full object-cover" data-alt="Portrait of a man avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBnciG94Dw_TYJv9lzYdUyUpgtLNMPK1gI8oQzo8AKGnU2zpFPeDxnypGw7k_mMNKiR2ERBTVwPUKWC8CFZaXJp2C8w6linDNxDgSlboDhydNptBcCrB2RjEqj7MVdiyLNyBZM9n6FKRIiaqcn5YFfqwCe6VxQoSBsvKdrDgu3FjzTR61dpDieG9JUnq8MSQGGgClNtBU5saBzvrdoyGgr7wAXh5s9WTxcUF4i-OuQL4aSMLdCzr48-x0OTKTnZdQK5RC4ibcUL60"/>
+</div>
+<div class="flex-grow">
+<div class="text-xs font-bold">Zenith_Coder</div>
+<div class="text-[9px] text-slate-500">Mutual connections: 3</div>
+</div>
+<button class="text-primary hover:bg-primary/10 p-1.5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-primary/10 to-transparent glass-panel p-6 rounded-3xl border-primary/20 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary/40 text-4xl group-hover:scale-110 transition-transform" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h3 class="font-headline font-bold mb-2">Prime Upgrade</h3>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">Unlock Inter-Galactic chat ranges and 4K cinema watching privileges.</p>
+<button class="w-full py-2 bg-primary text-on-primary text-xs font-bold rounded-xl shadow-[0_0_15px_rgba(76,214,251,0.4)] hover:shadow-[0_0_25px_rgba(76,214,251,0.6)] transition-all">
+                                Initiate Upgrade
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar for Mobile (Shared Component Logic) -->
+<div class="md:hidden fixed bottom-0 w-full bg-slate-950/80 backdrop-blur-xl z-50 flex justify-around items-center py-4 px-2">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="text-[10px] font-mono uppercase">Chats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="text-[10px] font-mono uppercase">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="camera">camera</span>
+<span class="text-[10px] font-mono uppercase">Stories</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-mono uppercase">Profile</span>
+</button>
+</div>
+</body></html>

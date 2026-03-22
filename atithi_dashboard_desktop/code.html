@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#bcc9ce",
+                        "on-tertiary-container": "#4c00a8",
+                        "on-tertiary": "#3f008d",
+                        "surface-container-highest": "#303443",
+                        "on-secondary-fixed-variant": "#224095",
+                        "surface-dim": "#0e1320",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "outline": "#869398",
+                        "tertiary": "#d3bbff",
+                        "on-surface": "#dee2f5",
+                        "surface-container-high": "#252a38",
+                        "on-background": "#dee2f5",
+                        "on-tertiary-fixed-variant": "#5b00c5",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "on-secondary": "#00287c",
+                        "surface-container": "#1a1f2d",
+                        "on-secondary-fixed": "#00164e",
+                        "on-primary-container": "#00414f",
+                        "primary": "#4cd6fb",
+                        "tertiary-fixed-dim": "#d3bbff",
+                        "surface-bright": "#343948",
+                        "background": "#0e1320",
+                        "on-primary": "#003642",
+                        "surface-container-low": "#161b29",
+                        "surface-container-lowest": "#090e1b",
+                        "tertiary-fixed": "#ebddff",
+                        "on-error": "#690005",
+                        "primary-container": "#00b4d8",
+                        "surface-tint": "#4cd6fb",
+                        "on-primary-fixed": "#001f27",
+                        "on-secondary-container": "#9db2ff",
+                        "on-tertiary-fixed": "#250059",
+                        "secondary-fixed": "#dce1ff",
+                        "surface-variant": "#303443",
+                        "surface": "#0e1320",
+                        "inverse-surface": "#dee2f5",
+                        "primary-fixed-dim": "#4cd6fb",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "inverse-primary": "#00677d",
+                        "inverse-on-surface": "#2b303e",
+                        "tertiary-container": "#b692ff",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#3d494d",
+                        "secondary-container": "#224095",
+                        "secondary": "#b5c4ff",
+                        "primary-fixed": "#b3ebff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .shimmer-effect {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full h-16 border-b border-white/10 bg-[#0e1320]/90 backdrop-blur-xl z-50 shadow-[0_0_16px_rgba(0,180,216,0.3)]">
+<div class="flex justify-between items-center px-6 w-full max-w-screen-2xl mx-auto h-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-['Space_Grotesk'] font-bold bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] bg-clip-text text-transparent">Chatify</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#00B4D8] border-b-2 border-[#00B4D8] pb-1" href="#">Chats</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Stories</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Watch Cinema</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Vault</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Memories</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 text-slate-400">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 text-slate-400">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high overflow-hidden border border-white/10">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="User profile placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMBM5iCtdLTC31ybF0WB-8oPU5HQdA9d3wH3u6C1muP8YLqbci20eXxTsdzbvyitz3WCDMcMH9WYv1Q6DWi73fyG5Si4j-G-NhomIeUlQv2XH8IGmqsQkqxETvYKJEl2U_fI2B2Z0_j4GBb8d6EQAKtKJSvdWsRbfT4z3uuDjZVDekxrWBtbzprsdNZTjmnyfQKlkcuHIa3gUhKoFxSBcJ3afly24heDfJC6MM2x6TNDwJZZLh6DPtHzZT4DvOweYm5HxLHts2nKs"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="pt-20 flex min-h-screen max-w-screen-2xl mx-auto">
+<!-- Left Sidebar: Online Friends -->
+<aside class="hidden lg:flex flex-col w-80 h-[calc(100vh-5rem)] sticky top-20 border-r border-white/5 bg-surface-container-low px-4 py-6">
+<div class="mb-6">
+<h3 class="font-headline font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">group</span>
+                    Command Center
+                </h3>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="w-full bg-white/5 border-none rounded-xl pl-10 text-sm focus:ring-1 focus:ring-primary/50 py-2.5" placeholder="Search operational units..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto space-y-4 pr-2">
+<!-- Friend Item -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-transform hover:translate-x-1 group cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 hexagon-mask bg-gradient-to-br from-tertiary to-primary-container p-[2px]">
+<div class="w-full h-full hexagon-mask bg-surface-container-high flex items-center justify-center">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Futuristic user avatar hexagon profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQATw3tqmhiLP02VOJufPq5MlgBNiPcJSWhpFLZ9IGD80Epq2AGaOtUFG5pmHeCXnwWxqt_weV_nQk4mJrMjP5lRh73I1oepTcjIKjkdjtQXeczNQ1CNsXEB3QdNb8zWLORCLTa5VgLHZHX6WtnZjGfU8H6zY-4M8Ax4ivql9zfLhvEZ0x4XZpbf5MVUhZxQESWSFpHfBXQ--m9SAS0p29KM-iGPITDOXK58i4wKehXac91ayhiC2sAii4S1Dj8zPi3T6332GONLM"/>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-container-low shadow-[0_0_8px_#4cd6fb]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-sm font-medium">@commander_alpha</span>
+<span class="text-[10px] text-primary/70 uppercase tracking-widest font-bold">In Mission</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-transform hover:translate-x-1 group cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 hexagon-mask bg-outline-variant p-[1px]">
+<div class="w-full h-full hexagon-mask bg-surface-container-high flex items-center justify-center opacity-60">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Futuristic user avatar hexagon profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQ-RruVsq9Kbbb4CQMe_tdm4x6lwW-pX7ch7nXuEQaeK1p6kT25M4GEzxh_j1pfhA1jyWiV39LmcLQg4ygOJ1anBg7nDumnHPrANR3I4kUUZ7LjpK0Na9m7lmOA4LGWjFNzWeSUvG35ES5hVNBSrGWxlsQpyTAXvr-XBVzY71IcBvAwvCKLHOsbzgYB_URtkiZUU6zmPmhEO_13XeurDYVO2OSE5qWDBpLmZjmKivxeYDED6eWAH7SPpbix9S2GzEU9rOEA3U2U4"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-sm text-slate-500">@beta_scout</span>
+<span class="text-[10px] text-slate-600 uppercase tracking-widest font-bold">Hyper-sleep</span>
+</div>
+</div>
+<!-- Repeat with different states -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-transform hover:translate-x-1 group cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 hexagon-mask bg-gradient-to-br from-tertiary to-primary-container p-[2px]">
+<div class="w-full h-full hexagon-mask bg-surface-container-high">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Futuristic user avatar hexagon profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC4y6sPUF5cEnfqBJgkF9P-kDZ_HljCHBk1jq5hkzjUVA28kQMLXcZJaGx6bopiAonMHhvohDbruP08lCH4FRrSMRx0yuLM2KxUB4HmJL3KBYWPwYfOQqV74CZWOcJPbtqWkf1K0IgfI3f0gYlKA9Sjhk_9YRAljXXTYhHxrXoaR--zm3wYF2kxNeldjsNw4r1hAp8T73aHEL6ikC1w9WkWpMMnzv9taaCYZPyPM_KxMpOt7_xoYEdkYqdddXNVbhFjfsEAceiUJw"/>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-container-low shadow-[0_0_8px_#4cd6fb]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-mono text-sm font-medium">@zenith_pilot</span>
+<span class="text-[10px] text-primary/70 uppercase tracking-widest font-bold">Active Transmit</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5">
+<button class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-tertiary to-primary-container text-on-tertiary-fixed font-headline font-bold py-3 rounded-xl shadow-[0_0_16px_rgba(109,40,217,0.3)] hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                    New Transmission
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 px-8 py-6 space-y-8 max-w-5xl">
+<!-- Atithi Banner -->
+<section class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<div class="relative w-full h-48 rounded-3xl overflow-hidden bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] flex items-center px-12">
+<div class="absolute inset-0 shimmer-effect opacity-30"></div>
+<div class="relative z-10 flex items-center gap-8">
+<div class="w-24 h-24 hexagon-mask bg-white/20 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white" style="font-variation-settings: 'FILL' 1;">crown</span>
+</div>
+<div>
+<h1 class="font-headline font-extrabold text-4xl text-white tracking-tighter uppercase mb-2">Special Atithi</h1>
+<p class="font-mono text-white/80 text-sm tracking-widest">RANK: INTERSTELLAR COMMANDER // STATUS: VERIFIED</p>
+</div>
+</div>
+<div class="ml-auto relative z-10 hidden md:block">
+<div class="text-right">
+<span class="font-mono text-[10px] text-white/60 block mb-1">STATION TIME</span>
+<span class="font-mono text-2xl font-bold text-white">23:45:08</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Search Bar -->
+<section class="w-full">
+<div class="glass-card rounded-2xl flex items-center px-6 py-4 shadow-lg">
+<span class="material-symbols-outlined text-primary mr-4">database</span>
+<input class="w-full bg-transparent border-none text-on-surface placeholder:text-slate-500 focus:ring-0 text-lg font-headline font-medium" placeholder="Search all @users, transmissions, or encrypted data packets..." type="text"/>
+<div class="flex items-center gap-2 ml-4">
+<kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/5">CMD</kbd>
+<kbd class="bg-white/10 px-2 py-1 rounded text-[10px] font-mono border border-white/5">K</kbd>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-card rounded-2xl p-6 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary">diversity_3</span>
+<span class="font-mono text-[10px] text-on-surface-variant">+12 New</span>
+</div>
+<h4 class="text-3xl font-headline font-bold mb-1">1,204</h4>
+<p class="text-sm text-slate-500 font-medium">Connected Friends</p>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-tertiary/10 rounded-full blur-2xl group-hover:bg-tertiary/20 transition-all"></div>
+</div>
+<div class="glass-card rounded-2xl p-6 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">forum</span>
+<span class="font-mono text-[10px] text-on-surface-variant">Live</span>
+</div>
+<h4 class="text-3xl font-headline font-bold mb-1">45.2K</h4>
+<p class="text-sm text-slate-500 font-medium">Total Messages</p>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all"></div>
+</div>
+<div class="glass-card rounded-2xl p-6 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-[#00B4D8]">sync</span>
+<span class="font-mono text-[10px] text-on-surface-variant">99%</span>
+</div>
+<h4 class="text-3xl font-headline font-bold mb-1">1.2 TB</h4>
+<p class="text-sm text-slate-500 font-medium">Cloud Sync</p>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#00B4D8]/10 rounded-full blur-2xl group-hover:bg-[#00B4D8]/20 transition-all"></div>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<button class="glass-card rounded-xl py-6 flex flex-col items-center gap-3 hover:bg-primary/10 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">add_comment</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-wider">New Chat</span>
+</button>
+<button class="glass-card rounded-xl py-6 flex flex-col items-center gap-3 hover:bg-tertiary/10 hover:border-tertiary/30 transition-all group">
+<span class="material-symbols-outlined text-tertiary group-hover:scale-110 transition-transform">camera_alt</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-wider">New Snap</span>
+</button>
+<button class="glass-card rounded-xl py-6 flex flex-col items-center gap-3 hover:bg-primary-container/10 hover:border-primary-container/30 transition-all group">
+<span class="material-symbols-outlined text-primary-container group-hover:scale-110 transition-transform">location_on</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-wider">Location</span>
+</button>
+<button class="glass-card rounded-xl py-6 flex flex-col items-center gap-3 hover:bg-[#00B4D8]/10 hover:border-[#00B4D8]/30 transition-all group">
+<span class="material-symbols-outlined text-[#00B4D8] group-hover:scale-110 transition-transform">movie</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-wider">Cinema</span>
+</button>
+</section>
+<!-- Cloud Storage Card -->
+<section class="glass-card rounded-3xl p-8 border-l-4 border-primary">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex-1 space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tight">Encrypted Cloud Active</h3>
+</div>
+<p class="text-slate-400 text-sm max-w-lg">
+                            Your interstellar data is protected by Atithi-grade 2048-bit encryption. All chat history, cinema rentals, and vault assets are synced across your fleet.
+                        </p>
+<div class="space-y-2">
+<div class="flex justify-between font-mono text-[10px] text-slate-500">
+<span>STORAGE USAGE</span>
+<span>78% OF 2.0 TB</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[78%] rounded-full shadow-[0_0_8px_#4cd6fb]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 px-8 border-l border-white/5">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">shield_lock</span>
+</div>
+<span class="font-mono text-[10px] uppercase tracking-tighter text-center">Status:<br/><span class="text-primary">ULTRA_SECURE</span></span>
+</div>
+</div>
+</section>
+</main>
+<!-- Right Side: Profile & Metadata (Asymmetric Layout) -->
+<aside class="hidden xl:flex flex-col w-72 px-6 py-6 border-l border-white/5 bg-surface-container-low space-y-8">
+<div class="flex flex-col items-center text-center space-y-4">
+<div class="relative">
+<!-- Hexagon Avatar Frame -->
+<div class="w-28 h-28 hexagon-mask bg-gradient-to-br from-tertiary via-primary to-primary-container p-[3px]">
+<div class="w-full h-full hexagon-mask bg-surface-container-high flex items-center justify-center">
+<img alt="Main User" class="w-full h-full object-cover" data-alt="Primary user hexagon avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvaMofyWpyawzsZl7BoVw3iYxOTFHjensRrpvyGtwFsGnkAwdGqZoWezROHz6ZBWgyTA2cWDjwMgidS59hH2cX4f2DwIk0x-tTknGz53TVT7DmYuPXvW6k2m8OXm32BJo-csLDHDFuhMGJ5hwsMYHFPNq68Wwvli6iS7W_5hv31Fn9JH8tbZjN9XTmpi0fNKQ71N5H8HewawSDXz3fgac0vsOt2YHxIBdSUXBI32WgOThFEI9_T0AEUN5AFiOTPJVgM0D28GSq8L8"/>
+</div>
+</div>
+<div class="absolute -bottom-2 -right-2 glass-card w-10 h-10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline font-bold text-xl">Atithi Commander</h2>
+<p class="font-mono text-xs text-slate-500 tracking-tight">ID: #C-1984-OX</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="glass-card rounded-2xl p-4">
+<span class="font-mono text-[10px] text-slate-500 block mb-3">RECENT ACTIVITY</span>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5"></div>
+<div class="flex flex-col">
+<span class="text-xs font-medium">Synced Memories</span>
+<span class="text-[10px] text-slate-500 font-mono">2m ago</span>
+</div>
+</li>
+<li class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary mt-1.5"></div>
+<div class="flex flex-col">
+<span class="text-xs font-medium">New Transmission</span>
+<span class="text-[10px] text-slate-500 font-mono">14m ago</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="glass-card rounded-2xl p-4">
+<span class="font-mono text-[10px] text-slate-500 block mb-3">SYSTEM INTEGRITY</span>
+<div class="flex items-center justify-between">
+<span class="text-xs">Thermal Core</span>
+<span class="font-mono text-xs text-primary">34°C</span>
+</div>
+<div class="h-1 w-full bg-white/5 rounded-full mt-2">
+<div class="h-full bg-primary w-1/3 rounded-full"></div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Bottom Nav for Mobile (Only visible on small screens) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-[#0e1320]/80 backdrop-blur-2xl h-[72px] rounded-t-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,180,216,0.15)]">
+<button class="flex flex-col items-center justify-center text-[#00B4D8] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#00B4D8] after:rounded-full after:shadow-[0_0_8px_#00B4D8]">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Chats</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Stories</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">theaters</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Cinema</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">account_box</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Profile</span>
+</button>
+</div>
+</body></html>

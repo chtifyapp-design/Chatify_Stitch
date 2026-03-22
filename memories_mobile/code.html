@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Memories - Chatify</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#00b4d8",
+              "surface": "#0e1320",
+              "surface-container-high": "#252a38",
+              "surface-variant": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed": "#dce1ff",
+              "error": "#ffb4ab",
+              "outline": "#869398",
+              "on-tertiary-fixed": "#250059",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "surface-container-low": "#161b29",
+              "inverse-on-surface": "#2b303e",
+              "error-container": "#93000a",
+              "tertiary": "#d3bbff",
+              "secondary-fixed-dim": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "primary-fixed": "#b3ebff",
+              "on-tertiary": "#3f008d",
+              "secondary": "#b5c4ff",
+              "on-primary": "#003642",
+              "on-primary-fixed-variant": "#004e5f",
+              "surface-container": "#1a1f2d",
+              "on-error-container": "#ffdad6",
+              "surface-dim": "#0e1320",
+              "on-primary-container": "#00414f",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-container-highest": "#303443",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-background": "#dee2f5",
+              "on-primary-fixed": "#001f27",
+              "surface-tint": "#4cd6fb",
+              "inverse-surface": "#dee2f5",
+              "tertiary-fixed": "#ebddff",
+              "primary": "#4cd6fb",
+              "on-surface": "#dee2f5",
+              "on-secondary-fixed-variant": "#224095",
+              "on-secondary-container": "#9db2ff",
+              "surface-container-lowest": "#090e1b",
+              "secondary-container": "#224095",
+              "on-secondary": "#00287c",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-tertiary-container": "#4c00a8",
+              "on-surface": "#dee2f5",
+              "tertiary-container": "#b692ff",
+              "on-error": "#690005"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen pb-32">
+<!-- Top App Bar (Shared Component) -->
+<header class="fixed top-0 z-50 w-full bg-[#0e1320] dark:bg-[#0e1320] shadow-[0_0_16px_rgba(0,180,216,0.3)]">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center overflow-hidden border border-white/5">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwQPArtCstw3wpG3UzeNjkTpRr4yrPIMBpNa7M3RJyYi6BgcYsBTmi-spIZoBs4fnX_nhiYR1olUDqBJNAF-rTY95M126PsRaMCHAhrEo47rDBoEptdAlO2t0SuJjxbnU6m-4mM6Rl1Wljdw648zSl6yC0smvCiV1zS8tvQkJEnQQx7jTCgQ9lUgbpDiFIgQBMs__XRWwDKiCD9U_QgMqM98qNrJaMGqm8nxPrMGmmVjfUUXhXwKFH0tEQwtz1q87POqMYS7pFP9A"/>
+</div>
+<h1 class="text-2xl font-['Space_Grotesk'] font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8]">Chatify</h1>
+</div>
+<button class="text-slate-400 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="bg-gradient-to-b from-[#161b29] to-transparent h-px w-full"></div>
+</header>
+<main class="pt-24 px-4 max-w-md mx-auto">
+<!-- Calendar Section -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-6 px-2">
+<h2 class="font-headline text-xl text-primary tracking-tight">August 2024</h2>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="chevron_left">chevron_left</span>
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="glass-card rounded-xl p-4 border border-white/5">
+<div class="grid grid-cols-7 gap-y-4 text-center">
+<!-- Weekdays -->
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">Mo</div>
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">Tu</div>
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">We</div>
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">Th</div>
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">Fr</div>
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">Sa</div>
+<div class="font-mono text-[10px] text-outline-variant uppercase tracking-widest">Su</div>
+<!-- Days (Sample Row) -->
+<div class="py-2 text-sm text-outline-variant opacity-30">29</div>
+<div class="py-2 text-sm text-outline-variant opacity-30">30</div>
+<div class="py-2 text-sm text-outline-variant opacity-30">31</div>
+<div class="relative py-2 text-sm font-mono flex flex-col items-center">
+                        1
+                        <div class="w-1 h-1 rounded-full bg-tertiary mt-1"></div>
+</div>
+<div class="py-2 text-sm font-mono">2</div>
+<div class="py-2 text-sm font-mono">3</div>
+<div class="py-2 text-sm font-mono">4</div>
+<!-- Selected/Active Row -->
+<div class="py-2 text-sm font-mono">5</div>
+<div class="relative py-2 text-sm font-mono flex flex-col items-center">
+                        6
+                        <div class="w-1 h-1 rounded-full bg-tertiary mt-1"></div>
+</div>
+<div class="py-2 text-sm font-mono">7</div>
+<div class="py-2 text-sm font-mono bg-primary/20 text-primary rounded-lg border border-primary/30">8</div>
+<div class="py-2 text-sm font-mono">9</div>
+<div class="relative py-2 text-sm font-mono flex flex-col items-center">
+                        10
+                        <div class="w-1 h-1 rounded-full bg-tertiary mt-1"></div>
+</div>
+<div class="py-2 text-sm font-mono">11</div>
+</div>
+</div>
+</section>
+<!-- Memory Cards Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between px-2">
+<h3 class="font-headline text-lg text-on-surface">Stored Data</h3>
+<span class="font-mono text-[10px] text-outline uppercase">Active Feed</span>
+</div>
+<!-- Memory Card 1 -->
+<div class="surface-container-low rounded-xl overflow-hidden border-l-4 border-primary shadow-lg">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="bg-primary/10 px-2 py-1 rounded-md">
+<span class="font-mono text-[10px] text-primary font-bold">AUG 06, 2024</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm" data-icon="notifications_active" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                        Galaxy conceptual brainstorming. Discussed the "Obsidian Command Center" aesthetic with the core team.
+                    </p>
+<div class="flex gap-2">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden border border-white/5">
+<img alt="Memory thumbnail" class="w-full h-full object-cover" data-alt="Blue and purple nebula in deep space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIg9bBolWQJAAk8rTrdbt5fkca2EU8p_GS--QFJCYFf0xdRnVCGtycac3oyZBmF-Q33zpB6-R-IKEbDCHfBgYJkMFSXQOF2kOOjsV1LbCWCkz1GQFaemTQa6DfeuCTevRo-IpGCWgulOPz7uY-Ty0817wocjJPm1LyAvrB3xmK06UbsyOwQLsHOvyC4aAJ5JKhXghcv8F8JGTi8Cd4MA6DFo_t4GD2gpZ1vOT683l1jUCbsdYWqCuSANXkumqjE3tH8zJn60Hfchc"/>
+</div>
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden border border-white/5">
+<img alt="Memory thumbnail" class="w-full h-full object-cover" data-alt="Earth seen from space station window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9GSCok9_L8jHZH-d_pGtvshVyCO3PkLkMPJgaG2z_TLHZzRZfUK_0tMohWPVgl5Unwaua7C0RQWiRsn-MZoAnr-xAVK6xMMnn0jb0Zgap0-ua019w1Y9xc8QpiW_OrXmr95cUbJ8RP1yJTiXMAwZEJpirBy_Rg5BFt9XulV72O4CofQFmRAAFCDaZOWU5elKVtsZ37LSsaWc0U0kndmplC9cgft-1rCMiYRHsMHMAs8eV8KWtzAXNAVw2TyVo0rKI13xYFn18A5w"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Memory Card 2 (Special Atithi Style) -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-tertiary to-primary-container rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative surface-container-low rounded-xl overflow-hidden glass-card">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="bg-tertiary/20 px-2 py-1 rounded-md">
+<span class="font-mono text-[10px] text-tertiary font-bold">AUG 01, 2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-outline-variant text-sm" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div>
+<p class="text-on-surface text-sm font-medium leading-relaxed mb-4">
+                            Launch of the Vault protocol. Encryption keys stored successfully in the deep-space cluster.
+                        </p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 hexagon-mask bg-gradient-to-br from-tertiary to-primary-container p-[1px]">
+<div class="w-full h-full hexagon-mask bg-surface-container-high flex items-center justify-center">
+<img alt="VIP User" class="w-full h-full object-cover" data-alt="Portrait of a person with stylish glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVn9N7F5_i6xoCIfWnkftfNLij1B8lMrYbbGvrJExQFj6vATCB2LUZ1iIvAcp9EMQyZScosVeq8L_ibzdjeRSDKQEoXFP0eRo_4HVb9h1Xe9gnNXVapF1PovnvtLRFnpsFd5XdOdgeS0upR5Yq-u9AnSm4dr0as_DEVQHi-iZc2yXkyebRy8anC05jAuaM5dPSOVQU82PR39a5chjTuHksHtUaJPVg_KjNT7tkKR_coFXAZLmF6rKHPgrNfNr8eI2DgRwHTFZED28"/>
+</div>
+</div>
+<span class="font-mono text-[10px] text-outline">AUTHOR: ALPHA_ZERO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB (Floating Action Button) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 rounded-xl bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] text-white shadow-[0_0_16px_rgba(0,180,216,0.5)] flex items-center justify-center z-50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- Bottom Navigation Bar (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#161b29]/80 backdrop-blur-3xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Chats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="amp_stories">amp_stories</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Stories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="movie">movie</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Cinema</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00B4D8] bg-[#00B4D8]/10 rounded-xl px-3 py-1 shadow-[0_0_10px_rgba(0,180,216,0.2)] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

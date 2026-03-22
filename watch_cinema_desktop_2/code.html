@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#00b4d8",
+            "surface": "#0e1320",
+            "surface-container-high": "#252a38",
+            "surface-variant": "#303443",
+            "on-surface-variant": "#bcc9ce",
+            "on-tertiary-fixed-variant": "#5b00c5",
+            "secondary-fixed": "#dce1ff",
+            "error": "#ffb4ab",
+            "outline": "#869398",
+            "on-tertiary-fixed": "#250059",
+            "on-secondary-fixed": "#00164e",
+            "outline-variant": "#3d494d",
+            "surface-container-low": "#161b29",
+            "inverse-on-surface": "#2b303e",
+            "error-container": "#93000a",
+            "tertiary": "#d3bbff",
+            "secondary-fixed-dim": "#b5c4ff",
+            "inverse-primary": "#00677d",
+            "primary-fixed": "#b3ebff",
+            "on-tertiary": "#3f008d",
+            "secondary": "#b5c4ff",
+            "on-primary": "#003642",
+            "on-primary-fixed-variant": "#004e5f",
+            "surface-container": "#1a1f2d",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0e1320",
+            "on-primary-container": "#00414f",
+            "tertiary-fixed-dim": "#d3bbff",
+            "surface-container-highest": "#303443",
+            "surface-bright": "#343948",
+            "background": "#0e1320",
+            "on-primary-fixed": "#001f27",
+            "surface-tint": "#4cd6fb",
+            "inverse-surface": "#dee2f5",
+            "tertiary-fixed": "#ebddff",
+            "primary": "#4cd6fb",
+            "on-background": "#dee2f5",
+            "on-secondary-fixed-variant": "#224095",
+            "on-secondary-container": "#9db2ff",
+            "surface-container-lowest": "#090e1b",
+            "secondary-container": "#224095",
+            "on-secondary": "#00287c",
+            "primary-fixed-dim": "#4cd6fb",
+            "on-tertiary-container": "#4c00a8",
+            "on-surface": "#dee2f5",
+            "tertiary-container": "#b692ff",
+            "on-error": "#690005"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Inter"],
+            "mono": ["JetBrains Mono"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(24px);
+    }
+    .hexagon-mask {
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3d494d;
+      border-radius: 10px;
+    }
+    .glow-primary {
+      box-shadow: 0 0 16px rgba(0, 180, 216, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen overflow-hidden">
+<!-- Shared Component: TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-50 flex justify-between items-center px-8 max-w-none backdrop-blur-2xl bg-[#0e1320] dark:bg-[#0e1320] bg-gradient-to-b from-transparent to-[#161b29]/20 shadow-[0_0_16px_rgba(0,180,216,0.1)]">
+<div class="flex items-center gap-8">
+<div class="text-2xl font-bold tracking-tighter text-[#00B4D8] font-['Space_Grotesk']">Chatify</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors active:scale-95 transition-transform" href="#">Chats</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors active:scale-95 transition-transform" href="#">Stories</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#00B4D8] border-b-2 border-[#00B4D8] pb-1 active:scale-95 transition-transform" href="#">Watch Cinema</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors active:scale-95 transition-transform" href="#">Vault</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors active:scale-95 transition-transform" href="#">Memories</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all duration-300 text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-xl overflow-hidden ring-2 ring-[#00B4D8]/30">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Portrait of a user for their profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHZWU3nc0rTTcJtQ51SYu4hFmZfvlGbhEQ50-3bl9XawG4Hk4KDQbYAgqKtz4kmbl0kOfgm5FsJ-fuEg4KcFqxQ0KWVxxqQJetMjyBSsL-YLVlD8bYptqSm0uyHFcORw9HUQREzw4EXQL1ykSPucY3aizJj-1x_9EzIzxTEYOhHZhH_ErfwMq4ughsCzIUmGAtRist8wDQUa4tuOOFXgHizvkDLVOoH2_zclPw-X8IOhK93YpT3-mFPLvzemNuPRo1dqV6KLw9gEo"/>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-64px)] w-full overflow-hidden">
+<!-- Video Player Section (Main) -->
+<section class="flex-1 flex flex-col bg-surface overflow-hidden relative">
+<!-- Cinema Sub-Header / Source Selection -->
+<div class="px-8 py-4 flex items-center justify-between border-b border-white/5 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">movie</span>
+<h1 class="font-headline font-bold text-xl tracking-tight uppercase text-primary-fixed-dim">Interstellar (2014)</h1>
+</div>
+<!-- Source Selection Tabs -->
+<div class="flex p-1 bg-surface-container-high rounded-xl">
+<button class="px-4 py-1.5 text-xs font-headline font-bold tracking-wide bg-primary-container text-on-primary-container rounded-lg transition-all">NETFLIX_HQ</button>
+<button class="px-4 py-1.5 text-xs font-headline font-bold tracking-wide text-on-surface-variant hover:text-on-surface transition-all">PRIME_4K</button>
+<button class="px-4 py-1.5 text-xs font-headline font-bold tracking-wide text-on-surface-variant hover:text-on-surface transition-all">SERVER_BETA</button>
+</div>
+<!-- Synced Status Badge -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-mono font-medium text-primary tracking-widest uppercase">SYNK_ACTIVE: 04_USERS</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] rounded-xl text-white text-xs font-headline font-bold tracking-tight glow-primary">
+<span class="material-symbols-outlined text-sm">share</span>
+            INVITE
+          </button>
+</div>
+</div>
+<!-- Main Player Canvas -->
+<div class="flex-1 relative group bg-surface-container-lowest">
+<div class="absolute inset-0 flex items-center justify-center">
+<img alt="Main Video Player" class="w-full h-full object-cover" data-alt="High quality cinematic scene showing space exploration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKgG6957NkTfxIPP36JjIUg8vioxMQPA5KOyHnb90g-CUbcYwVLXND1VJsi6Bd5BUSY-grfKYWKVCIMy7Qks0kyP0-A83ngKZaEM5MUFsdfbjMdznnNRcuhv3NI8T9XuFmQiCrzZa-BXGzanqzy5W9NzBf3gAbnd6kKGQ4elNHD_YcXGWyRM0jmJ6fBy0Vu-qqD7WWJOyJ3VScLnySsygc7UbjWfHhL9j3riWn-1D5H72zty-h7kAheTHgg_eMtCnS_SUamTXa430"/>
+<!-- Play Overlay -->
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<button class="w-20 h-20 rounded-full glass-panel flex items-center justify-center text-primary-container border border-white/10 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Friend Camera PiP (Floating Glass) -->
+<div class="absolute bottom-24 right-8 flex flex-col gap-4 pointer-events-none">
+<div class="w-48 h-32 rounded-xl overflow-hidden glass-panel border border-white/10 shadow-2xl pointer-events-auto transform hover:scale-105 transition-transform group/pip">
+<div class="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 glass-panel rounded-full border border-white/5">
+<div class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></div>
+<span class="text-[8px] font-mono text-white/80">SARAH_CAM</span>
+</div>
+<img alt="Friend Camera" class="w-full h-full object-cover grayscale-[20%]" data-alt="Webcam feed of a friend laughing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVGW93Pj7gesik-_d5PVq05NuiGCXbghODJlioRkl2P-qwd1rPT5oa1k9UE81egPsX7C8nC7XqNZq3qzpQnicnYogsnRhPGNo7kkZPu9DsavcctnloJp-PQpqwT75mo8Sl_s9ZJb41neP8EOV4sUkPa_7yGzxBhHB34LSdTZCv_VgRpbDk_6CUd0IhmWvTf5SRQHeGG42DNLLno0XSDT8VtEpgXc-t9ko7JIAf2OP82ox-ipxlzXMbpPcP-yT-XNg1trN_JrAnMGE"/>
+</div>
+<div class="w-48 h-32 rounded-xl overflow-hidden glass-panel border border-white/10 shadow-2xl pointer-events-auto transform hover:scale-105 transition-transform">
+<div class="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 glass-panel rounded-full border border-white/5">
+<div class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></div>
+<span class="text-[8px] font-mono text-white/80">MARK_L_CAM</span>
+</div>
+<img alt="Friend Camera 2" class="w-full h-full object-cover grayscale-[20%]" data-alt="Webcam feed of a male friend in dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2X-Z9rTBYypwmUxQvfjYWEi-oloqRKzgma29SjFy6VWUNV0Y45yMg2F6lckz6t6NTjR6olEEWH9QXUyjZ3MOuMLmvIyiXXuXPMQhv6Q7e2UoBmjbS1VEcZgI8ImzECf7T4k3TNXIZFWoj340Zp3EI4hM84e1vNzQgvOFnsLPKrpDLE3bonAp7FfaSp1Ar1tE_zEu34B6jq3MQXsN7ML1wTQrkkqHNhEyEJk9SGNus2guXX1wves4TqoVZZ6tkofJ16noJ1IgvV6E"/>
+</div>
+</div>
+<!-- Video Controls (Bottom) -->
+<div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-surface-dim to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<div class="flex flex-col gap-4">
+<!-- Progress Bar -->
+<div class="relative h-1 w-full bg-white/10 rounded-full cursor-pointer overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-primary glow-primary"></div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="text-white hover:text-primary transition-colors"><span class="material-symbols-outlined">pause</span></button>
+<button class="text-white hover:text-primary transition-colors"><span class="material-symbols-outlined">replay_10</span></button>
+<button class="text-white hover:text-primary transition-colors"><span class="material-symbols-outlined">forward_10</span></button>
+<div class="flex items-center gap-2 group/vol">
+<span class="material-symbols-outlined text-white text-sm">volume_up</span>
+<div class="w-20 h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-white"></div>
+</div>
+</div>
+<span class="font-mono text-xs text-on-surface-variant">01:42:04 / 02:49:00</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-white hover:text-primary transition-colors"><span class="material-symbols-outlined">closed_caption</span></button>
+<button class="text-white hover:text-primary transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<button class="text-white hover:text-primary transition-colors"><span class="material-symbols-outlined">fullscreen</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Side Chat Panel (Right) -->
+<aside class="w-96 border-l border-white/5 bg-surface-container-low flex flex-col">
+<!-- Chat Header -->
+<div class="p-6 border-b border-white/5 flex items-center justify-between">
+<div>
+<h2 class="font-headline font-bold text-lg tracking-tight">Party Chat</h2>
+<p class="text-xs text-on-surface-variant font-mono">ID: XJ-904-CINEMA</p>
+</div>
+<button class="p-2 hover:bg-white/5 rounded-lg text-on-surface-variant"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<!-- Messages Area -->
+<div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+<!-- System Alert -->
+<div class="flex flex-col items-center py-4">
+<div class="px-3 py-1 rounded-full bg-surface-variant/50 border border-white/5 text-[10px] text-on-surface-variant font-mono">
+            SARAH JOINED THE COMMAND_CENTER
+          </div>
+</div>
+<!-- Friend Message -->
+<div class="flex gap-3">
+<div class="flex-shrink-0 w-8 h-8 hexagon-mask overflow-hidden bg-primary/20 p-px">
+<div class="w-full h-full hexagon-mask bg-surface-dim overflow-hidden">
+<img alt="Sarah Avatar" class="w-full h-full object-cover" data-alt="Close up avatar of a female user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5ktVRkoiuxI3Y8INOh0eFw8hDZYPGrcUFW0Ao26N3vcKOuFiBUzDe7PiARgY-ffjppADJKW2bDa3iEodYMJqXEa9lFM5933b4FCa3w404VicffWlCy9PtYigHGQJf27yJbpNQ9mV3q7lrD6v9nPyS7iK0bLzz__3ujOyP_WzBmpaJnrwR05YChL4XNfE0_pbwwRHI0oI1Y_U9RxXoWGm9TcQo8eyNZuYItM-45VF4I8UdF3Shze4Dsbv5mzRtL6t9Pg-ZgseCe8s"/>
+</div>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="flex items-center gap-2">
+<span class="text-xs font-headline font-bold text-on-surface">Sarah</span>
+<span class="text-[9px] font-mono text-on-surface-variant">22:04</span>
+</div>
+<div class="px-4 py-2.5 rounded-xl rounded-tl-none bg-surface-container-high border border-white/5 text-sm leading-relaxed">
+              OMG the soundtrack in this scene is literally perfection! 😭
+            </div>
+</div>
+</div>
+<!-- VIP Message (Atithi Style) -->
+<div class="flex gap-3">
+<div class="flex-shrink-0 w-8 h-8 hexagon-mask overflow-hidden bg-gradient-to-br from-tertiary to-primary-container p-px">
+<div class="w-full h-full hexagon-mask bg-surface-dim overflow-hidden">
+<img alt="Mark Avatar" class="w-full h-full object-cover" data-alt="Close up avatar of a VIP user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTjJae3GCwsuSEcHEEkhlgYWOsosDcAD-B5xbxx_SDtUxsVnqiHsEHyCU01WSfwvfGlp0GSJu8MoXYi5P5mpLtvOe6tPXlTH5MPyNPh3i8HAbHqJrG9SBjrt_kksCeuZPaDeTWOqtOvS1oQCGR7SvyQKxTy0uvBC2GIrf6wKTIBg0wPuFiaoKjz4ViLVhRx6VCStbuDuFhV2hE94v955-TC1CprwuEPpO6WptUh9o13SFdqbiDKP-0yvLKFXogpbsURYEjRq7rUpo"/>
+</div>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="flex items-center gap-2">
+<span class="text-xs font-headline font-bold text-tertiary">Mark_L</span>
+<span class="px-1.5 py-0.5 rounded-sm bg-tertiary/20 text-tertiary text-[8px] font-mono">VIP_CREW</span>
+</div>
+<div class="px-4 py-2.5 rounded-xl rounded-tl-none bg-gradient-to-br from-tertiary/10 to-primary-container/10 border border-tertiary/20 text-sm leading-relaxed shadow-[0_0_12px_rgba(109,40,217,0.1)]">
+              Turn it up! This is the 4K render I was telling you guys about.
+            </div>
+</div>
+</div>
+<!-- My Message -->
+<div class="flex flex-row-reverse gap-3">
+<div class="flex flex-col items-end gap-1 max-w-[80%]">
+<div class="flex items-center flex-row-reverse gap-2">
+<span class="text-xs font-headline font-bold text-primary">You</span>
+<span class="text-[9px] font-mono text-on-surface-variant">22:05</span>
+</div>
+<div class="px-4 py-2.5 rounded-xl rounded-tr-none bg-primary/20 border border-primary/30 text-sm leading-relaxed text-on-primary-fixed-dim">
+              Synchronizing audio... sounds incredible on my end too.
+            </div>
+</div>
+</div>
+<!-- Reaction/Status -->
+<div class="flex flex-col items-center py-2">
+<div class="flex items-center gap-2 px-3 py-1 rounded-xl glass-panel border border-white/5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-[10px] text-on-surface font-medium">Sarah liked your message</span>
+</div>
+</div>
+</div>
+<!-- Chat Input Area -->
+<div class="p-6 bg-surface-container-lowest border-t border-white/5">
+<div class="relative flex items-center">
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all pr-12 font-mono placeholder:text-on-surface-variant/40" placeholder="TRANSMIT_DATA..." type="text"/>
+<div class="absolute right-3 flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">sentiment_satisfied</span></button>
+<button class="text-primary hover:scale-110 transition-transform"><span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">send</span></button>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between text-[10px] font-mono text-on-surface-variant/60 uppercase tracking-widest">
+<span>ENCRYPTED_LINE_7</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-[12px]">mic</span>
+<span class="material-symbols-outlined text-[12px]">attachment</span>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Floating Quick Actions (Contextual) -->
+<div class="fixed bottom-8 left-8 flex gap-4">
+<button class="w-12 h-12 rounded-xl glass-panel border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all active:scale-95 group">
+<span class="material-symbols-outlined transition-transform group-hover:rotate-12">screenshot</span>
+</button>
+<button class="w-12 h-12 rounded-xl glass-panel border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all active:scale-95 group">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110">devices</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHATIFY_SECURE // MODAL_COLLECTION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error": "#690005",
+              "outline": "#869398",
+              "surface": "#0e1320",
+              "on-primary": "#003642",
+              "on-surface": "#dee2f5",
+              "on-error-container": "#ffdad6",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-primary-container": "#00414f",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container-high": "#252a38",
+              "on-background": "#dee2f5",
+              "inverse-on-surface": "#2b303e",
+              "tertiary-fixed": "#ebddff",
+              "primary-container": "#00b4d8",
+              "background": "#0e1320",
+              "secondary-fixed": "#dce1ff",
+              "on-secondary": "#00287c",
+              "surface-bright": "#343948",
+              "tertiary-fixed-dim": "#d3bbff",
+              "tertiary-container": "#b692ff",
+              "surface-tint": "#4cd6fb",
+              "surface-container-low": "#161b29",
+              "error": "#ffb4ab",
+              "on-tertiary": "#3f008d",
+              "primary": "#4cd6fb",
+              "on-tertiary-fixed": "#250059",
+              "surface-variant": "#303443",
+              "surface-container": "#1a1f2d",
+              "on-secondary-fixed-variant": "#224095",
+              "error-container": "#93000a",
+              "inverse-primary": "#00677d",
+              "on-tertiary-container": "#4c00a8",
+              "primary-fixed": "#b3ebff",
+              "secondary": "#b5c4ff",
+              "tertiary": "#d3bbff",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-primary-fixed": "#001f27",
+              "inverse-surface": "#dee2f5",
+              "surface-dim": "#0e1320",
+              "surface-container-lowest": "#090e1b",
+              "secondary-container": "#224095",
+              "on-primary-fixed-variant": "#004e5f",
+              "surface-container-highest": "#303443",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "on-secondary-container": "#9db2ff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glow-sm { text-shadow: 0 0 8px rgba(0, 180, 216, 0.6); }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .photon-glow-primary { box-shadow: 0 0 16px rgba(0, 180, 216, 0.3); }
+        .photon-glow-error { box-shadow: 0 0 16px rgba(255, 180, 171, 0.2); }
+        .photon-glow-success { box-shadow: 0 0 16px rgba(76, 214, 251, 0.4); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container/30">
+<!-- TOP APP BAR (Shared Component) -->
+<header class="flex justify-between items-center w-full px-6 h-16 bg-[#0e1320] dark:bg-[#0e1320] docked full-width top-0 z-[100] sticky shadow-[0_0_16px_rgba(0,180,216,0.3)]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container hexagon-mask flex items-center justify-center photon-glow-primary">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">hexagon</span>
+</div>
+<h1 class="font-['Space_Grotesk'] tracking-tight font-bold uppercase text-xl font-black text-[#00B4D8] tracking-widest">CHATIFY_SECURE</h1>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#00B4D8] glow-sm cursor-pointer active:scale-95 duration-150">security</span>
+</div>
+<div class="absolute bottom-0 left-0 bg-gradient-to-r from-transparent via-[#00B4D8]/20 to-transparent h-[1px] w-full"></div>
+</header>
+<main class="min-h-screen p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-32">
+<!-- 1. DELETE CONFIRMATION -->
+<section class="flex flex-col gap-4">
+<h2 class="font-mono text-xs text-outline uppercase tracking-widest px-2">MOD_ID: DEL_AUTH_01</h2>
+<div class="glass-card p-6 rounded-xl flex flex-col gap-6 photon-glow-error">
+<div class="flex items-start gap-4">
+<div class="p-3 rounded-xl bg-error-container/20 text-error">
+<span class="material-symbols-outlined">delete_forever</span>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold leading-none mb-2">ERASE_DATA_SEQUENCE?</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">This action will permanently purge the selected transmission from the local vault and synchronized nodes. This cannot be undone.</p>
+</div>
+</div>
+<div class="flex gap-3 mt-2">
+<button class="flex-1 bg-error-container text-on-error-container font-mono text-sm py-3 rounded-xl hover:brightness-110 active:scale-95 transition-all uppercase tracking-wider">Confirm</button>
+<button class="flex-1 border border-outline-variant text-on-surface-variant font-mono text-sm py-3 rounded-xl hover:bg-white/5 active:scale-95 transition-all uppercase tracking-wider">Cancel</button>
+</div>
+</div>
+</section>
+<!-- 2. LOGOUT MODAL -->
+<section class="flex flex-col gap-4">
+<h2 class="font-mono text-xs text-outline uppercase tracking-widest px-2">MOD_ID: SESSION_TERM_02</h2>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center text-center gap-6 photon-glow-primary">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">power_settings_new</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">Terminate_Session</h3>
+<p class="text-on-surface-variant text-sm mt-2">Are you sure you want to decouple from the secure uplink? Local cache will be encrypted.</p>
+</div>
+<div class="w-full space-y-3">
+<button class="w-full bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] text-white font-headline font-bold py-3 rounded-xl photon-glow-primary hover:brightness-110 active:scale-95 transition-all">LOGOUT_COMMANDER_01</button>
+<button class="w-full text-primary font-mono text-xs uppercase tracking-widest py-2 hover:text-white transition-colors">Abort_Action</button>
+</div>
+</div>
+</section>
+<!-- 3. BLOCK USER -->
+<section class="flex flex-col gap-4">
+<h2 class="font-mono text-xs text-outline uppercase tracking-widest px-2">MOD_ID: PROTOCOL_BLACKOUT_03</h2>
+<div class="glass-card overflow-hidden rounded-xl border-l-4 border-error/50">
+<div class="p-6 flex flex-col gap-5">
+<div class="flex justify-between items-center">
+<span class="font-mono text-[10px] text-error bg-error/10 px-2 py-1 rounded">RESTRICTION_PROTOCOL</span>
+<span class="material-symbols-outlined text-error/40">block</span>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold">Blacklist: NEON_WANDERER_99</h3>
+<p class="text-on-surface-variant text-sm mt-1">Blocked users cannot initiate comms or view your presence status. They will be flagged in the firewall.</p>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg">
+<input class="rounded bg-surface-variant border-outline-variant text-error focus:ring-error" id="report" type="checkbox"/>
+<label class="text-xs font-mono text-on-surface-variant uppercase" for="report">Report_For_Policy_Violation</label>
+</div>
+<button class="w-full bg-error text-on-error font-bold py-3 rounded-xl active:scale-95 transition-all">EXECUTE_BLOCK</button>
+</div>
+</div>
+</section>
+<!-- 4. SCREENSHOT TOAST -->
+<section class="flex flex-col gap-4">
+<h2 class="font-mono text-xs text-outline uppercase tracking-widest px-2">MOD_ID: INTEL_ALERT_04</h2>
+<div class="bg-[#FFB703]/10 border border-[#FFB703]/30 backdrop-blur-md p-4 rounded-xl flex items-center justify-between photon-glow-primary">
+<div class="flex items-center gap-3 text-[#FFB703]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-mono text-xs font-bold uppercase tracking-tighter">Screenshot Detected</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono opacity-60">ID: SCRN_882</span>
+<span class="material-symbols-outlined text-sm cursor-pointer opacity-50 hover:opacity-100">close</span>
+</div>
+</div>
+<p class="text-[10px] text-outline px-2 italic font-mono">Simulated top-of-screen notification</p>
+</section>
+<!-- 5. INCOMING CALL OVERLAY (Small Preview) -->
+<section class="flex flex-col gap-4">
+<h2 class="font-mono text-xs text-outline uppercase tracking-widest px-2">MOD_ID: VOIP_INBOUND_05</h2>
+<div class="relative h-64 rounded-2xl overflow-hidden bg-[#0e1320] flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 blur-sm" data-alt="Dark abstract nebula background with soft blue glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP5oe_N_c4ZnwLmWi_pY49SAtUC-g69UgZcBGaQuECDPSStUtSIAawuJPEwG94r1EYT57LNnUYNaTNI3PJ5hXHLy-nTtczNm7brKfAoFURPPBMxdQGmo9btqFerWIgLeMpudrlnJZ4eUgkEbkcedoGMHJhw0_bYyJy2angEV7hAAkMHj95bgyflXFsXDNFv0xN1GXopyDbXeXSGk4bn2_jTHP5Li1c_FFjhRSou6FO2ZYzS-R_lA8BSSziitZJrvFP4mxDd7muIwY"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0e1320]/40 to-[#0e1320]"></div>
+<div class="relative z-10 flex flex-col items-center gap-4">
+<div class="w-20 h-20 bg-surface-container-high hexagon-mask p-1 photon-glow-primary">
+<img class="w-full h-full object-cover hexagon-mask" data-alt="Futuristic cyborg avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6sWE-GrJikijUZuSdnBOtpv2IvuOxWL48TRVGIE-IJ4QyTVNzWznEpcZqDWKwONUmJ8svW4z44RltnnGtzVAVq0h15cQSG_fS7FJncdVI1Yga-JS_ZdyK6oo7ruZe4txPm3deQyzoBQoWGPdYTuc9-dlyUjMI2EiXJn3L9UBRKlvJkk97i8o97MN307lY_lBIIjafkmk7Fyv-k_kMpp6bGCEzeHGjkAfgJPbK-7PSOWB5vrKnphIxSSFd7e7sSzmrE8JZUFw8dzU"/>
+</div>
+<div class="text-center">
+<h4 class="font-headline text-lg font-bold">AGENT_KRYPTON</h4>
+<p class="font-mono text-[10px] text-primary animate-pulse uppercase">Encrypted_Voice_Link...</p>
+</div>
+<div class="flex gap-8 mt-2">
+<button class="w-12 h-12 rounded-full bg-[#ef4444] shadow-[0_0_15px_rgba(239,68,68,0.4)] flex items-center justify-center text-white active:scale-90 transition-transform">
+<span class="material-symbols-outlined">call_end</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-[#10b981] shadow-[0_0_15px_rgba(16,185,129,0.4)] flex items-center justify-center text-white active:scale-90 transition-transform">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. SHARE LOCATION -->
+<section class="flex flex-col gap-4">
+<h2 class="font-mono text-xs text-outline uppercase tracking-widest px-2">MOD_ID: GEO_PIN_06</h2>
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="h-32 w-full bg-surface-container-low relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="Dark stylized map of Neo-Tokyo with glowing blue routes" data-location="Neo-Tokyo, Japan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaHBpXD1zxwsHy4-t7_hJnkSHM73RtKKV-xdomYdDKT02MSNL6y9GxTEQ0Js5sPESUY-Xh9x-e5FPXzIh-s7D6D4RIfexX7pg7RaxiIJEUx0rkiS51qxg9EroPCyeKrICmAOjHFHzbsGRo5IYDwIlIzUEP2Lpub_SXIYHTBossRmxjrABIs0cvA2bPf9kp7TK1X0D0Jl9NfENB9TflfkvYtrZjAL3STXwsjKmZ2WmSndw4ZjDYwevc1VPJD4zONBD06FpG6pUqEWE"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary animate-ping absolute"></div>
+<span class="material-symbols-outlined text-primary relative z-10" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-4">
+<div>
+<h3 class="font-headline text-md font-bold uppercase tracking-tight">Broadcast_Coordinates</h3>
+<p class="text-on-surface-variant text-xs mt-1">Sharing real-time telemetry for 60 minutes. Use ghost-mode to spoof.</p>
+</div>
+<div class="flex flex-col gap-2">
+<button class="w-full bg-primary-container text-on-primary-container font-mono text-[10px] font-bold py-2 rounded-lg uppercase tracking-widest">Confirm_Link</button>
+<button class="w-full bg-surface-variant/30 text-on-surface-variant font-mono text-[10px] py-2 rounded-lg uppercase tracking-widest">Abort</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- NAVIGATION DRAWER (Shared Component - Hidden on desktop for this view) -->
+<aside class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 bg-[#0e1320] h-full w-80 rounded-r-3xl shadow-[20px_0_40px_rgba(0,0,0,0.8)] -translate-x-full md:hidden">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 bg-surface-variant hexagon-mask flex items-center justify-center">
+<span class="material-symbols-outlined">hexagon</span>
+</div>
+<div>
+<h4 class="text-[#00B4D8] font-bold font-mono text-sm">COMMANDER_01</h4>
+<p class="text-slate-400 text-[10px] font-mono">LEVEL_5_CLEARANCE</p>
+</div>
+</div>
+<nav class="space-y-2 font-['JetBrains_Mono'] text-sm">
+<a class="flex items-center gap-3 bg-gradient-to-r from-[#1A3A8F]/20 to-[#00B4D8]/20 text-[#00B4D8] border-l-4 border-[#00B4D8] py-3 px-6" href="#">
+<span class="material-symbols-outlined">vpn_key</span> Encryption_Keys
+            </a>
+<a class="flex items-center gap-3 text-slate-400 py-3 px-6 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">lock</span> Vault_Access
+            </a>
+<a class="flex items-center gap-3 text-slate-400 py-3 px-6 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">visibility_off</span> Ghost_Mode
+            </a>
+<a class="flex items-center gap-3 text-slate-400 py-3 px-6 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">sensors</span> Network_Status
+            </a>
+<a class="flex items-center gap-3 text-slate-400 py-3 px-6 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span> Terminal_Logs
+            </a>
+</nav>
+</aside>
+<!-- BOTTOM NAV BAR (Shared Component) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#161b29]/80 backdrop-blur-2xl rounded-t-2xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)] md:hidden">
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase mt-1">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase mt-1">Shield</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#00B4D8]/10 text-[#00B4D8] rounded-xl p-3 shadow-[inset_0_0_8px_rgba(0,180,216,0.4)]">
+<span class="material-symbols-outlined">blur_on</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase mt-1">Overlays</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase mt-1">Set</span>
+</button>
+</nav>
+<!-- FAB (Suppressed on Modals page as per UX guidelines) -->
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Voice Call - Chatify Core</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#161b29",
+                        "outline-variant": "#3d494d",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#3f008d",
+                        "on-secondary-container": "#9db2ff",
+                        "surface-dim": "#0e1320",
+                        "on-primary-container": "#00414f",
+                        "on-surface-variant": "#bcc9ce",
+                        "on-secondary-fixed-variant": "#224095",
+                        "on-background": "#dee2f5",
+                        "inverse-surface": "#dee2f5",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "secondary-container": "#224095",
+                        "on-error": "#690005",
+                        "inverse-primary": "#00677d",
+                        "on-tertiary-fixed-variant": "#5b00c5",
+                        "tertiary-fixed-dim": "#d3bbff",
+                        "background": "#0e1320",
+                        "tertiary-fixed": "#ebddff",
+                        "surface-bright": "#343948",
+                        "on-tertiary-container": "#4c00a8",
+                        "error": "#ffb4ab",
+                        "primary-container": "#00b4d8",
+                        "error-container": "#93000a",
+                        "surface-tint": "#4cd6fb",
+                        "primary": "#4cd6fb",
+                        "inverse-on-surface": "#2b303e",
+                        "outline": "#869398",
+                        "surface": "#0e1320",
+                        "primary-fixed-dim": "#4cd6fb",
+                        "on-secondary": "#00287c",
+                        "surface-container-lowest": "#090e1b",
+                        "surface-container": "#1a1f2d",
+                        "primary-fixed": "#b3ebff",
+                        "on-primary": "#003642",
+                        "on-primary-fixed": "#001f27",
+                        "on-surface": "#dee2f5",
+                        "tertiary-container": "#b692ff",
+                        "surface-variant": "#303443",
+                        "surface-container-highest": "#303443",
+                        "surface-container-high": "#252a38",
+                        "on-secondary-fixed": "#00164e",
+                        "secondary": "#b5c4ff",
+                        "secondary-fixed": "#dce1ff",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "tertiary": "#d3bbff",
+                        "on-tertiary-fixed": "#250059"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.2);
+        }
+        .inner-glow {
+            box-shadow: inset 2px 2px 8px rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-background font-body selection:bg-primary/30 min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Anchor -->
+<header class="flex justify-between items-center w-full px-6 py-4 bg-[#0e1320] dark:bg-slate-950 relative z-50">
+<div class="flex items-center gap-4">
+<button class="text-[#00B4D8] active:scale-95 duration-100 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#00B4D8] text-lg">Voice Call</h1>
+</div>
+<button class="text-[#00B4D8] active:scale-95 duration-100 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/20 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<!-- Call Command Center -->
+<main class="flex-grow flex flex-col items-center justify-center px-8 relative">
+<!-- Atmospheric Background Element -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-0 w-[300px] h-[300px] bg-tertiary/5 rounded-full blur-[100px]"></div>
+</div>
+<!-- Identity Section -->
+<div class="flex flex-col items-center space-y-8 z-10">
+<!-- Hexagonal Avatar Frame with Glow -->
+<div class="relative">
+<div class="absolute inset-0 bg-primary/20 blur-xl animate-pulse hexagon-mask scale-110"></div>
+<div class="w-[160px] h-[160px] bg-primary/10 hexagon-mask p-1.5 relative z-10 shadow-[0_0_32px_rgba(0,180,216,0.25)]">
+<div class="w-full h-full hexagon-mask bg-surface-container-high overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Portrait of a friend for voice call avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtMMpV4SO_q0IK05DDacn9wWuSH7tMT4jd-qw4RwLICxTtDAnhUKO4kOx83xY4Yuvzr7B4LtuFvi41oyEZ3UcF84pBQDAemgcHFcq855j-RFq4F5GxaWx4Slq4oIRk80-fzz99tKoEff8aVs4rRPWnNolzzHOmu353VQUTdaj1JGd1I9IHCStZYYtgfNLDcmFkeLEuhGcA9T0RQ0TtALWd2ssqS2hqTnuyp1P37lX1B7gnHIFfG65_9Dkseka251PpyrKlqQCe84I"/>
+</div>
+</div>
+</div>
+<!-- Call Metadata -->
+<div class="text-center">
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2">Alex Vance</h2>
+<div class="flex items-center justify-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<p class="font-mono text-primary text-sm tracking-[0.2em] uppercase">04:22:15</p>
+</div>
+<p class="text-on-surface-variant/60 text-xs font-mono mt-4 tracking-widest uppercase">ENCRYPTED_LINE_SECURE</p>
+</div>
+</div>
+<!-- Call Status Feedback Chips -->
+<div class="mt-12 flex gap-3 z-10">
+<div class="glass-panel px-4 py-1.5 rounded-full border border-outline-variant/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="font-mono text-[10px] text-on-surface-variant">BITRATE_STABLE</span>
+</div>
+<div class="glass-panel px-4 py-1.5 rounded-full border border-outline-variant/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-mono text-[10px] text-on-surface-variant">HD_AUDIO</span>
+</div>
+</div>
+</main>
+<!-- Floating Command Bar -->
+<footer class="px-6 pb-12 pt-4 relative z-50">
+<div class="glass-panel rounded-[32px] p-4 flex items-center justify-between glow-primary border border-white/5 inner-glow">
+<!-- Secondary Control: Mute -->
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface hover:text-primary transition-colors border border-outline-variant/10 active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="mic_off">mic_off</span>
+</button>
+<!-- Secondary Control: Speaker -->
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface hover:text-primary transition-colors border border-outline-variant/10 active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+<!-- Spacer for visual balance -->
+<div class="w-[1px] h-8 bg-outline-variant/20 mx-2"></div>
+<!-- Primary Action: End Call -->
+<button class="w-20 h-20 rounded-full flex items-center justify-center bg-error-container text-on-error-container shadow-[0_0_24px_rgba(239,68,68,0.3)] hover:brightness-110 active:scale-95 duration-150 group">
+<div class="absolute inset-0 rounded-full border-4 border-error/20 scale-110 group-active:scale-100 transition-transform"></div>
+<span class="material-symbols-outlined text-3xl" data-icon="call_end" style="font-variation-settings: 'FILL' 1;">call_end</span>
+</button>
+</div>
+</footer>
+<!-- Incoming Call Overlay Variant (Suppressed by default, but ready for UI toggle) -->
+<div class="hidden fixed inset-0 z-[100] bg-surface-dim/95 backdrop-blur-xl flex flex-col items-center justify-center">
+<div class="text-center mb-16">
+<div class="w-24 h-24 bg-surface-container-low hexagon-mask mx-auto mb-6 p-1 border border-primary/20">
+<img alt="Caller" class="w-full h-full object-cover hexagon-mask" data-alt="Portrait of the incoming caller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGXvZa1TuQpl4BV1MEbJ2hDGyBhslUrP6PTVxkYmB3xQTUKnmKohMGfRftB4WsuQHC9if2LIZchenaKiPr9U6ox686bY3E6qFxFeER-NkrfVOQaKDBnQvrA-xslgWrkh3qNiKjsgjyAq0Bqg5NZa8PVK_RVjvztEeKUpVhlySyVUaqWL5YvQ_Y0wC5122CV50PUk53z_DD6Mzhe5Dwx6aEgUlxC4l9k4HnEHARUW0IIBsCV3zeOqrU9loTdgH4cS8rMyVgAcjmxRc"/>
+</div>
+<h3 class="font-headline text-2xl font-bold">Alex Vance</h3>
+<p class="text-primary font-mono text-sm uppercase tracking-widest mt-2 animate-pulse">Incoming Voice Request...</p>
+</div>
+<div class="flex gap-12">
+<div class="flex flex-col items-center gap-4">
+<button class="w-20 h-20 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="close">close</span>
+</button>
+<span class="text-[10px] font-mono uppercase tracking-widest opacity-60">Decline</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<button class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_20px_rgba(0,180,216,0.4)] active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="call" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+<span class="text-[10px] font-mono uppercase tracking-widest text-primary">Accept</span>
+</div>
+</div>
+</div>
+</body></html>

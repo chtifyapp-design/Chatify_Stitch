@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#161b29",
+              "outline-variant": "#3d494d",
+              "on-error-container": "#ffdad6",
+              "on-tertiary": "#3f008d",
+              "on-secondary-container": "#9db2ff",
+              "surface-dim": "#0e1320",
+              "on-primary-container": "#00414f",
+              "on-surface-variant": "#bcc9ce",
+              "on-secondary-fixed-variant": "#224095",
+              "on-background": "#dee2f5",
+              "inverse-surface": "#dee2f5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "secondary-container": "#224095",
+              "on-error": "#690005",
+              "inverse-primary": "#00677d",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "tertiary-fixed-dim": "#d3bbff",
+              "background": "#0e1320",
+              "tertiary-fixed": "#ebddff",
+              "surface-bright": "#343948",
+              "on-tertiary-container": "#4c00a8",
+              "error": "#ffb4ab",
+              "primary-container": "#00b4d8",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6fb",
+              "primary": "#4cd6fb",
+              "inverse-on-surface": "#2b303e",
+              "outline": "#869398",
+              "surface": "#0e1320",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-secondary": "#00287c",
+              "surface-container-lowest": "#090e1b",
+              "surface-container": "#1a1f2d",
+              "primary-fixed": "#b3ebff",
+              "on-primary": "#003642",
+              "on-primary-fixed": "#001f27",
+              "on-surface": "#dee2f5",
+              "tertiary-container": "#b692ff",
+              "surface-variant": "#303443",
+              "surface-container-highest": "#303443",
+              "surface-container-high": "#252a38",
+              "on-secondary-fixed": "#00164e",
+              "secondary": "#b5c4ff",
+              "secondary-fixed": "#dce1ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "tertiary": "#d3bbff",
+              "on-tertiary-fixed": "#250059"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glow-border-primary {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface antialiased overflow-hidden h-screen w-screen flex flex-col">
+<!-- Top Navigation Shell (Hidden as per "Destination Rule" for Transactional/Focused screens) -->
+<!-- Screen Sharing Banner -->
+<div class="fixed top-0 left-0 w-full z-50 animate-pulse">
+<div class="bg-amber-500/90 backdrop-blur-md px-4 py-2 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-surface-dim text-sm" data-icon="screen_share">screen_share</span>
+<p class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-surface-dim">Screen Sharing Active</p>
+</div>
+</div>
+<!-- Main Content Canvas (Video Feed) -->
+<main class="relative flex-1 w-full h-full bg-surface-container-lowest overflow-hidden">
+<!-- Remote Video Feed (Background) -->
+<div class="absolute inset-0 w-full h-full">
+<img alt="Full screen video call with friend" class="w-full h-full object-cover" data-alt="Person smiling on a high quality video call" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG8Ul95R1AVVyfZPTr-n1A_-xTVdCKt-O-5iBq_ZdeKVQFAj_QkdsPsHoh9RdumSRPND3j3CRPbtP55O0zKVxjr0SaJGegbWopFdTCmtxA6e3JH0S_8OVs5JpZX1h9-TeGYBgwoYWeHuJ_txdcyL3BlpYIUP67PmMb2Fq9DbOxsW5rX6R4BviX1LK1LuA_Q4e1NqSVImZDERDyia-_XybYDrb27JWeLqBFe7VDRKDWrbQ1DdVw1GSfzxBvsCUZcK26ukBwCtvvTLM"/>
+<!-- Atmospheric Depth Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-surface-dim/40 opacity-60"></div>
+</div>
+<!-- Top Controls Overlay -->
+<div class="absolute top-12 left-0 w-full px-6 flex justify-between items-start z-40">
+<div class="flex flex-col">
+<h1 class="font-headline font-bold text-2xl tracking-tighter uppercase text-white drop-shadow-md">Video Call</h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-mono text-[10px] text-primary-container tracking-widest uppercase">ENCRYPTED_LINK_04</span>
+</div>
+</div>
+<div class="glass-panel p-2 rounded-xl border border-white/5 flex items-center gap-3">
+<span class="font-mono text-xs font-bold text-white px-2">14:02</span>
+</div>
+</div>
+<!-- Self PiP Video (Bottom Right) -->
+<div class="absolute bottom-32 right-6 w-[100px] h-[140px] rounded-xl overflow-hidden glow-border-primary border border-primary/20 z-40">
+<img alt="Your own video preview" class="w-full h-full object-cover" data-alt="Young man in a studio lighting setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDncL-cdt9D-346pWSZCm3X8f_zG6Y1vRVf0T9Yhm19rTgof6xBJs_ACmNpYDxsTP9lfwjFHq_h7OpE3EfXSoag4Vi4JlDZCIM6sHde2jg2Hv1T5m44hOTpaUmisln7qtY7-3wjiANCMr6SRjevcJVvYk17ypckKKzvmJeLaH7MLVwyPz_UWlFEgx4g9Y61QYW-eUb2I3TV1yGgamIAg4AUoEEwlqA5PnjVuE-CbEO3l_DkurrI63-qioQtXsFa75VGp6_JAuf_0PY"/>
+<div class="absolute bottom-2 left-2">
+<span class="material-symbols-outlined text-white text-xs" data-icon="mic">mic</span>
+</div>
+</div>
+<!-- Control Bar (Glassmorphic) -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-50">
+<div class="glass-panel rounded-[32px] p-4 border border-white/10 flex items-center justify-between shadow-[0_0_32px_rgba(0,0,0,0.5)]">
+<!-- Mute Mic -->
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-white/10 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<!-- Camera Off -->
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-white/10 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</button>
+<!-- Screen Share (Active State) -->
+<button class="w-12 h-12 rounded-full flex items-center justify-center bg-primary-container/20 text-primary-container border border-primary-container/30 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="present_to_all">present_to_all</span>
+</button>
+<!-- Flip Camera -->
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-white/10 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="flip_camera_ios">flip_camera_ios</span>
+</button>
+<!-- End Call (Red) -->
+<button class="w-14 h-14 rounded-full flex items-center justify-center bg-error-container text-on-error-container shadow-[0_0_20px_rgba(147,0,10,0.4)] transition-all active:scale-90">
+<span class="material-symbols-outlined font-bold" data-icon="call_end">call_end</span>
+</button>
+</div>
+</div>
+<!-- Participants HUD -->
+<div class="absolute left-6 bottom-32 flex flex-col gap-4 z-40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 hexagon-mask bg-gradient-to-br from-tertiary to-primary-container p-[2px]">
+<div class="w-full h-full hexagon-mask bg-surface-dim flex items-center justify-center overflow-hidden">
+<img alt="Friend Avatar" class="w-full h-full object-cover" data-alt="Portrait of a woman with colorful hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJBYAdZKsCWO8y3PjT2p7GQ5te9angPXgw9fehP8fP13iD_g6ilO64EOkYoHe2Vb_Ao_XjZUsT2qixeI5nuDWsNl9Q7mnSE_uSE7qoreWivyZJtzGc5MdImqvPIXL3SkHNGeF36zecDITL5IW27jD-mKRR5YIqhK8zvg34C34VWwlkJNZ6G8BWGzWR_Lrn2ALzIvTLXak34ePfwAb2zkkAQaTAFnEL4Q-aEaXL89yO5l4rAXvthYzmMKjr9m2cxB4UWozVMoFGRlE"/>
+</div>
+</div>
+<div>
+<p class="font-headline font-bold text-sm text-white uppercase tracking-wider">Aria_Stellar</p>
+<p class="font-mono text-[10px] text-primary">SPEAKING...</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Suppression (Focused Task) -->
+</body></html>

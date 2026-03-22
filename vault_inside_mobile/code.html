@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vault - Chatify</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#00b4d8",
+              "surface": "#0e1320",
+              "surface-container-high": "#252a38",
+              "surface-variant": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed": "#dce1ff",
+              "error": "#ffb4ab",
+              "outline": "#869398",
+              "on-tertiary-fixed": "#250059",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "surface-container-low": "#161b29",
+              "inverse-on-surface": "#2b303e",
+              "error-container": "#93000a",
+              "tertiary": "#d3bbff",
+              "secondary-fixed-dim": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "primary-fixed": "#b3ebff",
+              "on-tertiary": "#3f008d",
+              "secondary": "#b5c4ff",
+              "on-primary": "#003642",
+              "on-primary-fixed-variant": "#004e5f",
+              "surface-container": "#1a1f2d",
+              "on-error-container": "#ffdad6",
+              "surface-dim": "#0e1320",
+              "on-primary-container": "#00414f",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-container-highest": "#303443",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-background": "#dee2f5",
+              "on-primary-fixed": "#001f27",
+              "surface-tint": "#4cd6fb",
+              "inverse-surface": "#dee2f5",
+              "tertiary-fixed": "#ebddff",
+              "primary": "#4cd6fb",
+              "on-background": "#dee2f5",
+              "on-secondary-fixed-variant": "#224095",
+              "on-secondary-container": "#9db2ff",
+              "surface-container-lowest": "#090e1b",
+              "secondary-container": "#224095",
+              "on-secondary": "#00287c",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-tertiary-container": "#4c00a8",
+              "on-surface": "#dee2f5",
+              "tertiary-container": "#b692ff",
+              "on-error": "#690005"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(24px);
+      }
+      .photonic-glow {
+        box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+      }
+      .atithi-gradient {
+        background: linear-gradient(135deg, #6D28D9 0%, #00B4D8 100%);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #1A3A8F 0%, #00B4D8 100%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#0e1320] dark:bg-[#0e1320] flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 shadow-[0_0_16px_rgba(0,180,216,0.3)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30 active:scale-95 duration-200 transition-opacity hover:opacity-80">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Cyberpunk style male avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD3mL0zYRaKl2SvMfxaWnuP8AK9At_jtGMdW7qk0XAZC7uP-MCyTn1C8O-etOP5ANA_XP5VABSL5A-LGKgkwK1n7uObBlYNw6ZUon1cweo91wyuk5HCv5OlL6kOtk7RQh93YiDWAoV4I_EnYOEm4hLTk_SrUJKyZxwE3eymQc9trhzJdm29qdFMLhODmD5EQA9zkFgnoEVKcxqvC2jIC3V3UJCkZAkM_4aPuL7X7UP3Vkg1L4Ulbt_fJxoXRVXziQ1Y7EbOWaLpb0"/>
+</div>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tight text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8]">Chatify</h1>
+</div>
+<button class="text-[#00B4D8] active:scale-95 duration-200 transition-opacity hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="bg-gradient-to-b from-[#161b29] to-transparent h-px w-full absolute bottom-0 left-0"></div>
+</header>
+<main class="pt-24 px-4">
+<!-- Vault Header & Status -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="encrypted" style="font-variation-settings: 'FILL' 1;">encrypted</span>
+<h2 class="font-headline text-2xl tracking-tight uppercase">Security Vault</h2>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl border-l-2 border-primary/40">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="info">info</span>
+<p class="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">Files removed from normal storage</p>
+</div>
+</div>
+<!-- Segmented Control Tabs -->
+<div class="flex p-1 bg-surface-container-lowest rounded-xl mb-6 border border-white/5">
+<button class="flex-1 py-2.5 rounded-lg font-headline text-sm tracking-tight text-primary bg-primary/10 shadow-[0_0_10px_rgba(0,180,216,0.1)]">Photos</button>
+<button class="flex-1 py-2.5 rounded-lg font-headline text-sm tracking-tight text-slate-500 hover:text-on-surface transition-colors">Videos</button>
+<button class="flex-1 py-2.5 rounded-lg font-headline text-sm tracking-tight text-slate-500 hover:text-on-surface transition-colors">Voice</button>
+</div>
+<!-- Bento Grid Locked Thumbnails -->
+<div class="grid grid-cols-3 gap-3">
+<!-- Large Featured Item -->
+<div class="col-span-2 row-span-2 relative aspect-square rounded-2xl overflow-hidden glass-panel border border-white/5 group">
+<div class="absolute inset-0 bg-surface-container-high opacity-60"></div>
+<img alt="Encrypted Content" class="w-full h-full object-cover blur-md opacity-40" data-alt="Abstract dark blue and purple geometric pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc8PTXyTBmnLu2eo-DEBuzXRnWMlfGqi4TVDqD8v5y_A1nEK6QqBUBjfkcHge7GG0854asWpqc5nTgVQbbzDvXmsDkw_4fRL3T2mrZoBfLR0bWo_dI7-PvKhOejoODoGyHKu4MhzW9VMPxNlWydvxEpG86miGCqCqNKUeNC9yya-9myOpMUEUv7Eg8X6XhfMmwIFxcfLgcgtuTei3P4leTDx6HoC8aE2lI9-MrxT2uEC_0p8pk7oT-3YPGEPxH-lr9Z9Zn4dv3sT4"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-mono text-[10px] text-primary/60 tracking-[0.2em]">IMG_0824.RAW</span>
+</div>
+<div class="absolute bottom-3 right-3">
+<span class="font-mono text-[10px] text-on-surface-variant bg-surface-container-lowest/80 px-2 py-0.5 rounded backdrop-blur-md">4.2 MB</span>
+</div>
+</div>
+<!-- Smaller Items -->
+<div class="relative aspect-square rounded-2xl overflow-hidden glass-panel border border-white/5">
+<div class="absolute inset-0 bg-surface-container-high opacity-80"></div>
+<img alt="Locked File" class="w-full h-full object-cover blur-xl opacity-30" data-alt="Abstract holographic liquid texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzHR33Jt6s7vjiYyWiJ_qnXagHw3ttwRMcfJaLlF7pZJedgVtwdi8lKdHMPwOG8zZfADSryotpCe6GNKucjibeaGjCpTVSbfK2j1aAGO8vZ31ofdX8L5ooqn4IAMgwRFQ2iY8fNlkxfY2HGkCpp94kVGQvOJ22BS5waPnh7faAIbxt8wDfdnNsqcmKuIxZh3b9OkfdFFc-DmR6SfXQ1Ng5zJ3K9QYB6XeY1rSTEwMVazERPCjYzIy-x6PpHUsJjUq5XW-CD-z4HFI"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden glass-panel border border-white/5">
+<div class="absolute inset-0 bg-surface-container-high opacity-80"></div>
+<img alt="Locked File" class="w-full h-full object-cover blur-xl opacity-30" data-alt="Dark abstract flowing curves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiIfVHR4S4YMAwyQf100fUt_fb3LiSvgQZIYM0cBPDcWOJ3T0Le_Zx-mi86VTe2gxYHBZHMGguyY47W1amwYTz8FbrCekeh507JfIBm7iJhszYxz0anbMp72rX78qvDmWKynXlrUnuTy5QdKnFfmD49JOd0XQON2ysc3wH1-JkfmzhZnalHlW96jsI68iUTrszxPccq5r6POvgjq5rR0dyRZOU_dDQOG8BJhQxE07HCZNZaVrQSWTwTH_pa2uCWHD1wEdh5SvaUb8"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden glass-panel border border-white/5">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden glass-panel border border-white/5">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden glass-panel border border-white/5">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<!-- Data Precision Indicator -->
+<div class="col-span-3 mt-6 p-4 rounded-xl border border-white/5 bg-surface-container-low flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Storage Status</span>
+<span class="font-headline text-lg text-primary">842.5 MB / 2.0 GB</span>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full border-2 border-primary border-t-transparent animate-spin-slow" style="clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);"></div>
+<span class="font-mono text-[10px] text-primary">42%</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-28 right-6 w-14 h-14 primary-gradient rounded-xl photonic-glow flex items-center justify-center active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#161b29]/80 backdrop-blur-3xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">Chats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="amp_stories">amp_stories</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">Stories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="movie">movie</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">Cinema</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00B4D8] bg-[#00B4D8]/10 rounded-xl px-3 py-1 shadow-[0_0_10px_rgba(0,180,216,0.2)] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-[#00B4D8] hover:opacity-100 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>

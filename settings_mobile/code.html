@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Galactic Command Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#dce1ff",
+              "primary-container": "#00b4d8",
+              "on-tertiary": "#3f008d",
+              "primary-fixed-dim": "#4cd6fb",
+              "tertiary-container": "#b692ff",
+              "on-primary-container": "#00414f",
+              "inverse-on-surface": "#2b303e",
+              "on-error": "#690005",
+              "on-secondary-fixed-variant": "#224095",
+              "outline-variant": "#3d494d",
+              "secondary-container": "#224095",
+              "on-tertiary-fixed": "#250059",
+              "surface-container-low": "#161b29",
+              "on-secondary-fixed": "#00164e",
+              "inverse-primary": "#00677d",
+              "on-surface": "#dee2f5",
+              "on-background": "#dee2f5",
+              "surface-dim": "#0e1320",
+              "on-secondary": "#00287c",
+              "error-container": "#93000a",
+              "surface-variant": "#303443",
+              "primary-fixed": "#b3ebff",
+              "primary": "#4cd6fb",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-error-container": "#ffdad6",
+              "outline": "#869398",
+              "on-primary-fixed": "#001f27",
+              "surface": "#0e1320",
+              "surface-tint": "#4cd6fb",
+              "secondary-fixed-dim": "#b5c4ff",
+              "surface-container-lowest": "#090e1b",
+              "error": "#ffb4ab",
+              "tertiary": "#d3bbff",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "background": "#0e1320",
+              "surface-container-highest": "#303443",
+              "surface-container-high": "#252a38",
+              "on-secondary-container": "#9db2ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-primary": "#003642",
+              "tertiary-fixed": "#ebddff",
+              "surface-bright": "#343948",
+              "on-tertiary-container": "#4c00a8",
+              "inverse-surface": "#dee2f5",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container": "#1a1f2d",
+              "secondary": "#b5c4ff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .hex-mask {
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(24px);
+      }
+      .photonic-glow {
+        box-shadow: 0 0 16px rgba(0, 180, 216, 0.15);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#0e1320] flex justify-between items-center px-6 py-4 w-full fixed top-0 z-50 shadow-[0_0_16px_rgba(0,180,216,0.15)]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary-container hex-mask flex items-center justify-center p-0.5">
+<img alt="User Hex Frame" class="w-full h-full object-cover hex-mask" data-alt="Futuristic user avatar in a hexagon frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTS0im41rfLCbcWr2IG23G5l4FCLx7d-t8Yy8SX_ln7PBGJOz1WRfa9x4bQ74-qRjzOl1U9VXwlY7klQP1qLq2fE7kL7_rZYIDSLfB1Y5c2V-d6el0z-NuXykUMOYQIIxEZQJR0Eo9DBHoMct5dRcqXV4GLVzRlF-jj6XM_-JKYzXgHJnyefzs_9BXAd_L7M6p9O8Uia9CTwthRcBsZ5qAw8ituNFMokhL8vmYXwkp8Ox4-A4FUzshwUF85L803MSNb8ITEgR9lO4"/>
+</div>
+<h1 class="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-400 font-headline uppercase">GALACTIC_COMMAND</h1>
+</div>
+<button class="text-cyan-400 hover:bg-white/5 transition-colors duration-300 p-2 rounded-xl active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="settings_applications">settings_applications</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 mt-20 mb-28 px-4 overflow-y-auto">
+<!-- Settings Header Section -->
+<section class="mb-8 pt-4">
+<div class="flex flex-col gap-1">
+<span class="font-mono text-[10px] tracking-widest text-primary-container uppercase">System_Parameters</span>
+<h2 class="text-3xl font-bold font-headline tracking-tight text-on-surface uppercase">Settings</h2>
+</div>
+</section>
+<!-- Settings List (Core Modules) -->
+<div class="flex flex-col gap-4">
+<!-- Account Section -->
+<div class="glass-card rounded-xl border border-white/5 overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+<div class="text-left">
+<p class="font-medium text-sm font-headline tracking-wide uppercase">Account</p>
+<p class="text-xs text-on-surface-variant font-mono">OPERATOR_01 // Sector 7G</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase">Privacy</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase">Notifications</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Interface Section -->
+<div class="glass-card rounded-xl border border-white/5 overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase">Appearance</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase">Security</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+<div class="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase">Vault</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Info Section -->
+<div class="glass-card rounded-xl border border-white/5 overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase">About</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-on-surface-variant">V 2.4.9-A</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</div>
+<!-- Danger Zone -->
+<div class="mt-8">
+<h3 class="font-mono text-[10px] tracking-widest text-error uppercase px-4 mb-2">Critical_Action_Zone</h3>
+<div class="glass-card rounded-xl border border-error/20 overflow-hidden bg-error-container/5">
+<button class="w-full flex items-center justify-between p-4 hover:bg-error/10 transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-lg bg-error-container/20 text-error">
+<span class="material-symbols-outlined" data-icon="delete_forever">delete_forever</span>
+</div>
+<p class="font-medium text-sm font-headline tracking-wide uppercase text-error">Delete Account</p>
+</div>
+<span class="material-symbols-outlined text-error/50 group-hover:text-error transition-colors" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<p class="px-4 mt-3 text-[10px] text-on-surface-variant font-mono uppercase text-center opacity-50">This action is permanent and cannot be reversed by command.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#0e1320]/80 backdrop-blur-3xl rounded-t-2xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-1 hover:text-cyan-200 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="groups">groups</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">COMMUNITY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-1 hover:text-cyan-200 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="terminal">terminal</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">SERVERS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-1 hover:text-cyan-200 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="security">security</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">ADMIN</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-xl px-6 py-1 border border-cyan-400/20 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="tune" style="font-variation-settings: 'FILL' 1;">tune</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">SETTINGS</span>
+</a>
+</nav>
+</body></html>

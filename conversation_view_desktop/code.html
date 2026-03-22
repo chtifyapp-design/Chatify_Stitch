@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify | Mission Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#4cd6fb",
+                "error-container": "#93000a",
+                "on-background": "#dee2f5",
+                "on-secondary": "#00287c",
+                "on-primary-fixed-variant": "#004e5f",
+                "surface-tint": "#4cd6fb",
+                "primary-fixed": "#b3ebff",
+                "on-secondary-fixed-variant": "#224095",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#2b303e",
+                "tertiary-fixed-dim": "#d3bbff",
+                "on-tertiary-container": "#4c00a8",
+                "on-primary-container": "#00414f",
+                "tertiary-fixed": "#ebddff",
+                "surface-container-lowest": "#090e1b",
+                "secondary-container": "#224095",
+                "on-surface-variant": "#bcc9ce",
+                "on-primary-fixed": "#001f27",
+                "on-primary": "#003642",
+                "surface-container": "#1a1f2d",
+                "surface-container-highest": "#303443",
+                "surface-bright": "#343948",
+                "surface-dim": "#0e1320",
+                "surface-container-low": "#161b29",
+                "on-secondary-fixed": "#00164e",
+                "outline-variant": "#3d494d",
+                "on-secondary-container": "#9db2ff",
+                "on-surface": "#dee2f5",
+                "tertiary": "#d3bbff",
+                "secondary-fixed-dim": "#b5c4ff",
+                "inverse-primary": "#00677d",
+                "on-tertiary": "#3f008d",
+                "secondary": "#b5c4ff",
+                "surface": "#0e1320",
+                "primary-fixed-dim": "#4cd6fb",
+                "outline": "#869398",
+                "on-tertiary-fixed-variant": "#5b00c5",
+                "surface-variant": "#303443",
+                "error": "#ffb4ab",
+                "tertiary-container": "#b692ff",
+                "surface-container-high": "#252a38",
+                "secondary-fixed": "#dce1ff",
+                "primary-container": "#00b4d8",
+                "on-tertiary-fixed": "#250059",
+                "on-error": "#690005",
+                "inverse-surface": "#dee2f5",
+                "background": "#0e1320"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "mono": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+        }
+        .photonic-glow {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+        .atithi-hexagon {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden h-screen flex flex-col">
+<!-- Top Navigation Anchor (Conversation Header) -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-3xl shadow-[0_0_20px_rgba(0,180,216,0.15)] flex justify-between items-center px-6 py-3">
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-cyan-400 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="relative">
+<img alt="Commander Avatar" class="w-10 h-10 rounded-xl object-cover border border-white/10" data-alt="Male user profile portrait with blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxUQw2EuW-E1CPegiEkO7xj7jTvDLvflsdzlQJifPgWxHwsANebcmgxecp1DpqdciU5p8Bb94S3y914ZBc4y3sZOqtI9Bh1DhpXL4iB7qTWKr4P9ZkXmOdP8DmvD-bRsY-FALdDbEZ0O48uYvSrLdJkeGrZlan_Ns5W9d0ASg89YBmHe3d2HdcGx-GNoKmzdYZmt_ymNc7Zck8_BlSzhdWh0C9XGgRGymT_yfkw4nHsObwJzyv5GpctmirjIr7_11Z2WhjKzlH5j0"/>
+<div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full border-2 border-surface photonic-glow"></div>
+</div>
+<div>
+<h1 class="font-headline font-bold text-lg leading-tight tracking-tight text-on-surface">Nova_Command</h1>
+<p class="font-mono text-[10px] uppercase tracking-widest text-primary">Active Link • Lvl 42</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-cyan-400 transition-colors" data-icon="videocam">videocam</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-cyan-400 transition-colors" data-icon="info">info</span>
+</div>
+<div class="bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<!-- Screenshot Alert Banner -->
+<div class="mt-20 px-6 animate-pulse">
+<div class="bg-error-container/20 border border-error/20 rounded-xl px-4 py-2 flex items-center justify-between glass-card">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<span class="font-mono text-xs uppercase tracking-tighter text-error">Security Protocol: Screenshot detected by remote terminal</span>
+</div>
+<span class="material-symbols-outlined text-error text-sm cursor-pointer" data-icon="close">close</span>
+</div>
+</div>
+<!-- Main Conversation Canvas -->
+<main class="flex-1 overflow-y-auto px-6 py-8 space-y-8 pb-32">
+<!-- Timestamp Separator -->
+<div class="flex justify-center">
+<span class="bg-surface-container-high/50 text-slate-500 font-mono text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">Cycle 2024.08.12</span>
+</div>
+<!-- Received Message (Glassmorphism) -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border border-white/5">
+<img alt="Nova_Command Small Avatar" class="w-full h-full object-cover" data-alt="Avatar of the user Nova Command" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr2t1GE4CoO8hHFYDroGTsH1fijcpVwiAZQ6X1QgELcWBpqKVBYcK_2CwmALcK24QLpsuPNpJ3aQsFwS4DJHVbjoA2tDoIw4ngg9DIfvmjAFCcFHTZ2WGIJO76-BvXI6jTbe8iBH5KNRvDlxXmLf_GipSqn2jvBW_NPPh2FQ9XkkI4_uSWxT8oRfDp5_-Vi5as9MCdttTQmoBtc6ZcdqJMnBJa0XaIlXfETlRyxWWq0jNf7MCCyrlBmmOtHfRplIwqMi-f2_G_MPg"/>
+</div>
+<div class="space-y-1">
+<div class="glass-card px-4 py-3 rounded-2xl rounded-bl-none border border-white/5 text-on-surface-variant inner-glow leading-relaxed">
+                    The encryption keys for the Vault have been synchronized. Are you ready to initialize the protocol?
+                </div>
+<div class="font-mono text-[9px] text-slate-600 px-1">08:42 AM</div>
+</div>
+</div>
+<!-- Sent Message (Gradient) -->
+<div class="flex flex-col items-end space-y-1">
+<div class="max-w-[80%] bg-gradient-to-br from-primary to-secondary-container px-4 py-3 rounded-2xl rounded-br-none photonic-glow text-on-primary font-medium leading-relaxed">
+                Affirmative. The local terminal is prepared. Deploying the payload in 3... 2... 1...
+            </div>
+<div class="flex items-center gap-1 font-mono text-[9px] text-slate-600 px-1">
+<span>08:44 AM</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="done_all">done_all</span>
+</div>
+</div>
+<!-- Atithi/VIP Received Message -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="w-10 h-10 atithi-hexagon bg-gradient-to-br from-tertiary to-primary-container p-[1px] flex-shrink-0">
+<div class="atithi-hexagon w-full h-full bg-surface-dim overflow-hidden">
+<img alt="VIP User" class="w-full h-full object-cover" data-alt="VIP user portrait with neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSW4CDURnTD1KPNkQdEDt3c_57wkWrrKmdkgoN36FmxGlZbQIzTcBohWB7i0EPKNgT7SEmshbm253QrLtzXWhN1mqHA_VZ9Behy153BCM9EbJuaqJXMzXUedE6hitxOx1vPFWe-VLh4QjMPe0djTv-Y8UAaqUznNCzLwBd4t2YHOfkD2zSAWKZOBIJn5YZjQpZjolygQfmQj5aKGNExr4M-wtsyKBnE4VjD1wjhp8SDOLXQHvJPJdluOCTcWdGwCfGm6uYCcn5CzM"/>
+</div>
+</div>
+<div class="space-y-1">
+<div class="glass-card px-5 py-4 rounded-2xl rounded-bl-none border-l-2 border-tertiary text-on-surface inner-glow shadow-[0_0_20px_rgba(182,146,255,0.1)]">
+<div class="font-mono text-[10px] text-tertiary uppercase tracking-widest mb-1">High-Priority Alert</div>
+                    Sequence accepted. Welcome back, Commander. Vault access is now live.
+                </div>
+<div class="font-mono text-[9px] text-slate-600 px-1">SYSTEM_EXEC_08:45</div>
+</div>
+</div>
+<!-- Sent Message Image Payload -->
+<div class="flex flex-col items-end space-y-1">
+<div class="relative group max-w-[70%] rounded-2xl overflow-hidden border border-primary/30 photonic-glow">
+<img alt="Satellite Feed" class="w-full aspect-video object-cover" data-alt="Blue glowing digital Earth satellite map view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-jJDujFsYJJEs-28PVZArqJhaEllbpDWB9XhzEwxRQzqSEWn2Sjs8W7W8aFPVsU8h9V2TX8qSVGlKBJVq1204W6dCtJaJfJ2VZMME8yKdyTBXfnBzQbKeyQDkYmeZI36jNRJTgRNsTnAxPNB4PrZBU3ebdFrJZ1g4ZYfRV-GM3QH9hKv-eASW8EIj-vYXq7GoBXGBrHKA2C9CyQmDysErAYntIOWLcXnPBESoM-r2m93r_SyQ856YPngcPnlWJi-xEhnAlyd1bgU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-4">
+<p class="font-mono text-[10px] text-primary-fixed uppercase">Target_Visual_Sync.img</p>
+</div>
+</div>
+<div class="flex items-center gap-1 font-mono text-[9px] text-slate-600 px-1">
+<span>08:46 AM</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="done_all">done_all</span>
+</div>
+</div>
+</main>
+<!-- Bottom Input Bar (Terminal Interface) -->
+<footer class="fixed bottom-0 w-full p-4 md:p-6 bg-gradient-to-t from-surface-dim via-surface-dim/95 to-transparent">
+<div class="max-w-screen-xl mx-auto flex items-center gap-3">
+<!-- Glass Input Container -->
+<div class="flex-1 glass-card border border-white/5 rounded-2xl flex items-center px-4 py-2 inner-glow">
+<button class="text-slate-500 hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder:text-slate-600 font-body text-sm py-2" placeholder="Initialize message..." type="text"/>
+<div class="flex items-center gap-1 px-2 border-l border-white/5 ml-2">
+<button class="text-slate-500 hover:text-primary transition-colors p-1.5">
+<span class="material-symbols-outlined" data-icon="mood">mood</span>
+</button>
+<button class="text-slate-500 hover:text-primary transition-colors p-1.5">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Send Button -->
+<button class="bg-gradient-to-r from-blue-600 to-cyan-400 w-12 h-12 rounded-xl flex items-center justify-center photonic-glow text-white active:scale-90 transition-transform shadow-lg shadow-cyan-500/20">
+<span class="material-symbols-outlined" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</footer>
+<!-- Side Decoration (The Command Look) -->
+<div class="fixed left-0 top-1/2 -translate-y-1/2 flex flex-col gap-8 px-2 pointer-events-none opacity-20 hidden lg:flex">
+<div class="h-32 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+<div class="rotate-90 origin-left font-mono text-[8px] uppercase tracking-[0.5em] text-primary whitespace-nowrap">Encryption_Active_v2.4</div>
+<div class="h-32 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+</div>
+</body></html>

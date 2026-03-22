@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify Cinema - Mission Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#0e1320",
+                        "inverse-on-surface": "#2b303e",
+                        "primary-container": "#00b4d8",
+                        "on-secondary": "#00287c",
+                        "surface-container-lowest": "#090e1b",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "secondary-fixed": "#dce1ff",
+                        "tertiary-fixed": "#ebddff",
+                        "on-secondary-fixed-variant": "#224095",
+                        "primary": "#4cd6fb",
+                        "surface-container-low": "#161b29",
+                        "surface-bright": "#343948",
+                        "primary-fixed-dim": "#4cd6fb",
+                        "on-primary": "#003642",
+                        "surface-variant": "#303443",
+                        "primary-fixed": "#b3ebff",
+                        "on-surface": "#dee2f5",
+                        "secondary": "#b5c4ff",
+                        "surface-dim": "#0e1320",
+                        "on-background": "#dee2f5",
+                        "outline": "#869398",
+                        "on-primary-fixed": "#001f27",
+                        "on-primary-container": "#00414f",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "on-tertiary-fixed-variant": "#5b00c5",
+                        "tertiary-fixed-dim": "#d3bbff",
+                        "surface-container-high": "#252a38",
+                        "surface-container": "#1a1f2d",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#303443",
+                        "error-container": "#93000a",
+                        "surface-tint": "#4cd6fb",
+                        "on-secondary-fixed": "#00164e",
+                        "outline-variant": "#3d494d",
+                        "on-tertiary": "#3f008d",
+                        "secondary-container": "#224095",
+                        "on-secondary-container": "#9db2ff",
+                        "inverse-surface": "#dee2f5",
+                        "tertiary": "#d3bbff",
+                        "on-tertiary-container": "#4c00a8",
+                        "surface": "#0e1320",
+                        "inverse-primary": "#00677d",
+                        "on-surface-variant": "#bcc9ce",
+                        "tertiary-container": "#b692ff",
+                        "on-tertiary-fixed": "#250059",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .photonic-glow {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+        .status-banner {
+            background: linear-gradient(90deg, transparent, #fbbf24 20%, #fbbf24 80%, transparent);
+        }
+        .cyber-grid {
+            background-image: linear-gradient(rgba(0, 180, 216, 0.05) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(0, 180, 216, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background overflow-hidden h-screen flex flex-col">
+<!-- Screen Sharing Banner -->
+<div class="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 pointer-events-none">
+<div class="flex items-center gap-2 px-8 py-1.5 glass-panel rounded-full border border-yellow-500/30 text-yellow-500 font-mono text-xs tracking-widest uppercase photonic-glow">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">screen_share</span>
+<span>Screen Sharing Active</span>
+<div class="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse ml-2"></div>
+</div>
+</div>
+<!-- Main Content (Video Feed) -->
+<main class="relative flex-1 w-full bg-surface-dim overflow-hidden">
+<!-- Remote Participant Video -->
+<div class="absolute inset-0 z-0">
+<img alt="Xero_Protocol Video Feed" class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" data-alt="Cinematic portrait of a person in a futuristic dark room with neon highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAjx48B9ZFrX28QuBj0kD1TpiJTrouL6QVW3sFJaGTinmiiNRQoje9r64IosoLs_3vlwTg2FEci--xYdLnZng5jwjNsVGlEOfomsUzgizJ2neseOoiUqz5ijMZJeLyqk8SIvMQwV6oIjCKqKPdbJhlDMFNePgIspKxsUY0b4vPEG5ITgUYQl46Jq25zdDrONAqtbA7C1dTu7kUS8H-yIz9iVxoQXe0Tjq2CoItx3A5EJsc98vBWniLvJ5huaKcqSaZzex7T0TsH5k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40"></div>
+<div class="absolute inset-0 cyber-grid pointer-events-none opacity-20"></div>
+</div>
+<!-- Technical Overlays -->
+<div class="absolute top-8 left-8 z-10 space-y-2">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 hexagon-mask bg-primary-container p-[1px]">
+<div class="h-full w-full hexagon-mask bg-surface-container-high flex items-center justify-center">
+<img alt="Xero_Protocol Avatar" class="h-full w-full object-cover" data-alt="Abstract cyber avatar with violet and cyan hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkts2Flpj_N5UrRUWfaickJ1PyGVR_OEjbNVo9PrIg8PD8UlbDP8UjxlvHtXzjcGpZnm6tmuJ6zA4rhuV3qa9TLNRPLkTpetMJILshCdLZxuMY2yDPdUoqG7w916Baf00i_rjwPW0TA_3lGfWG5GNqFs_S8H_6R_P_f1DHyW1M3B62u-NZc2aRpDLogiYcnPuZIStiPkkKf7iFJuozhq7Bi9ZaaIJviJzXFAiML8slJpCNKmNFGQ_qxnrT5bJnKWhatP8-aTxXICA"/>
+</div>
+</div>
+<div>
+<h1 class="font-headline text-xl font-bold tracking-tighter text-primary">Xero_Protocol</h1>
+<p class="font-mono text-[10px] text-outline uppercase tracking-[0.2em]">Signal: Encrypted_L4</p>
+</div>
+</div>
+<div class="bg-surface-container-low/40 backdrop-blur-md px-3 py-1 rounded-md inline-block">
+<span class="font-mono text-[10px] text-primary flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full animate-ping"></span>
+                    LATENCY: 14MS
+                </span>
+</div>
+</div>
+<!-- User PiP -->
+<div class="absolute bottom-28 right-8 z-20 w-48 aspect-video rounded-xl overflow-hidden border border-white/10 glass-panel photonic-glow group">
+<img alt="Local User Preview" class="w-full h-full object-cover" data-alt="Close up of person in a home office with soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4FeCi6KoNlIB_bQSkO7bOg6yqzGrEAULm6RDGSs5U6DKrBKAGay68Inq97xR6F6wW0iAcZMoQq3E3s2dwfPdv5E2DZg1-gNvQQ5wukvyZOgPhHJgQOWZ-RWxtLPPZNnNV2MWGsLXE5yQh1AMcvZYiLsTIHcy6GZ0IqNM8ybEA-9j2kkNfow_J8xegF2WjhpE1MGtAC4ylrlEWnq0_hqX6SijBRSrXSe78yuN2EFgMNlcNb2Tbt2ilCw2AlFQaVBzm4df-ZNM8dQA"/>
+<div class="absolute bottom-2 right-2 bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                YOU (LOCAL)
+            </div>
+</div>
+<!-- Bottom Control Bar -->
+<div class="absolute bottom-8 left-0 w-full z-30 flex justify-center px-4">
+<div class="glass-panel px-6 py-3 rounded-2xl flex items-center gap-4 border border-white/5 photonic-glow">
+<!-- Mic Toggle -->
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface hover:bg-primary/20 hover:text-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<!-- Camera Toggle -->
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface hover:bg-primary/20 hover:text-primary transition-all active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</button>
+<!-- Screen Share (Active State) -->
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-container text-on-primary-container photonic-glow transition-all active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="present_to_all" style="font-variation-settings: 'FILL' 1;">present_to_all</span>
+</button>
+<!-- Separation Spacer -->
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<!-- Atithi Options (Special Component) -->
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#6D28D9] to-[#00B4D8] text-white shadow-[0_0_12px_rgba(109,40,217,0.4)] transition-all hover:scale-105 active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<!-- More Actions -->
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-all active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+<!-- End Call Button -->
+<button class="ml-4 px-6 h-12 flex items-center justify-center rounded-xl bg-error text-on-error font-headline font-bold uppercase tracking-widest transition-all hover:bg-red-400 hover:shadow-[0_0_20px_rgba(255,180,171,0.4)] active:scale-95">
+<span class="material-symbols-outlined mr-2" data-icon="call_end" style="font-variation-settings: 'FILL' 1;">call_end</span>
+                    Disconnect
+                </button>
+</div>
+</div>
+<!-- Ambient Data Feed Overlay -->
+<div class="absolute right-8 top-8 z-10 w-48 hidden lg:block">
+<div class="space-y-4">
+<div class="text-right">
+<div class="font-mono text-[10px] text-outline mb-1 uppercase tracking-tighter">Connection_Uptime</div>
+<div class="font-mono text-sm text-primary">00:42:15:08</div>
+</div>
+<div class="text-right">
+<div class="font-mono text-[10px] text-outline mb-1 uppercase tracking-tighter">Resolution_Scale</div>
+<div class="font-mono text-sm text-on-surface">3840x2160_60FPS</div>
+</div>
+<div class="pt-4 border-t border-white/5 space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-mono text-[8px] text-outline">DL_BANDWIDTH</span>
+<div class="w-24 h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary photonic-glow"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-mono text-[8px] text-outline">UL_BANDWIDTH</span>
+<div class="w-24 h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-tertiary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Decoration (Cyber-tech UI) -->
+<div class="fixed left-0 top-1/2 -translate-y-1/2 flex flex-col gap-8 px-2 z-40 pointer-events-none opacity-40">
+<div class="flex flex-col gap-1 items-center">
+<div class="w-1 h-8 bg-primary/30 rounded-full"></div>
+<div class="w-1 h-1 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary/30 rounded-full"></div>
+</div>
+<div class="[writing-mode:vertical-lr] rotate-180 font-mono text-[8px] tracking-[0.5em] text-outline uppercase">
+            System_Interface_v4.0.2
+        </div>
+</div>
+</body></html>

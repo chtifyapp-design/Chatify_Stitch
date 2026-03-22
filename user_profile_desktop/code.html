@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify | Commander Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4cd6fb",
+              "error-container": "#93000a",
+              "on-background": "#dee2f5",
+              "on-secondary": "#00287c",
+              "on-primary-fixed-variant": "#004e5f",
+              "surface-tint": "#4cd6fb",
+              "primary-fixed": "#b3ebff",
+              "on-secondary-fixed-variant": "#224095",
+              "on-error-container": "#ffdad6",
+              "inverse-on-surface": "#2b303e",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-tertiary-container": "#4c00a8",
+              "on-primary-container": "#00414f",
+              "tertiary-fixed": "#ebddff",
+              "surface-container-lowest": "#090e1b",
+              "secondary-container": "#224095",
+              "on-surface-variant": "#bcc9ce",
+              "on-primary-fixed": "#001f27",
+              "on-primary": "#003642",
+              "surface-container": "#1a1f2d",
+              "surface-container-highest": "#303443",
+              "surface-bright": "#343948",
+              "surface-dim": "#0e1320",
+              "surface-container-low": "#161b29",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "on-secondary-container": "#9db2ff",
+              "on-surface": "#dee2f5",
+              "tertiary": "#d3bbff",
+              "secondary-fixed-dim": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "on-tertiary": "#3f008d",
+              "secondary": "#b5c4ff",
+              "surface": "#0e1320",
+              "primary-fixed-dim": "#4cd6fb",
+              "outline": "#869398",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "surface-variant": "#303443",
+              "error": "#ffb4ab",
+              "tertiary-container": "#b692ff",
+              "surface-container-high": "#252a38",
+              "secondary-fixed": "#dce1ff",
+              "primary-container": "#00b4d8",
+              "on-tertiary-fixed": "#250059",
+              "on-error": "#690005",
+              "inverse-surface": "#dee2f5",
+              "background": "#0e1320"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+        }
+        .photonic-glow {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-3xl shadow-[0_0_20px_rgba(0,180,216,0.15)]">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto relative">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-['Space_Grotesk'] font-bold bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">Chatify</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Chats</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Stories</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Watch Cinema</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Vault</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">Memories</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full border border-primary/20 overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Close up of a futuristic neon digital avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhdXN3r3mRX0F-hpvQxDo_ceh3-x9QINh8m0ThVVVA3ailpMb84wCkq282p8D_NlnJpltzox_KKnMKuTyBtUmqIN-ij07PN68Q6SGUGPXWZYsmgvgHWiKklGeRVpvNqPGId42D6qBCmYN0mUk2eIbXatj9NYJMBl2jrBErJ-MQPFeNG0L6Yxfpp2bRrGgfDekAXUdX3vQ0QXFDHU2hM4Im9x-fQPOitUrZ_yNMygbOAbz0H47y_Fj-N3POPBN6W4_VCFA0wYKgpus"/>
+</div>
+</div>
+<!-- Separation Logic -->
+<div class="bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<!-- SideNavBar (Commander Context) -->
+<aside class="hidden lg:flex h-screen w-64 fixed left-0 top-0 z-40 bg-slate-900/80 backdrop-blur-2xl border-r border-white/5 flex-col pt-24 pb-8 shadow-[10px_0_30px_rgba(0,0,0,0.5)]">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-primary/20 hexagon-mask flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+</div>
+<div>
+<h3 class="font-['JetBrains_Mono'] text-sm uppercase tracking-widest text-primary">Commander</h3>
+<p class="text-[10px] text-slate-500 font-mono">Level 42 Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['JetBrains_Mono'] text-sm uppercase tracking-widest">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['JetBrains_Mono'] text-sm uppercase tracking-widest">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-['JetBrains_Mono'] text-sm uppercase tracking-widest">Security</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['JetBrains_Mono'] text-sm uppercase tracking-widest">Archive</span>
+</a>
+<a class="flex items-center gap-3 bg-gradient-to-r from-blue-900/40 to-cyan-400/10 text-cyan-400 border-r-4 border-cyan-400 px-6 py-4" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="font-['JetBrains_Mono'] text-sm uppercase tracking-widest">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full py-3 bg-gradient-to-r from-primary/20 to-transparent border border-primary/30 rounded-lg font-['JetBrains_Mono'] text-[10px] uppercase tracking-tighter text-primary hover:bg-primary/30 transition-all">
+                Initialize Protocol
+            </button>
+<div class="flex flex-col gap-2 pt-4 border-t border-white/5">
+<a class="flex items-center gap-2 text-slate-500 text-xs hover:text-slate-300" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span> Support
+                </a>
+<a class="flex items-center gap-2 text-error text-xs opacity-70 hover:opacity-100" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:pl-64 pt-16 min-h-screen">
+<div class="max-w-5xl mx-auto pb-20">
+<!-- Hero Banner Section -->
+<section class="relative h-64 w-full overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-[#1A3A8F] via-surface-dim to-[#6D28D9] opacity-40"></div>
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=2072&amp;auto=format&amp;fit=crop')] bg-cover bg-center mix-blend-overlay opacity-30" data-alt="Deep space nebula with stars and cosmic energy"></div>
+<div class="absolute bottom-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
+</section>
+<!-- Profile Header -->
+<div class="relative -mt-16 px-8 flex flex-col items-center">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-tertiary rounded-full blur opacity-40 group-hover:opacity-60 transition duration-1000"></div>
+<div class="relative w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-surface p-1 bg-surface-container">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" data-alt="Modern geometric avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKOHmTwBpIY3zWj6V14KelIeuIwhPkT-TCus6Rv54YUs4iX2LmXFtU8ED2g08fD7iSh-lBu1qu4woyq-2nCHu0ICVzO-Vfdh40dhg-WLjoJ0DduQ_oeY3X7YCgGswcSIeYb233g3girt1t92ZzVAd8w2PVWABfZjHlq74bVN-uBg0j-aMhokwLGbOA5AdWyHJR14K2Kh9kIFIzF9WSo4vwB3Fqc8iUT8nQ3LX8YCNA0WlclvbeNv0NQrQIwP2R5KBUSvBrTWzjBiM"/>
+</div>
+<div class="absolute bottom-1 right-1 md:bottom-2 md:right-2 bg-background p-1.5 rounded-full border border-primary/30">
+<span class="material-symbols-outlined text-primary text-sm md:text-lg" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="mt-4 text-center">
+<h1 class="font-headline text-3xl md:text-4xl font-bold tracking-tight text-on-background">Alex_Vanguard</h1>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="font-mono text-sm text-primary/80">ID_77492_BETA</span>
+<div class="h-1 w-1 bg-outline-variant rounded-full"></div>
+<span class="flex items-center gap-1 text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Email Verified
+                        </span>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="mt-8 grid grid-cols-3 gap-8 w-full max-w-2xl bg-surface-container-low/50 backdrop-blur-md p-6 rounded-2xl border border-white/5 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="text-center relative z-10">
+<p class="font-mono text-2xl font-bold text-on-surface">1,248</p>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Friends</p>
+</div>
+<div class="text-center relative z-10 border-x border-white/5">
+<p class="font-mono text-2xl font-bold text-primary">8.4k</p>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Sent</p>
+</div>
+<div class="text-center relative z-10">
+<p class="font-mono text-2xl font-bold text-tertiary">12.2k</p>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Received</p>
+</div>
+</div>
+</div>
+<!-- Settings List (Asymmetric Grid) -->
+<div class="mt-12 px-8 grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Main Settings Column -->
+<div class="md:col-span-8 space-y-4">
+<h2 class="font-headline text-lg font-semibold px-2 mb-4 text-on-surface-variant flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary/30"></span>
+                        Account Protocols
+                    </h2>
+<div class="glass-panel rounded-xl p-1 border border-white/5 overflow-hidden transition-all hover:border-primary/20 group">
+<button class="w-full flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-all text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:photonic-glow transition-all">
+<span class="material-symbols-outlined" data-icon="person_edit">person_edit</span>
+</div>
+<div>
+<p class="font-medium">Edit Profile</p>
+<p class="text-xs text-slate-500">Update identity metadata and visuals</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="glass-panel rounded-xl p-1 border border-white/5 overflow-hidden transition-all hover:border-primary/20 group">
+<button class="w-full flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-all text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:photonic-glow transition-all">
+<span class="material-symbols-outlined" data-icon="lock_reset">lock_reset</span>
+</div>
+<div>
+<p class="font-medium">Change Password</p>
+<p class="text-xs text-slate-500">Rotate security access tokens</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="glass-panel rounded-xl p-1 border border-white/5 overflow-hidden transition-all hover:border-primary/20 group">
+<button class="w-full flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-all text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:photonic-glow transition-all">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</div>
+<div>
+<p class="font-medium">Interface Theme</p>
+<p class="text-xs text-slate-500">Calibrate visual atmospheric tones</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-1 rounded">OS_DARK_VOID</span>
+<span class="material-symbols-outlined text-slate-500" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</div>
+<!-- Danger Zone -->
+<div class="mt-8 pt-4">
+<div class="bg-error-container/10 rounded-xl p-1 border border-error-container/20 overflow-hidden group">
+<button class="w-full flex items-center justify-between p-4 rounded-lg hover:bg-error-container/20 transition-all text-left">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="delete_forever">delete_forever</span>
+</div>
+<div>
+<p class="font-medium text-error">Delete Account</p>
+<p class="text-xs text-error/60">Permanently purge all data from the network</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-error/60" data-icon="warning">warning</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Side Info Column -->
+<div class="md:col-span-4 space-y-6">
+<div class="glass-panel p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h3 class="font-headline font-bold text-primary mb-2">Network Status</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-400">Node Sync</span>
+<span class="text-xs font-mono text-green-400">99.9%</span>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[99%] photonic-glow"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-400">Encryption</span>
+<span class="text-xs font-mono text-primary">AES-256-GCM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-400">Last Login</span>
+<span class="text-xs font-mono text-slate-300">2m ago</span>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-container/5 p-6 rounded-2xl border border-tertiary-container/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="diamond" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<h3 class="font-headline font-bold text-tertiary">Premium Access</h3>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            You are currently operating with the Standard Command module. Upgrade to Atithi Signature for hexagon frames and violet glows.
+                        </p>
+<button class="w-full py-2 bg-tertiary text-on-tertiary font-bold text-xs rounded-lg hover:scale-[1.02] transition-transform">
+                            Upgrade Protocol
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile -->
+<div class="md:hidden fixed bottom-0 w-full bg-slate-950/80 backdrop-blur-xl border-t border-white/5 px-6 py-3 z-50 flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-[10px]">Chats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px]">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px]">Profile</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[10px]">AI</span>
+</button>
+</div>
+</body></html>

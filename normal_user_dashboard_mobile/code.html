@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#4c00a8",
+              "on-tertiary": "#3f008d",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container-highest": "#303443",
+              "surface-dim": "#0e1320",
+              "on-secondary-fixed-variant": "#224095",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "outline": "#869398",
+              "tertiary": "#d3bbff",
+              "on-surface": "#dee2f5",
+              "surface-container-high": "#252a38",
+              "on-background": "#dee2f5",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-secondary": "#00287c",
+              "surface-container": "#1a1f2d",
+              "on-secondary-fixed": "#00164e",
+              "on-primary-container": "#00414f",
+              "primary": "#4cd6fb",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-primary": "#003642",
+              "surface-container-low": "#161b29",
+              "tertiary-fixed": "#ebddff",
+              "surface-container-lowest": "#090e1b",
+              "on-error": "#690005",
+              "surface-tint": "#4cd6fb",
+              "primary-container": "#00b4d8",
+              "on-primary-fixed": "#001f27",
+              "on-secondary-container": "#9db2ff",
+              "on-tertiary-fixed": "#250059",
+              "surface-variant": "#303443",
+              "secondary-fixed": "#dce1ff",
+              "surface": "#0e1320",
+              "inverse-surface": "#dee2f5",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-primary-fixed-variant": "#004e5f",
+              "inverse-primary": "#00677d",
+              "inverse-on-surface": "#2b303e",
+              "tertiary-container": "#b692ff",
+              "on-error-container": "#ffdad6",
+              "outline-variant": "#3d494d",
+              "secondary-container": "#224095",
+              "secondary": "#b5c4ff",
+              "primary-fixed": "#b3ebff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e1320; color: #dee2f5; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(24px); }
+        .hexagon-mask { clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#0e1320] dark:bg-slate-950 flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 shadow-[0_0_16px_rgba(0,180,216,0.3)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl overflow-hidden bg-primary-container/20 border border-primary/20">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a young male user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvqv2ollGhCbe532EklsWluDgtFWwGv_R1m5gvJHHCzlfbaf_djVpaE_wHfNWruexS-zyyfNbIDV6wY0vJka7qKZlXqmuxOhPHDPnAC1GScdBrVnyNMpwQBptau0OvdOTMeMZ1O7Bg9_29t_EmIjDxYkTuOHoxjCymYMYS4RfuptRyoRWdninIrYA1NGiYyYHmRVZvs5aqTSfnbMDTLSnS95-ZEbdX9DpB1R26xs-0zWOJi29jtmMVds0Zz8LCdUd6ezO7Vr_wDK4"/>
+</div>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tight text-[#00B4D8] dark:text-cyan-400 text-lg">
+                Good morning, Alex
+            </h1>
+</div>
+<button class="relative text-slate-400 dark:text-slate-500 hover:opacity-80 transition-opacity duration-200 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(0,180,216,0.8)]"></span>
+</button>
+</header>
+<main class="pt-24 px-6 space-y-8">
+<!-- Stories Horizontal Scroll -->
+<section class="space-y-4">
+<div class="flex overflow-x-auto gap-4 pb-2 -mx-2 px-2 items-center">
+<!-- My Story -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center bg-surface-container p-0.5">
+<div class="w-full h-full rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</div>
+</div>
+<span class="text-[10px] font-['JetBrains_Mono'] uppercase tracking-wider text-on-surface-variant">My Story</span>
+</div>
+<!-- Friend Stories -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-primary to-tertiary shadow-[0_0_12px_rgba(0,180,216,0.4)]">
+<img class="w-full h-full rounded-full border-2 border-surface-dim object-cover" data-alt="Young woman avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC_00H2WOduWwwDA5M7VbNf60IKXl-5IuePA1e8f3yxJGkRsgrpNqVZ9Sfi5Rq3o0HtOVbzdT97Gn6PVvZQJPEoVeA4vFErWZGkKU3no2weNdKV9cEbrwSdSWRiu7mNAIRqLxD9vIgam9gq7gL9y2BvbBW0jzCq5ljEZRBTyRJ_3ZYvOwKuawaGOdrPc8MSh6pw7k8MSKZk_rMTpZXXGllaPaP8NTl3HLUXX9vHFrVrVWbwNmg5u9DGKxB_EmW7oYzVdNkbQ0zfGc"/>
+</div>
+<span class="text-[10px] font-['JetBrains_Mono'] uppercase tracking-wider text-on-surface">Luna</span>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-primary to-tertiary">
+<img class="w-full h-full rounded-full border-2 border-surface-dim object-cover" data-alt="Man with glasses avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd6qME63czaXuPc87GQBRSsE8zZDa0TivpnWCU0TCw8woCOrLvwPSxxBs8mf960vKHJ3W7JPqRzPGul4AxeghHrTzgw12Efln0FvNNpsnRwEPlCP-A_5YD-rnBE60QSeYfiNMCws6N3GhUT79yljMANaHBDR1b0QSfcsvY-SpKwzYvlHb_-dlojybsuSQqZIYyxF66A2u7-r4ZlhBiW3JEUFw0gT1FcjHVrGExdNV7Lk0K-auJx7_1Fo6nbdXf7AYm9EWZfQKt9Bo"/>
+</div>
+<span class="text-[10px] font-['JetBrains_Mono'] uppercase tracking-wider text-on-surface">Zane</span>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="w-16 h-16 rounded-full p-[2px] bg-outline-variant">
+<img class="w-full h-full rounded-full border-2 border-surface-dim object-cover grayscale opacity-60" data-alt="Profile photo of a professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4-rJjq2LH4Yw-K7g02YfM0Iv1WZWGFbzGkE84CHqwHGZLSnUOSaWaPq5ADyxTJjdliIUZmWCHhsXfdZFEvYcoc-r-AirOB9fEW3GaOF1CtmKvcNNFOzC-i4DmVUaOnaF7mRyPQOethbcBcuFlRq4eyjFOBe_g_YC3tqohd4UYfx4lcJ6sFUii9-vgIJiwtH2ip-VRT-CF51ugZd_iwo2xqwpjT0HyTuuyq2LrTSIZy88zGWnByf80Qu6Cf0jJrwA_tPkgv0W9B7g"/>
+</div>
+<span class="text-[10px] font-['JetBrains_Mono'] uppercase tracking-wider text-on-surface-variant">Sarah</span>
+</div>
+</div>
+</section>
+<!-- Online Friends Strip -->
+<section class="space-y-3">
+<h2 class="font-['Space_Grotesk'] text-sm font-bold tracking-tight text-primary-container flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                ACTIVE PROTOCOLS
+            </h2>
+<div class="flex overflow-x-auto gap-3 pb-1">
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-full border border-primary/20 bg-surface-container" data-alt="Avatar of a male user online" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9eK6CUOAESJJKUDwhiGAitShQs4h6rrSvGUo5ydw2ijHv5KSBsDJ0w3rx2mEliJEkBKN7Ax_Cx0dVPDccBLHSqIRIuhlPUwNOR3LK3f1suErnmEieblqKK-OkvqdCmr2FynbfkOpGSoZMqKbH8DauUDDlgg_SiA6Wy7NaYaxWdVPkHs4C54ympzsSUkFe3-uWQTiKsKSqITLI3InpILDH-Wfzd9qqRAr5IS0xZMTo2OfEYyXfkB1OCYTnzoctogFaSBct45ALNVk"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-dim"></div>
+</div>
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-full border border-primary/20 bg-surface-container" data-alt="Avatar of a female user online" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Zv-CfuyJN95QWyC1uZJoPKz6lvhQ1U-vzk3mxmnloMoQS9yycZRqwcRmAQX9VQ5LJSAJw0_47D0jFmnqi56JqNis5kJUS8Q73ENFVdxufae2CZ7Jzq4-acYdotm1b4eSTS_HsxQsyxINtz7HWL0sjE1Ocy3F7rajZd2awvZQSWOCkXqQJgdp5Ef_MqbypXsvelR7AZYY0VY9IvpX7LPWEuj0P_Hxg16xT83kiMO9x2ML5PPbMfe37o9InPGNHr8DGEckPDcJF2E"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-dim"></div>
+</div>
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-full border border-primary/20 bg-surface-container" data-alt="Avatar of a teenage user online" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwKr28uk-bVNO7v4EPrgkl7nyzQLri0JpOYTEZ6ksxvQF6IinQMcD-bxgOauNTfP9gf1KQE9d-KwjyHKz0p-wGgMZEn-XG4_kplMFzgTgBsAso-Q2p-EMDDprizpzXDZm-UemZ5tzKY21lOorbrSfSiCAuaFal3fTwpHL1-OF4A1wYIpwrvGTAhY65-jXnSvaRmFrCQ7_adqSfFdhuSWWenu6lMTkcY2iXn9pcbGMx7XfoVDqN6DstYksNkHlTPsS0VwSelScKoms"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-dim"></div>
+</div>
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-full border border-primary/20 bg-surface-container" data-alt="Avatar of an older man online" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmNeJkRGJqfAHVA14XcBJbq2s-qOYDJYL5cHgbeYf5AW9avMr-M9aKYH3wVV8a3rLjFUhsYRonUmju9PpN700hOdxteZxk5MMGI0TUxX0TmKcpg_Q6w8GNul6MH2b8wWBOvB19qxxEN0GcTw8ElihCZCk2TIy7t3wedKJuxNwtsL3ntIyoWFBNCea4truoJyHRo4K2dWasdhu7smUEJ41bUeCWzcRHEN6uD4axG5qfjDFKC-24ZK-iQv_DLxFoFM9SqsFSoXXd1wg"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-dim"></div>
+</div>
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-full border border-primary/20 bg-surface-container" data-alt="Avatar of a creative user online" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG4GmJHh-UwbnjmmuB8Mpbd3u1PT5Z-Xd09jJcWod5bGZDpx9JSCwUNIAW9jvxI7dqbbAKrnAMs3auwwuBOc-_yTSqLS6s6su0QV9CGLNW6My5eqiM8tnWWZlwoQjtCA5B7buJ_mRG0Sb1WpwsweyQTgdv8nIDPmygANZjGLjuXZMA8qJFiNGKIAXEARTFGouPER-lFOcC8egBsh4VfbuQTuCZEQls5P3FfyBpS-GduqbfwulFHRmnq8nYFUcppDaSqltSitLe57s"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-dim"></div>
+</div>
+</div>
+</section>
+<!-- Friend Request Card (VIP Style) -->
+<section>
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex items-center justify-between shadow-[0_0_16px_rgba(109,40,217,0.2)]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-gradient-to-tr from-tertiary to-primary-container p-[1px] hexagon-mask">
+<div class="w-full h-full bg-surface-dim hexagon-mask flex items-center justify-center p-0.5">
+<img class="w-full h-full object-cover hexagon-mask" data-alt="Hexagon framed avatar of an elite user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWF8JGCCPB8KJAhKiIjB669vxQ74tnKNH5XbCqx0fYNt0N118l3A8M1zoLbIO8BLLOn_VuOQxeh-XVG2iGPFozniGgbHY410WUleN-3wki_nSfZzqZFnC5_xYlsspV-RhzBMlMqYqvigqRxLaOq-P9wnOkARzaQ-Q42bD66jhu5geBu1HDy2StfZKpLMKhpzULCR5UDRd20feZDHQe92Ky5C_hDDaJTyr0UBl7g4wWKNzF6_FNYLS89cGYrouZu4DAz_Mq98_1FjA"/>
+</div>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] font-bold text-sm text-on-surface">Nova_Prime</p>
+<p class="text-[10px] font-['JetBrains_Mono'] text-on-surface-variant">INCOMING SIGNAL</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-fixed-variant shadow-[0_0_8px_rgba(0,180,216,0.4)] active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="grid grid-cols-2 gap-3">
+<button class="glass-card rounded-xl p-4 flex flex-col items-center justify-center gap-2 border border-outline-variant/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-on-surface">New Chat</span>
+</button>
+<button class="glass-card rounded-xl p-4 flex flex-col items-center justify-center gap-2 border border-outline-variant/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="camera">camera</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-on-surface">New Snap</span>
+</button>
+<button class="glass-card rounded-xl p-4 flex flex-col items-center justify-center gap-2 border border-outline-variant/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="location_on">location_on</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-on-surface">Location</span>
+</button>
+<button class="glass-card rounded-xl p-4 flex flex-col items-center justify-center gap-2 border border-outline-variant/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-tertiary-container text-2xl" data-icon="movie">movie</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-on-surface">Cinema</span>
+</button>
+</section>
+<!-- Recent Chats -->
+<section class="space-y-4">
+<div class="flex justify-between items-end px-1">
+<h2 class="font-['Space_Grotesk'] text-xl font-bold tracking-tight text-on-surface">Recent Chats</h2>
+<button class="text-[10px] font-['JetBrains_Mono'] uppercase tracking-widest text-primary-container font-bold hover:opacity-80">See All</button>
+</div>
+<div class="space-y-1">
+<!-- Chat Row 1 -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-2xl object-cover bg-surface-container-high border border-outline-variant/20" data-alt="Profile picture of a chat contact" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdu_9ZjTJMOmCUb8PZNbpOYMr-CNTPrMD4Lhlo-oWdKRh_sOC2sgI0oaLgVO_bbSYgGXV1irrQu6Y5yO-8kw8nFKJVSAKUFFI6jXzpVnX79rBsKJdj-WWK8faiQ6R5LHKz1l-bY2Nz35-zpUDTQnnvvm-lrjNZGg-IZibNuXx2uPEWAmUcPlLEQI3bgRj8nWTQ8IfFvKlgNCRUQQBj4i5cdKB0lJ_seV3EzkXaf-sLVg7onRfthJgBkkpyKXxqsFHNtCbn_2-xygs"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-bold text-on-surface text-base truncate">Orion Syndicate</h3>
+<span class="text-[10px] font-['JetBrains_Mono'] text-outline">12:45</span>
+</div>
+<p class="text-sm text-on-surface-variant truncate">Deploy the final assets to the main net.</p>
+</div>
+</div>
+<!-- Chat Row 2 -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-2xl object-cover bg-surface-container-high border border-outline-variant/20" data-alt="Contact avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5TVSM6DmNoOD1xXG6GxW19BhZ9zlfm_fMZO5Tb7YGRQzgG5TB4fU91Dc2_-0g0JmoxtUt85aqmfjTDChgs5CAgtB65kd4nNNcGFQsGGf3WF5WOY8ibjFygIytEwCyf45BFuP9D5acEhXZeMRCZl4tSN-SGCtGRktJzK0fGnOQBr6MNSKR7We7o1x-oHmWKEx_ryKWnspXi_rTbQMD7YURbsqI6nJaw5t5BGxtKicw0SEjTX1uzgH_k-0oJs0gl1IRBRCcfOtPgc"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-bold text-on-surface text-base truncate">Ember Watts</h3>
+<span class="text-[10px] font-['JetBrains_Mono'] text-primary font-bold">JUST NOW</span>
+</div>
+<p class="text-sm text-primary font-medium truncate italic">Sent a high-res hologram...</p>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(0,180,216,1)]"></div>
+</div>
+<!-- Chat Row 3 -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-2xl object-cover bg-surface-container-high border border-outline-variant/20" data-alt="Contact avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwQKUj3CTh-5Xzh-bxcUU4Nsa-2ifiPvhfgj0Li99o5bYOts9x2rfbSNc5WNk-KIEXid7OSUgxTk87_-rdEoZ-NqFrer5n6Lw8DHqQyF_qcZc6IOneVTa5XhCIShNOjwID7saGcBl6Kazm0UTY2LMs5qNYF1499yYzPOhNy5vuij7zLqvXEQiqBaRbVfpVU402jeGkl2furnKkmn2D3AP_LLP0DScSA1UqhUj7vmmSc3quU56Pkye7edMG4l24ttGKPXieOvfBx1E"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-bold text-on-surface text-base truncate">Tech Support</h3>
+<span class="text-[10px] font-['JetBrains_Mono'] text-outline">Yesterday</span>
+</div>
+<p class="text-sm text-on-surface-variant truncate">Your node has been upgraded successfully.</p>
+</div>
+</div>
+<!-- Chat Row 4 -->
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-2xl object-cover bg-surface-container-high border border-outline-variant/20" data-alt="Contact avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQdt4toW2XWEoZaOCdHs9EOqgJjvG94CwfOlYEHBerV9dQpxtLZab050Yu6_ob0pe-0wJfyDz0Lkr8lMZ_wX-e45uo87LRlymK3o-x1K-buobNDMK8AI-xe6C1wahI6322Y5an0o4_ll-RKJ67aK_cD_p9Fno194WSoiiQz3fU56VZ7iDiLYhAiszO4AvmMsnYU_fCgrG6NHdnbpSKpXUrOeBMqzYTF8GZgWvXbe9e3h5-rhmlfWlGmJZ1IRTWueC5Cj3HZtlIB8c"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-bold text-on-surface text-base truncate">Vault Keeper</h3>
+<span class="text-[10px] font-['JetBrains_Mono'] text-outline">Sat</span>
+</div>
+<p class="text-sm text-on-surface-variant truncate">Access granted for folder "ALPHA_PROTO".</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#161b29]/80 dark:bg-slate-900/80 backdrop-blur-3xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)] rounded-t-[16px]">
+<div class="flex flex-col items-center justify-center text-[#00B4D8] dark:text-cyan-400 drop-shadow-[0_0_8px_rgba(0,180,216,0.5)] active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider mt-1">Chats</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-600 hover:text-white transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="amp_stories">amp_stories</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider mt-1">Stories</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-600 hover:text-white transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="movie">movie</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider mt-1">Cinema</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-600 hover:text-white transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider mt-1">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-600 hover:text-white transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

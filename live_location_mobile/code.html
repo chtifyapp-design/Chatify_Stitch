@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#161b29",
+              "outline-variant": "#3d494d",
+              "on-error-container": "#ffdad6",
+              "on-tertiary": "#3f008d",
+              "on-secondary-container": "#9db2ff",
+              "surface-dim": "#0e1320",
+              "on-primary-container": "#00414f",
+              "on-surface-variant": "#bcc9ce",
+              "on-secondary-fixed-variant": "#224095",
+              "on-background": "#dee2f5",
+              "inverse-surface": "#dee2f5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "secondary-container": "#224095",
+              "on-error": "#690005",
+              "inverse-primary": "#00677d",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "tertiary-fixed-dim": "#d3bbff",
+              "background": "#0e1320",
+              "tertiary-fixed": "#ebddff",
+              "surface-bright": "#343948",
+              "on-tertiary-container": "#4c00a8",
+              "error": "#ffb4ab",
+              "primary-container": "#00b4d8",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6fb",
+              "primary": "#4cd6fb",
+              "inverse-on-surface": "#2b303e",
+              "outline": "#869398",
+              "surface": "#0e1320",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-secondary": "#00287c",
+              "surface-container-lowest": "#090e1b",
+              "surface-container": "#1a1f2d",
+              "primary-fixed": "#b3ebff",
+              "on-primary": "#003642",
+              "on-primary-fixed": "#001f27",
+              "on-surface": "#dee2f5",
+              "tertiary-container": "#b692ff",
+              "surface-variant": "#303443",
+              "surface-container-highest": "#303443",
+              "surface-container-high": "#252a38",
+              "on-secondary-fixed": "#00164e",
+              "secondary": "#b5c4ff",
+              "secondary-fixed": "#dce1ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "tertiary": "#d3bbff",
+              "on-tertiary-fixed": "#250059"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        .glow-primary {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased min-h-screen overflow-hidden">
+<!-- Top Navigation Anchor (Manual suppression of default shared nav because this is a focused task screen) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#0e1320] dark:bg-slate-950">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center text-[#00B4D8] active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-[#00B4D8] text-lg">Live Location</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-['JetBrains_Mono'] text-[10px] text-primary-container bg-primary-container/10 px-2 py-1 rounded-full border border-primary-container/20">GPS_ACTIVE</span>
+<button class="text-[#00B4D8] active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/20 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<!-- Fullscreen Map Canvas -->
+<main class="relative h-screen w-full bg-surface-dim overflow-hidden">
+<!-- Mock Map Background -->
+<div class="absolute inset-0 opacity-40 grayscale contrast-125" data-alt="Dark stylized futuristic map of a city grid" data-location="Tokyo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcufNrLNuRU_n21Q3OWeXqtIAwWOOTrJjFtY4KVsfncQdyrPyYgF6zzHNaZydt-OnkaDVNhgHAGX2VBcCtg8mo6WCZVVPALhAXekyY1QleL8FfF7uSVyWezQ1sChAfwGMLx9WfpMqWUn0iOz5bSvhhwi0KQmDth0KWh-45mhY2tQFVDXF65ZC4v63g2TtrJnlUvB0rvM2XO0m-HlC0IlPfh1SIe2FnxxssaBD6ywyKsU1-sgSxnXwa4IXTKKH4_fP7NthwRZB2vlA'); background-size: cover; background-position: center;"></div>
+<!-- Radar Scanning Effect Overlay -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,180,216,0.05)_0%,transparent_70%)] pointer-events-none"></div>
+<!-- Custom Pins -->
+<!-- User Location -->
+<div class="absolute top-[45%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary rounded-full animate-ping opacity-20"></div>
+<div class="w-16 h-16 p-1 glass-panel rounded-full border border-primary/30 flex items-center justify-center glow-primary">
+<img class="w-full h-full object-cover rounded-full border border-primary/50" data-alt="User profile portrait for map pin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08sDZRs737Yc7kAx7FAszhy8Z4wJmyPN7mYZt8OUB5w2zoPFOIbo_meTHxBPBaphgaR1D6W8YQrq13U1YNMcvJSF7VD5otQw661XLzkQvimkH3ZqN_n4kJx213Pq3hcWBw76xcw16jxk8A_LGmmlR83B1Rr_PbWfKELYjBWWidLGCWwApz-YpS0g_mhkjyKYeuGL4HefAaeYdn8-7-ah5geZywQHLMbNNnmw0Ty4JMwSlGE9nf0wlE3JrrIVSGyKkeTaPZYR7dck"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-2 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase font-headline">Own</div>
+</div>
+</div>
+<!-- Friend Location (Atithi Signature Style) -->
+<div class="absolute top-[35%] right-[25%] transform translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="relative group">
+<div class="absolute inset-0 bg-tertiary-container rounded-full animate-pulse opacity-20"></div>
+<div class="w-16 h-16 p-1 glass-panel hexagon-mask flex items-center justify-center border border-tertiary-container/30 shadow-[0_0_20px_rgba(109,40,217,0.4)]">
+<img class="w-full h-full object-cover hexagon-mask" data-alt="Friend profile portrait for map pin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeulsGhW7Os4Wo2cVc18UGPGtJcYTixDhU2sZC5PVDv6p-F_9R6LFcjEs_A1ULQjkFCEmx0YyVGih5B3d7lx9IHENKGYXODIgVstA4AAop4t-38yTcNP1eUfWueKY6m7jofYeFUEro8FQa8Q31syMkdO531Zu3aQklUWwEARoRjpZ-IpxoS0R9EJyTJsqM1rYyCRLyd5vpGUPTEquSkAUjreSpfU-gfxzrXh_Fe-Tkq-B1EyrStkD5lkAA-URwgBc4hTuZLVyx_RM"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-tertiary to-primary-container text-on-tertiary px-2 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase font-headline">Friend</div>
+</div>
+<!-- Signal Line -->
+<div class="w-[1px] h-32 bg-gradient-to-b from-primary-container/40 to-transparent absolute top-16 -z-10"></div>
+</div>
+<!-- Map UI Controls -->
+<div class="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+<button class="glass-panel w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="glass-panel w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<button class="glass-panel w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center text-primary glow-primary">
+<span class="material-symbols-outlined" data-icon="my_location" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+</div>
+</main>
+<!-- Bottom Sheet (Glass Card Style) -->
+<div class="fixed bottom-0 left-0 w-full z-50 px-4 pb-8">
+<div class="glass-panel w-full max-w-md mx-auto rounded-[32px] border border-white/10 shadow-[0_-8px_32px_rgba(0,0,0,0.5)] overflow-hidden">
+<!-- Drag Handle -->
+<div class="flex justify-center pt-3 pb-1">
+<div class="w-12 h-1.5 bg-white/10 rounded-full"></div>
+</div>
+<div class="px-6 py-4 flex flex-col gap-6">
+<!-- Header / Timer -->
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline font-bold text-xl tracking-tight text-white">Live Session</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+<p class="font-body text-xs text-on-surface-variant">Broadcasting to 1 friend</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-primary-container">Remaining</p>
+<p class="font-['JetBrains_Mono'] text-2xl font-bold text-primary-container drop-shadow-[0_0_8px_rgba(0,180,216,0.4)]">59:59</p>
+</div>
+</div>
+<!-- Stats / Bento Lite -->
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 rounded-xl bg-white/5 border border-white/5">
+<p class="text-[10px] text-on-surface-variant uppercase font-['JetBrains_Mono']">Current Speed</p>
+<p class="text-lg font-bold text-on-surface">12 <span class="text-xs font-normal opacity-50">km/h</span></p>
+</div>
+<div class="p-3 rounded-xl bg-white/5 border border-white/5">
+<p class="text-[10px] text-on-surface-variant uppercase font-['JetBrains_Mono']">Distance</p>
+<p class="text-lg font-bold text-on-surface">1.4 <span class="text-xs font-normal opacity-50">km</span></p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3">
+<button class="w-full h-14 bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] rounded-xl flex items-center justify-center gap-3 text-white font-headline font-bold tracking-wide shadow-[0_0_16px_rgba(0,180,216,0.3)] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="stop_circle">stop_circle</span>
+                        Stop Sharing
+                    </button>
+<button class="w-full h-14 glass-panel border border-white/10 rounded-xl flex items-center justify-center gap-3 text-on-surface font-headline font-semibold tracking-wide hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                        Share to Friend
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

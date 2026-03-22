@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify - Galactic Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:ital,wght@0,400;1,400&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-surface-variant": "#bcc9ce",
+                "on-tertiary-container": "#4c00a8",
+                "on-tertiary": "#3f008d",
+                "surface-container-highest": "#303443",
+                "on-secondary-fixed-variant": "#224095",
+                "surface-dim": "#0e1320",
+                "error": "#ffb4ab",
+                "error-container": "#93000a",
+                "outline": "#869398",
+                "tertiary": "#d3bbff",
+                "on-surface": "#dee2f5",
+                "surface-container-high": "#252a38",
+                "on-background": "#dee2f5",
+                "on-tertiary-fixed-variant": "#5b00c5",
+                "secondary-fixed-dim": "#b5c4ff",
+                "on-secondary": "#00287c",
+                "surface-container": "#1a1f2d",
+                "on-secondary-fixed": "#00164e",
+                "on-primary-container": "#00414f",
+                "primary": "#4cd6fb",
+                "tertiary-fixed-dim": "#d3bbff",
+                "surface-bright": "#343948",
+                "background": "#080D1A",
+                "on-primary": "#003642",
+                "surface-container-low": "#161b29",
+                "surface-container-lowest": "#090e1b",
+                "tertiary-fixed": "#ebddff",
+                "on-error": "#690005",
+                "primary-container": "#00b4d8",
+                "surface-tint": "#4cd6fb",
+                "on-primary-fixed": "#001f27",
+                "on-secondary-container": "#9db2ff",
+                "on-tertiary-fixed": "#250059",
+                "secondary-fixed": "#dce1ff",
+                "surface-variant": "#303443",
+                "surface": "#080D1A",
+                "inverse-surface": "#dee2f5",
+                "primary-fixed-dim": "#4cd6fb",
+                "on-primary-fixed-variant": "#004e5f",
+                "inverse-primary": "#00677d",
+                "inverse-on-surface": "#2b303e",
+                "tertiary-container": "#b692ff",
+                "on-error-container": "#ffdad6",
+                "outline-variant": "#3d494d",
+                "secondary-container": "#224095",
+                "secondary": "#b5c4ff",
+                "primary-fixed": "#b3ebff"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "mono": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glow-pulse {
+            box-shadow: 0 0 25px 5px rgba(0, 180, 216, 0.4);
+        }
+        .loading-ring {
+            border: 2px solid transparent;
+            border-top-color: #00B4D8;
+            border-right-color: #1A3A8F;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .rocket-float {
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body h-screen flex flex-col items-center justify-center overflow-hidden">
+<!-- Background Atmospheric Glows -->
+<div class="absolute top-[-10%] right-[-10%] w-[60%] h-[40%] bg-primary-container/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[50%] h-[40%] bg-secondary-container/10 blur-[100px] rounded-full"></div>
+<!-- Main Branding Content -->
+<div class="relative flex flex-col items-center z-10">
+<!-- Hexagon Logo Container -->
+<div class="relative w-[140px] h-[140px] flex items-center justify-center mb-10">
+<!-- Rocket Launch (Neon White Overlay) -->
+<div class="absolute -top-4 -right-4 z-20 rocket-float">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 0; transform: rotate(45deg);">
+                    rocket_launch
+                </span>
+</div>
+<!-- Gradient Hexagon -->
+<div class="w-[120px] h-[120px] hexagon-mask bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] glow-pulse flex items-center justify-center relative overflow-hidden">
+<!-- Internal Tech Pattern -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 8px 8px;"></div>
+<!-- Brand Initial -->
+<span class="font-headline text-5xl text-white font-extrabold tracking-tighter">C</span>
+</div>
+</div>
+<!-- Typography Cluster -->
+<div class="text-center space-y-4">
+<h1 class="font-headline text-[36px] font-bold tracking-tight bg-gradient-to-r from-[#1A3A8F] via-[#00B4D8] to-[#4cd6fb] bg-clip-text text-transparent">
+                CHATIFY
+            </h1>
+<p class="font-body text-sm italic text-on-surface-variant/60 tracking-wide">
+                Private. Encrypted. Yours.
+            </p>
+</div>
+</div>
+<!-- Bottom Action/Loading Area -->
+<div class="absolute bottom-20 flex flex-col items-center gap-6">
+<!-- Subtle Loading Indicator -->
+<div class="flex items-center gap-3">
+<div class="loading-ring"></div>
+<span class="font-mono text-[10px] text-primary/50 tracking-[0.2em] uppercase">Initializing Secure Tunnel</span>
+</div>
+</div>
+<!-- System Version Identifier (Asymmetric Design Element) -->
+<div class="absolute bottom-6 right-8 opacity-20">
+<p class="font-mono text-[10px] text-on-surface-variant">
+            v2.4.0-STABLE // COMM_ID: 0x0E1320
+        </p>
+</div>
+<!-- Decorative Corner Elements -->
+<div class="absolute top-0 left-0 w-16 h-16 border-t border-l border-white/5 m-8 rounded-tl-xl"></div>
+<div class="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-white/5 m-8 rounded-br-xl"></div>
+</body></html>

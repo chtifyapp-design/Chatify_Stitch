@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nebula Network - Pending Requests</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#1a1f2d",
+              "background": "#0e1320",
+              "secondary-container": "#224095",
+              "surface-bright": "#343948",
+              "surface": "#0e1320",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-error": "#690005",
+              "on-secondary-fixed-variant": "#224095",
+              "on-error-container": "#ffdad6",
+              "tertiary-container": "#b692ff",
+              "outline": "#869398",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#d3bbff",
+              "tertiary-fixed": "#ebddff",
+              "primary-fixed": "#b3ebff",
+              "on-secondary-container": "#9db2ff",
+              "inverse-surface": "#dee2f5",
+              "error": "#ffb4ab",
+              "on-primary": "#003642",
+              "surface-variant": "#303443",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-secondary": "#00287c",
+              "surface-container-highest": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "surface-dim": "#0e1320",
+              "secondary-fixed": "#dce1ff",
+              "on-tertiary": "#3f008d",
+              "on-background": "#dee2f5",
+              "on-tertiary-container": "#4c00a8",
+              "surface-container-high": "#252a38",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-primary-fixed": "#001f27",
+              "on-surface": "#dee2f5",
+              "tertiary": "#d3bbff",
+              "primary": "#4cd6fb",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "inverse-primary": "#00677d",
+              "secondary": "#b5c4ff",
+              "primary-container": "#00b4d8",
+              "on-tertiary-fixed": "#250059",
+              "surface-container-low": "#161b29",
+              "on-primary-container": "#00414f",
+              "surface-container-lowest": "#090e1b",
+              "surface-tint": "#4cd6fb",
+              "inverse-on-surface": "#2b303e"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(15, 24, 40, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .primary-glow {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface font-body min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#0e1320] dark:bg-[#0e1320] shadow-[0_0_16px_rgba(0,180,216,0.15)]">
+<div class="flex items-center gap-4">
+<button class="text-[#00B4D8] active:scale-95 transition-transform hover:bg-white/5 p-2 rounded-xl">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tight text-xl text-[#00B4D8]">NEBULA_NETWORK</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-[#00B4D8]/30">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Cyberpunk style user profile avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVJX0ZpDCFtjg6-SeU3woiO-V4ZHi4PFf976PadxLBX2cFD7iMb5OnDakUV9w488UGhYzuhoxpAjrbYOY_qgl4UOZzMhzepchzeS6w2x_HbsWvVHcEGGr4VrQQ48d1ejnG5453aBZpZQ7roKNjUjQuAW0g0PtVfNDNneVbYHgegKHbqv9VSXajKz0uxHNboWCmMFSQuJUeMYJpO9arA5bS7132EgkXAEQpMbgRVudngWRYIvJGMjFjP1YTST2F_w-ObK3gM1NFlO0"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/10 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<main class="pt-24 px-6 max-w-4xl mx-auto">
+<!-- Tab Navigation -->
+<div class="flex gap-2 mb-8 overflow-x-auto pb-2 no-scrollbar">
+<button class="px-6 py-2 rounded-xl font-headline font-bold text-slate-400 hover:bg-white/5 transition-all">
+                Accepted
+            </button>
+<button class="px-6 py-2 rounded-xl font-headline font-bold text-[#00B4D8] bg-white/5 shadow-[0_0_12px_rgba(0,180,216,0.2)]">
+                Pending
+            </button>
+<button class="px-6 py-2 rounded-xl font-headline font-bold text-slate-400 hover:bg-white/5 transition-all">
+                Blocked
+            </button>
+</div>
+<!-- Section Header -->
+<div class="mb-8">
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2">Incoming Requests</h2>
+<p class="font-mono text-xs text-primary/60 uppercase tracking-[0.2em]">Data_Stream // Connection_Requests</p>
+</div>
+<!-- Pending Requests Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Request Card 1 -->
+<div class="glass-card p-5 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3">
+<span class="font-mono text-[10px] text-slate-500">2H_AGO</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-gradient-to-br from-primary to-tertiary p-[2px] hexagon-mask">
+<div class="w-full h-full bg-surface-dim hexagon-mask overflow-hidden">
+<img alt="Astra_Nav" class="w-full h-full object-cover" data-alt="Futuristic user avatar of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiDxIUrU25gj7srJTFChQ-sXkLK2YjW345ULBNqxS2BBz8ZLa7dEOPBqrl6Vr58R3cYI6htQV6gE0cFArrcnZq2XlD8PgW2t4hSXsHlw5rPaaS1MRaqL62jyRG23imSFCtILhHgWTfkfTqS4flmgOmHIutE4E99XC34cg5oI0h82uCIZ0A5YdUlc_9qxgJGcV4_-Aw4ozAld4bjsRydLIz09kmS9xCRN-a4_J8H78d8gS_Gd5QevK5Wiif-Ky15O2A-VGO1SXzRhY"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold">Astra_Nav</h3>
+<p class="font-mono text-[10px] text-primary">LVL_42 EX-PILOT</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] text-white font-bold text-sm primary-glow active:scale-[0.98] transition-all">
+                        Accept
+                    </button>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-white/5 border border-white/10 text-error font-medium text-sm hover:bg-error/10 transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] text-white font-medium text-sm active:scale-[0.98] transition-all">
+                            Request Back
+                        </button>
+</div>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="glass-card p-5 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3">
+<span class="font-mono text-[10px] text-slate-500">5H_AGO</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-slate-700 p-[2px] hexagon-mask">
+<div class="w-full h-full bg-surface-dim hexagon-mask overflow-hidden">
+<img alt="Void_Walker" class="w-full h-full object-cover" data-alt="Mysterious male avatar for profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJs9Xo8KOLf81zijW7L21G3fqPRKw9y4ML4lyVJq2F1KYggG2AwUpcmr45KvxlwCmH336w1mwp9Mr62oeZehR_ULGLz35BRTO-1bQrhDPsOHrt3bNeDLiCgrVfLRqFKfglp7XCOpq4iJAkHsEtwafoEhNEjfgiH0QsLNvknQqsoZqN3HLngWq6KXRVz72LonXaHBWhi9Rxy9VG2qryZW2GFv41LxQw84NXVsIP3wc1Al6W31Rw-GtRcma-DPfacRowCTPNz0L513w"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold">Void_Walker</h3>
+<p class="font-mono text-[10px] text-slate-400">STATUS: UNKNOWN</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] text-white font-bold text-sm primary-glow active:scale-[0.98] transition-all">
+                        Accept
+                    </button>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-white/5 border border-white/10 text-error font-medium text-sm hover:bg-error/10 transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] text-white font-medium text-sm active:scale-[0.98] transition-all">
+                            Request Back
+                        </button>
+</div>
+</div>
+</div>
+<!-- Request Card 3 -->
+<div class="glass-card p-5 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3">
+<span class="font-mono text-[10px] text-slate-500">1D_AGO</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-gradient-to-br from-tertiary to-primary p-[2px] hexagon-mask">
+<div class="w-full h-full bg-surface-dim hexagon-mask overflow-hidden">
+<img alt="Neo_Queen" class="w-full h-full object-cover" data-alt="VIP user avatar with neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNJGW5PrO2C9U9VvgaRUX0Z4hUQ1uZ4IUOf9xtebpuDipPTcz-Ex_1hOcOvyhMvn_G1rM1fiu-dmVlQ5leMlNX2TnzVXgEnLsdffJgCA2_647MyhYWl2QWSFiIA_ZPtwZmmCOJHFW56iCLqfSJMQHDbT-59E_TwrdbgQYc5M1KkddcoNYpHX7imdpSXOG3VbY4Dx5KfzQsH9HinUmGtkVhjLL7s9MjWdX1Rix98YTUq4CKe9AD9_1fchcnbLI6aCShpF5ygI1M79c"/>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h3 class="font-headline text-lg font-bold">Neo_Queen</h3>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-mono text-[10px] text-tertiary">VIP_CITIZEN</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] text-white font-bold text-sm primary-glow active:scale-[0.98] transition-all">
+                        Accept
+                    </button>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-white/5 border border-white/10 text-error font-medium text-sm hover:bg-error/10 transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] text-white font-medium text-sm active:scale-[0.98] transition-all">
+                            Request Back
+                        </button>
+</div>
+</div>
+</div>
+<!-- Request Card 4 -->
+<div class="glass-card p-5 rounded-xl flex flex-col gap-5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3">
+<span class="font-mono text-[10px] text-slate-500">2D_AGO</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-slate-700 p-[2px] hexagon-mask">
+<div class="w-full h-full bg-surface-dim hexagon-mask overflow-hidden">
+<img alt="Cyber_Ghost" class="w-full h-full object-cover" data-alt="Anonymous hacker style avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjltuKAohttzaxuSaBX9E94GpgmV_3gOIKriqoE-tgIUwbP3P5eT9CBmjYLSgP2qd1npza5sylxvPnTcf4SkH6-pJKrzzdwhz0W63ghvo4ziKWg4wGYziaZc81siQcFax4Z7L1Oh5LkmByQ_29ngEPLQGiplDyW4FTpf0MaS4UCPrBqIz1jieC8ILiLsEETDrbKotsii1__H4EmxKFJMOEXYyhnpoPE9E8C2MiduAnLSBUjREb1djauh4_eu2alymun-f2v-gn7_c"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-lg font-bold">Cyber_Ghost</h3>
+<p class="font-mono text-[10px] text-slate-400">FREQ: 2.4GHZ</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#10b981] to-[#059669] text-white font-bold text-sm primary-glow active:scale-[0.98] transition-all">
+                        Accept
+                    </button>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-white/5 border border-white/10 text-error font-medium text-sm hover:bg-error/10 transition-colors">
+                            Reject
+                        </button>
+<button class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] text-white font-medium text-sm active:scale-[0.98] transition-all">
+                            Request Back
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#0e1320]/80 backdrop-blur-2xl border-t border-white/5">
+<a class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00B4D8] shadow-[0_0_12px_rgba(0,180,216,0.4)] bg-white/5 rounded-xl p-3 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+</body></html>

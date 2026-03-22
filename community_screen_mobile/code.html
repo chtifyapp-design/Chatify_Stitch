@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Galactic Command - Community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#dce1ff",
+              "primary-container": "#00b4d8",
+              "on-tertiary": "#3f008d",
+              "primary-fixed-dim": "#4cd6fb",
+              "tertiary-container": "#b692ff",
+              "on-primary-container": "#00414f",
+              "inverse-on-surface": "#2b303e",
+              "on-error": "#690005",
+              "on-secondary-fixed-variant": "#224095",
+              "outline-variant": "#3d494d",
+              "secondary-container": "#224095",
+              "on-tertiary-fixed": "#250059",
+              "surface-container-low": "#161b29",
+              "on-secondary-fixed": "#00164e",
+              "inverse-primary": "#00677d",
+              "on-surface": "#dee2f5",
+              "on-background": "#dee2f5",
+              "surface-dim": "#0e1320",
+              "on-secondary": "#00287c",
+              "error-container": "#93000a",
+              "surface-variant": "#303443",
+              "primary-fixed": "#b3ebff",
+              "primary": "#4cd6fb",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-error-container": "#ffdad6",
+              "outline": "#869398",
+              "on-primary-fixed": "#001f27",
+              "surface": "#0e1320",
+              "surface-tint": "#4cd6fb",
+              "secondary-fixed-dim": "#b5c4ff",
+              "surface-container-lowest": "#090e1b",
+              "error": "#ffb4ab",
+              "tertiary": "#d3bbff",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "background": "#0e1320",
+              "surface-container-highest": "#303443",
+              "surface-container-high": "#252a38",
+              "on-secondary-container": "#9db2ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-primary": "#003642",
+              "tertiary-fixed": "#ebddff",
+              "surface-bright": "#343948",
+              "on-tertiary-container": "#4c00a8",
+              "inverse-surface": "#dee2f5",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container": "#1a1f2d",
+              "secondary": "#b5c4ff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .hexagon-frame {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+        }
+        .photonic-glow {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+        .neon-nebula-bg {
+            background: radial-gradient(circle at 50% 50%, #161b29 0%, #0e1320 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Anchor -->
+<header class="bg-[#0e1320] dark:bg-[#0e1320] flex justify-between items-center px-6 py-4 w-full fixed top-0 z-40 shadow-[0_0_16px_rgba(0,180,216,0.15)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+<h1 class="font-['Space_Grotesk'] tracking-tight font-bold uppercase text-2xl tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-400">GALACTIC_COMMAND</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-cyan-400" data-icon="settings_applications">settings_applications</span>
+<div class="w-8 h-8 hexagon-frame bg-gradient-to-br from-primary to-tertiary p-[1px]">
+<div class="w-full h-full hexagon-frame bg-surface-container overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Cyberpunk style operator avatar in a hex frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7am-KW3kPslbLwdjIq3hXPuUJFJw3Uaai4kkV8YrgavSXc5pqJrouD6IDToAwwaIRtobLhiKaFtLVDPTELvef0NkSvnPEtnUQM2GJxPOhrwcz1u0Z-RylzKqoCvMMH47u703cfpy8zVQc6pwKUo9v0vb51qbbviM-EO1fACLddQKrmFjSJPH8uueg8Eq20Xe1MxEC6lKx4MFhDt-B8W4ndWgwtC4cfwVVVvNeYOPy_rUWzO6r_-M-fH46gqw7hGzQMGXWSy5mlXc"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex h-screen pt-16 pb-20">
+<!-- Sidebar Navigation (Drawer Simulation for Mobile) -->
+<aside class="bg-[#161b29] dark:bg-[#161b29] fixed left-0 top-0 h-full flex flex-col rounded-r-2xl h-full w-20 md:w-72 border-r border-white/5 shadow-2xl shadow-cyan-900/20 z-50">
+<!-- Server List (Left narrow column) -->
+<div class="flex h-full">
+<div class="w-20 bg-surface-container-lowest flex flex-col items-center py-4 gap-4 overflow-y-auto no-scrollbar border-r border-white/5">
+<!-- Active Server -->
+<div class="relative flex items-center justify-center group cursor-pointer">
+<div class="absolute -left-1 w-2 h-8 bg-primary rounded-r-full"></div>
+<div class="w-12 h-12 hexagon-frame bg-primary-container photonic-glow flex items-center justify-center text-on-primary-container font-black">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+</div>
+<!-- Other Servers -->
+<div class="w-12 h-12 hexagon-frame bg-surface-container-high hover:bg-surface-variant transition-colors flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-outline" data-icon="biotech">biotech</span>
+</div>
+<div class="w-12 h-12 hexagon-frame bg-surface-container-high hover:bg-surface-variant transition-colors flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-outline" data-icon="shield">shield</span>
+</div>
+<div class="w-12 h-12 hexagon-frame bg-surface-container-high hover:bg-surface-variant transition-colors flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-outline" data-icon="hive">hive</span>
+</div>
+<div class="mt-auto pb-24">
+<div class="w-12 h-12 hexagon-frame bg-surface-container-highest border border-dashed border-outline/30 flex items-center justify-center cursor-pointer hover:border-primary transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Channel List (Wider column - Hidden on very small mobile, but shown in this simulation) -->
+<div class="hidden md:flex flex-1 flex-col p-4 bg-surface-container-low">
+<div class="flex items-center justify-between mb-6 px-2">
+<h2 class="font-headline font-bold text-sm tracking-widest text-on-surface uppercase">NEBULA_COMMUNITY</h2>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+<div class="space-y-6 overflow-y-auto no-scrollbar">
+<!-- Category -->
+<div>
+<div class="flex items-center gap-2 px-2 mb-2">
+<span class="material-symbols-outlined text-xs text-outline" data-icon="expand_more">expand_more</span>
+<span class="text-[10px] font-bold font-label uppercase tracking-tighter text-outline">Information</span>
+</div>
+<div class="space-y-1">
+<div class="bg-gradient-to-r from-blue-900/40 to-cyan-400/10 text-cyan-300 border-l-4 border-cyan-400 px-3 py-2 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+<span class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest">welcome</span>
+</div>
+<div class="text-slate-400 px-3 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/10 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+<span class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest">rules</span>
+</div>
+</div>
+</div>
+<!-- Category -->
+<div>
+<div class="flex items-center gap-2 px-2 mb-2">
+<span class="material-symbols-outlined text-xs text-outline" data-icon="expand_more">expand_more</span>
+<span class="text-[10px] font-bold font-label uppercase tracking-tighter text-outline">Channels</span>
+</div>
+<div class="space-y-1">
+<div class="text-slate-400 px-3 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/10 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+<span class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest">general</span>
+</div>
+<div class="text-slate-400 px-3 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/10 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+<span class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest">transmissions</span>
+</div>
+</div>
+</div>
+<!-- Voice Channels -->
+<div>
+<div class="flex items-center gap-2 px-2 mb-2">
+<span class="material-symbols-outlined text-xs text-outline" data-icon="expand_more">expand_more</span>
+<span class="text-[10px] font-bold font-label uppercase tracking-tighter text-outline">Voice_Core</span>
+</div>
+<div class="space-y-1">
+<div class="text-slate-400 px-3 py-2 flex flex-col gap-2">
+<div class="flex items-center gap-3 cursor-pointer hover:text-white">
+<span class="material-symbols-outlined text-sm" data-icon="volume_up">volume_up</span>
+<span class="font-['JetBrains_Mono'] text-xs uppercase tracking-widest">command_deck</span>
+</div>
+<div class="flex flex-col pl-6 gap-2 mt-1">
+<div class="flex items-center gap-2">
+<img alt="User" class="w-4 h-4 rounded-full border border-primary/30" data-alt="Small round user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPmOHWBADaFmKPlI6XB9B9jShAdgxsHx0A0NjSz8Z6DuHbz2fDO8cr17_G2cNUqNfj4ERwxd-Bv84HEP5ZIMDzNh3gVVc35LinzpBInIJjeYrXZBTY_bzT9_6r2n0Y3e1hGRiHfutC3GhIU8Etnm4L_JyPBrocJlyZdbbHFR5bHCmICDlGIopVJZ_rxv1_5hJrmO-0iL6f2ugSCx6Rt1K4KBJCZDpj2sR0lMZzLnb6oXwKxfF7p3_snyI44Kd9h60JzxJHrijtwCg"/>
+<span class="text-[10px] font-['JetBrains_Mono'] text-primary">FELIX_V01</span>
+</div>
+<div class="flex items-center gap-2">
+<img alt="User" class="w-4 h-4 rounded-full border border-tertiary/30" data-alt="Small round user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTeHfMcGD6WqRbumo8fyA9dC3fp2pTfAzlHvPpI09dE2sVN0FlsqeHbQ94BG6bykfygx3w03sjZVYIEXRwnvkeFjS8xY_lV5kcBFvWDt6mi5tXTxZ49FT8JXpEoNHqlCwKNiNRiM7v1mkItE7dN1cOiRL7LuF5aEVIx0224V0qGs0QYd5Hv40B1I3QuYp_Z55sDpyCZBufgtqRKv4zeDTB70W75woEiJd9FuD-dbHiIzt5vCk1L6PdLxH31Lu3rT-R-fNZgRKMm_Y"/>
+<span class="text-[10px] font-['JetBrains_Mono'] text-on-surface-variant">NOVA_STRIDER</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Profile in Drawer -->
+<div class="mt-auto pt-4 border-t border-white/5">
+<div class="flex items-center gap-3 p-2 bg-surface-container rounded-xl">
+<div class="w-8 h-8 hexagon-frame bg-primary/20 flex items-center justify-center">
+<img alt="Me" class="w-6 h-6 hexagon-frame" data-alt="Operator avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy4mX0MvB4H0IQKmPzvuqeVIMN6j5xw3JQK_YXvhCpfugh_QyRM_Hcr4TFgHabu32-4QsxNKXuM5qRCnF_ds-e0-NVFTV1IBS1n-SFJMR5oqLa6dSqVZns40c51benbJfQl54fIx9hAVPVfGvfZEkeBbsEMR8lRJOt0cCIlHNPC6FEjeSSoLKCOWcBvQjMol8RKU-LkQv8iL2erEjDbxp1ZC3IOUZ42TvZhyY25t5xP96CGvBt694b2YChX11ftT-_OtX9Ny9DZe4"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[10px] font-bold font-['JetBrains_Mono'] uppercase truncate text-cyan-300">OPERATOR_01</p>
+<p class="text-[8px] font-['JetBrains_Mono'] text-outline truncate uppercase">Sector 7G</p>
+</div>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="mic">mic</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-20 md:ml-72 p-4 md:p-6 overflow-y-auto bg-surface-container-lowest neon-nebula-bg">
+<!-- Header/Dashboard Area -->
+<div class="max-w-4xl mx-auto">
+<div class="glass-card rounded-2xl p-6 mb-6 photonic-glow border border-white/5">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-[10px] font-bold text-primary font-['JetBrains_Mono'] tracking-[0.3em] uppercase mb-2 block">System Status: Optimal</span>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface uppercase mb-1">Nebula_Command</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed max-w-lg">Welcome to the central communications hub. Connect with other operators, coordinate missions, and manage sector resources.</p>
+</div>
+<button class="bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] px-6 py-3 rounded-xl text-white font-headline font-bold text-xs tracking-widest uppercase shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                            Initialize_Link
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<!-- Recent Transmission -->
+<div class="md:col-span-2 glass-card rounded-2xl p-4 border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold font-['JetBrains_Mono'] text-outline uppercase tracking-widest flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                Live_Transmissions
+                            </span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="more_vert">more_vert</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 shrink-0 hexagon-frame bg-surface-container-high border border-white/5 flex items-center justify-center">
+<img alt="User" class="w-8 h-8 hexagon-frame" data-alt="Abstract character avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEZUqIEPxbw9Pk5bKmpox3JgpWdP6UR1-W00lGpESjFlZCtEw0S5ITeRkv6HXTO85O8Mp2y-7jIxrGSGLJqYvI3iBkvr-lDiOzUKY81HnSHqCfBpDfeahUePzBh9vbnflXnXg1kP48_Y-mV3fOldbir8Jtb8mY-SIUVP8hztqR_yd_vxTXGhWk36qnhjICaUr1Fpf7gsXCI5wFBO7HkfGzI63lKg0tiQn-8QD45wSTiRZfOFqBlpgSuC-s2UOsriaJ15vnZr5P9VY"/>
+</div>
+<div class="flex-1">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-xs font-bold font-['JetBrains_Mono'] text-primary uppercase">XERO_99</span>
+<span class="text-[9px] font-['JetBrains_Mono'] text-outline">12:44:02 UTC</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed">Quadrant 4 reports anomalous signatures. Requesting additional scanning assets for the Sector 7G interface.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start bg-white/5 p-3 rounded-xl border-l-2 border-tertiary">
+<div class="w-10 h-10 shrink-0 hexagon-frame bg-surface-container-high border border-white/5 flex items-center justify-center">
+<img alt="User" class="w-8 h-8 hexagon-frame" data-alt="VIP user hexagon avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD28f8_DLrdXnLVkiSkoe4KDvWfs1Q67kzLp7eDFexTV3XSTw8t45q87ofCF6pVqE8Lgry9DUGiMb4DsqZGc4kDQJq-Gs2Mve8nQCi6Zpje0PSdcjas9I1MGNupLm4S3MtAXZF8zX3t2cdyd08FEbJtImTfvQThm3fGSjjS5E4NoVxSMJdC9bUtPJ3XjUpXSGcpzbLldEOL5BaztvqzFgmsBKiSYB5TRD3FY2nqoGaSRCtUHsj7amOQfjtL7RAmr675zj-qdMfAMOo"/>
+</div>
+<div class="flex-1">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-xs font-bold font-['JetBrains_Mono'] text-tertiary uppercase tracking-tighter">ELITE_COMMANDER</span>
+<span class="px-1.5 py-0.5 bg-tertiary/20 text-tertiary text-[8px] rounded font-black uppercase">VIP</span>
+<span class="text-[9px] font-['JetBrains_Mono'] text-outline">12:45:15 UTC</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed font-medium">Understood, XERO. Deploying spectral probes now. All units maintain high alert.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Online Members Toggle / Status -->
+<div class="glass-card rounded-2xl p-4 border border-white/5 flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold font-['JetBrains_Mono'] text-outline uppercase tracking-widest">Sector_Units</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[8px] rounded-full font-bold">42_ONLINE</span>
+</div>
+<div class="space-y-3 flex-1">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="U" class="w-8 h-8 rounded-full bg-surface-container" data-alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_wQqDwSc4I_QJmXNstn-rVBd3hLDrfS2t5dl-XMMSjqmhqh02VPCpuOgkJV9H3_ifW0CHn0kxT5_I1xJ5FN7sg5zxaFzMFCJnqXp9SpFrH6e-0VOhd1P1jCjGlhIZSlyE8CVenlYoNj-RgLvuEoyTDLwkXDUqfeT-QZCZ9_j2-LwVp4CBed3gcfY3d1DMOjvIPvgyBVWw0nfum7vO5ATQ8m1j4JnWr-xFRVBKkopWfglhFEGmQjvKDRq0C37qdu8yjmPaqb1FowQ"/>
+<div class="absolute bottom-0 right-0 w-2 h-2 bg-green-500 rounded-full border border-background"></div>
+</div>
+<span class="text-xs font-['JetBrains_Mono'] text-on-surface">UNIT_ALPHA</span>
+</div>
+<div class="flex items-center gap-3 opacity-60">
+<div class="relative">
+<img alt="U" class="w-8 h-8 rounded-full bg-surface-container" data-alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDStgpifHMLpT89MMGwWlhjeWcnQKNDEW44tkmj38eqsrt1LIGk-r8gMDAj4SiVefxyUECwse8V8GL-UK5IJw4mVgOyOQ6bJdPKZ3tQGwYsXU80TVOXTDRxTVQxRCXfRGWJfGZJ2KmKREBJDjmOs78-ODRnYrFp86AFR0SAB3EdhE1MgIHlIUweFxZWYGLvLiQKJzQ6HuNC7kMgaC_ZfgK_bdd5iItLIvysrbu5OO4dwVhusW0qngy_HjG0QeiqAh4J7RDvfGLoo7s"/>
+<div class="absolute bottom-0 right-0 w-2 h-2 bg-slate-500 rounded-full border border-background"></div>
+</div>
+<span class="text-xs font-['JetBrains_Mono'] text-on-surface">UNIT_BETA</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="U" class="w-8 h-8 rounded-full bg-surface-container" data-alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe4wvqmhLiAjhSZ3dN8vNRN8F_pfLL-SPs8bXY8i7fvWM1tQ5ZggMdVWZAq2DY5nonm0rwE2hfJz09nzW_XmRf7a3c0PrQoGtB3MkIqIg0js-DKq8crr9Qp9JOWX0x2ByaY_3Q3B4JRw1pvk8O3DMHAS_NMilX5JmJhDEXhhZBnUaHwboBWBEYfSS8x1ZcBsQF2EqJUNqGNyel-sQjx9qrFB2KzmPNPEqgNwKOD68W8mgqcJOj5kE-hsnYb9WFwhspz4TobnNGQFQ"/>
+<div class="absolute bottom-0 right-0 w-2 h-2 bg-green-500 rounded-full border border-background"></div>
+</div>
+<span class="text-xs font-['JetBrains_Mono'] text-on-surface">GHOST_PILOT</span>
+</div>
+</div>
+<button class="mt-4 w-full py-2 border border-white/5 rounded-lg text-[10px] font-bold font-['JetBrains_Mono'] text-outline uppercase hover:bg-white/5 transition-colors">
+                            VIEW_ALL_PERSONNEL
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button (FAB) - For New Invite Flow -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="w-14 h-14 bg-gradient-to-tr from-primary to-primary-container rounded-2xl flex items-center justify-center photonic-glow text-on-primary shadow-2xl active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="person_add">person_add</span>
+</button>
+</div>
+<!-- Invite Overlay (Simulated Visible for 'Flow' requirement) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-[#0e1320]/80 backdrop-blur-md hidden md:flex">
+<div class="glass-card w-full max-w-md rounded-2xl border border-white/10 shadow-2xl p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full -mr-32 -mt-32"></div>
+<button class="absolute top-4 right-4 text-outline hover:text-white">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h3 class="font-headline font-bold text-2xl text-on-surface uppercase tracking-tight mb-2">INITIATE_INVITE</h3>
+<p class="text-sm text-on-surface-variant mb-6">Generate a secure cryptographic key to onboard new operators to this sector.</p>
+<div class="space-y-4">
+<div>
+<label class="block text-[10px] font-bold font-['JetBrains_Mono'] text-outline uppercase tracking-widest mb-2">Transmission_Key</label>
+<div class="flex gap-2">
+<div class="flex-1 bg-surface-container-highest rounded-xl px-4 py-3 border border-white/5 font-['JetBrains_Mono'] text-cyan-400 text-sm flex items-center">
+                            G-CMD-9X2-NEBULA
+                        </div>
+<button class="bg-surface-container-highest px-3 rounded-xl border border-white/5 text-primary hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold font-['JetBrains_Mono'] text-outline uppercase tracking-widest mb-2">Key_Expiration</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 bg-primary/10 border border-primary/30 rounded-lg text-[10px] text-primary font-bold">1_HOUR</button>
+<button class="py-2 bg-white/5 border border-white/5 rounded-lg text-[10px] text-outline font-bold">24_HOURS</button>
+<button class="py-2 bg-white/5 border border-white/5 rounded-lg text-[10px] text-outline font-bold">NO_LIMIT</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-gradient-to-r from-tertiary to-primary-container py-4 rounded-xl text-white font-headline font-black tracking-[0.2em] uppercase shadow-lg shadow-tertiary/20">
+                SEND_ENCRYPTED_LINK
+            </button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#0e1320]/80 backdrop-blur-3xl rounded-t-2xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-xl px-6 py-1 border border-cyan-400/20 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">COMMUNITY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-1 hover:text-cyan-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">SERVERS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-1 hover:text-cyan-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">ADMIN</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-6 py-1 hover:text-cyan-200 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="font-['JetBrains_Mono'] text-[10px] font-bold">SETTINGS</span>
+</a>
+</nav>
+</body></html>

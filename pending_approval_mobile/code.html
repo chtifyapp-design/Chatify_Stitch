@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#4c00a8",
+              "on-tertiary": "#3f008d",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container-highest": "#303443",
+              "surface-dim": "#0e1320",
+              "on-secondary-fixed-variant": "#224095",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "outline": "#869398",
+              "tertiary": "#d3bbff",
+              "on-surface": "#dee2f5",
+              "surface-container-high": "#252a38",
+              "on-background": "#dee2f5",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-secondary": "#00287c",
+              "surface-container": "#1a1f2d",
+              "on-secondary-fixed": "#00164e",
+              "on-primary-container": "#00414f",
+              "primary": "#4cd6fb",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-primary": "#003642",
+              "surface-container-low": "#161b29",
+              "tertiary-fixed": "#ebddff",
+              "surface-container-lowest": "#090e1b",
+              "on-error": "#690005",
+              "surface-tint": "#4cd6fb",
+              "primary-container": "#00b4d8",
+              "on-primary-fixed": "#001f27",
+              "on-secondary-container": "#9db2ff",
+              "on-tertiary-fixed": "#250059",
+              "surface-variant": "#303443",
+              "secondary-fixed": "#dce1ff",
+              "surface": "#0e1320",
+              "inverse-surface": "#dee2f5",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-primary-fixed-variant": "#004e5f",
+              "inverse-primary": "#00677d",
+              "inverse-on-surface": "#2b303e",
+              "tertiary-container": "#b692ff",
+              "on-error-container": "#ffdad6",
+              "outline-variant": "#3d494d",
+              "secondary-container": "#224095",
+              "secondary": "#b5c4ff",
+              "primary-fixed": "#b3ebff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #080D1A;
+            color: #dee2f5;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-cyan {
+            box-shadow: 0 0 40px rgba(0, 180, 216, 0.25);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body antialiased flex flex-col min-h-screen items-center justify-center p-6 overflow-hidden">
+<!-- Top Navigation Suppression (Transactional Page) -->
+<!-- Background Atmospheric Glows -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[40%] bg-primary-container/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-[-5%] right-[-5%] w-[40%] h-[30%] bg-tertiary-container/10 blur-[100px] rounded-full pointer-events-none"></div>
+<main class="w-full max-w-[390px] flex flex-col items-center justify-between h-[844px] py-12">
+<!-- Status Indicator / Atithi Branding -->
+<div class="flex flex-col items-center gap-2 mb-8">
+<div class="hexagon-mask w-16 h-16 bg-gradient-to-br from-tertiary to-primary-container flex items-center justify-center p-[2px]">
+<div class="hexagon-mask w-full h-full bg-background flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<span class="font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary opacity-70">Special Atithi Status</span>
+</div>
+<!-- Hero Illustration Area -->
+<div class="relative flex items-center justify-center w-full aspect-square max-w-[280px]">
+<!-- Outer Glow Rings -->
+<div class="absolute inset-0 border border-primary/10 rounded-full animate-pulse"></div>
+<div class="absolute inset-8 border border-primary/5 rounded-full"></div>
+<!-- Main Illustration Module -->
+<div class="relative glass-panel rounded-full w-48 h-48 flex items-center justify-center glow-cyan border border-white/5">
+<div class="relative flex items-center justify-center">
+<!-- Envelope Icon -->
+<span class="material-symbols-outlined text-primary text-7xl opacity-90">mail</span>
+<!-- Lock Overlay -->
+<div class="absolute bottom-0 right-0 bg-background border border-primary/30 rounded-full p-2 translate-x-2 translate-y-2 shadow-lg">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div>
+</div>
+<!-- Floating Tech Accents -->
+<div class="absolute top-10 right-4 font-mono text-[10px] text-primary/40 bg-primary/5 px-2 py-1 rounded border border-primary/10">PENDING_ID: 8821</div>
+<div class="absolute bottom-12 left-4 font-mono text-[10px] text-tertiary/40 bg-tertiary/5 px-2 py-1 rounded border border-tertiary/10">TYPE: VIP_ENCRYPT</div>
+</div>
+<!-- Messaging Content -->
+<div class="flex flex-col items-center text-center px-4 mt-8">
+<h1 class="font-headline text-4xl font-bold tracking-tight text-on-surface mb-6">
+                Request Submitted
+            </h1>
+<p class="font-body text-on-surface-variant leading-relaxed text-sm max-w-[280px]">
+                You'll receive a welcome email once <span class="text-primary font-medium">Admin</span> approves your account.
+            </p>
+</div>
+<!-- Action Area -->
+<div class="w-full flex flex-col items-center gap-6 mt-auto">
+<!-- Timeline Indicator (Visual only) -->
+<div class="flex items-center gap-3 w-full px-12 opacity-50">
+<div class="h-[2px] flex-1 bg-primary"></div>
+<div class="h-[6px] w-[6px] rounded-full bg-primary ring-4 ring-primary/20"></div>
+<div class="h-[2px] flex-1 bg-outline-variant"></div>
+</div>
+<!-- Back Button -->
+<button class="flex items-center gap-2 px-8 py-3 rounded-xl border border-outline-variant hover:bg-white/5 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant text-xl group-hover:text-primary transition-colors">arrow_back</span>
+<span class="font-label text-on-surface-variant font-medium group-hover:text-on-surface transition-colors">Back to Login</span>
+</button>
+<!-- Footer Technical Data -->
+<div class="font-mono text-[9px] uppercase tracking-widest text-outline-variant flex items-center gap-4">
+<span>SECURE_HANDSHAKE_ACTIVE</span>
+<span class="w-1 h-1 rounded-full bg-primary animate-pulse"></span>
+<span>V2.4.0</span>
+</div>
+</div>
+</main>
+<!-- Navigation Suppressed for Focused Success/Pending State -->
+</body></html>

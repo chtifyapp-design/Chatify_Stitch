@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atithi Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#b3ebff",
+              "tertiary": "#d3bbff",
+              "surface-container-lowest": "#090e1b",
+              "secondary-fixed-dim": "#b5c4ff",
+              "secondary-fixed": "#dce1ff",
+              "tertiary-container": "#b692ff",
+              "on-primary-fixed": "#001f27",
+              "on-background": "#dee2f5",
+              "primary-fixed-dim": "#4cd6fb",
+              "surface-container-high": "#252a38",
+              "surface-bright": "#343948",
+              "on-error-container": "#ffdad6",
+              "surface-dim": "#0e1320",
+              "surface": "#0e1320",
+              "on-secondary-container": "#9db2ff",
+              "surface-variant": "#303443",
+              "error": "#ffb4ab",
+              "surface-container": "#1a1f2d",
+              "secondary": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6fb",
+              "surface-container-highest": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "on-secondary": "#00287c",
+              "primary": "#4cd6fb",
+              "outline": "#869398",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-secondary-fixed-variant": "#224095",
+              "on-tertiary": "#3f008d",
+              "on-error": "#690005",
+              "surface-container-low": "#161b29",
+              "secondary-container": "#224095",
+              "on-secondary-fixed": "#00164e",
+              "on-primary": "#003642",
+              "background": "#0e1320",
+              "primary-container": "#00b4d8",
+              "on-surface": "#dee2f5",
+              "outline-variant": "#3d494d",
+              "tertiary-fixed": "#ebddff",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "on-tertiary-container": "#4c00a8",
+              "on-tertiary-fixed": "#250059",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-primary-container": "#00414f",
+              "inverse-surface": "#dee2f5",
+              "inverse-on-surface": "#2b303e"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glow-sm { text-shadow: 0 0 10px rgba(0, 180, 216, 0.5); }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .atithi-gradient {
+            background: linear-gradient(135deg, #6D28D9 0%, #00B4D8 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 selection:text-primary min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e1320]/80 backdrop-blur-3xl">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 hexagon-mask atithi-gradient flex items-center justify-center p-[2px]">
+<div class="w-full h-full hexagon-mask bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">hexagon</span>
+</div>
+</div>
+<h1 class="text-xl font-headline font-bold tracking-tighter uppercase text-[#00B4D8]">COMMAND_CENTER</h1>
+</div>
+<button class="active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[#00B4D8] text-2xl">search</span>
+</button>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/20 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-lg mx-auto space-y-8">
+<!-- Profile Hero Section -->
+<section class="flex flex-col items-center text-center space-y-4">
+<div class="relative">
+<!-- Animated Gradient Ring -->
+<div class="absolute inset-0 scale-110 rounded-full bg-gradient-to-tr from-[#6D28D9] via-[#00B4D8] to-[#6D28D9] animate-[spin_4s_linear_infinite] blur-md opacity-70"></div>
+<!-- Hexagon Profile Frame -->
+<div class="relative w-32 h-32 hexagon-mask atithi-gradient p-[4px] shadow-[0_0_32px_rgba(109,40,217,0.4)]">
+<div class="w-full h-full hexagon-mask bg-surface-dim overflow-hidden">
+<img alt="Profile Avatar" class="w-full h-full object-cover" data-alt="Futuristic male portrait in blue light neon setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-2VZcFM8cSD4TF2Z5EeluqAAeEoV5jwoivcXTHrbB-CurxyjOJVsXjwpyErJlzEavFkdMUByNy0YjcD3p5s7nyumgOU7cd1wwlx4g0IMVcT89TOMqVx2qdqWeV5a2e38sRGnSZtJGb6__X-6UGKyp8SfS5--qwd_d0Ka6eZA3-11DE3y9dUrv9Rv3G09QJjx4wgxEB-er-zErJchnZGL1cjYMb8ifiINJi4EwLq6VmwdK8DEF0zioPgqABdFK-LSfSLLM2usd9-4"/>
+</div>
+</div>
+<!-- Gold Crown Badge -->
+<div class="absolute -top-2 -right-2 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-full p-2 shadow-lg border border-white/20">
+<span class="material-symbols-outlined text-white text-base" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-center gap-2">
+<h2 class="text-2xl font-headline font-bold tracking-tight text-on-background">Kaelen Vance</h2>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-mono text-sm text-outline tracking-wider">SEC_ID: 992-ALPHA-7</p>
+<!-- Special Atithi Pill Badge -->
+<div class="mt-3 inline-flex items-center px-4 py-1.5 rounded-full atithi-gradient shadow-[0_0_12px_rgba(0,180,216,0.3)]">
+<span class="text-[10px] font-headline font-bold tracking-widest uppercase text-white">Special Atithi</span>
+</div>
+</div>
+</section>
+<!-- Exclusive Stats Bento -->
+<section class="grid grid-cols-2 gap-4">
+<div class="glass-card rounded-xl p-4 flex flex-col justify-between h-28 relative overflow-hidden group">
+<div class="absolute -right-2 -bottom-2 opacity-10 transition-transform group-hover:scale-125 duration-500">
+<span class="material-symbols-outlined text-6xl">bolt</span>
+</div>
+<span class="text-[10px] font-mono text-primary uppercase tracking-tighter">Energy Level</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold">98.4</span>
+<span class="text-xs text-outline">%</span>
+</div>
+<div class="w-full h-1 bg-white/5 rounded-full mt-2 overflow-hidden">
+<div class="h-full atithi-gradient w-[98.4%]"></div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-4 flex flex-col justify-between h-28">
+<span class="text-[10px] font-mono text-tertiary uppercase tracking-tighter">Void Credits</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold">12.8k</span>
+<span class="material-symbols-outlined text-tertiary text-xs">database</span>
+</div>
+<div class="text-[10px] text-outline italic">+1.2k this cycle</div>
+</div>
+</section>
+<!-- Cloud Backup Toggle Card -->
+<section class="glass-card rounded-2xl p-5 border-primary/20 bg-primary/5 relative overflow-hidden">
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">cloud_done</span>
+</div>
+<div>
+<h3 class="font-headline font-semibold text-on-surface">Cloud Resonance</h3>
+<p class="text-xs text-outline">Real-time backup active</p>
+</div>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative p-1 cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6 shadow-md"></div>
+</div>
+</div>
+<!-- Background Decorative Glow -->
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Settings List -->
+<section class="space-y-3">
+<h4 class="text-[10px] font-mono text-outline uppercase tracking-[0.2em] px-2 mb-4">Command Protocols</h4>
+<div class="space-y-2">
+<!-- Setting Item -->
+<button class="w-full glass-card hover:bg-white/10 active:scale-[0.98] transition-all rounded-xl p-4 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">security</span>
+<span class="font-medium text-sm">Encrypted Protocols</span>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+</button>
+<!-- Setting Item -->
+<button class="w-full glass-card hover:bg-white/10 active:scale-[0.98] transition-all rounded-xl p-4 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">notifications_active</span>
+<span class="font-medium text-sm">Priority Comms</span>
+</div>
+<span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+</button>
+<!-- Setting Item -->
+<button class="w-full glass-card hover:bg-white/10 active:scale-[0.98] transition-all rounded-xl p-4 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">language</span>
+<span class="font-medium text-sm">System Language</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono text-outline">EN_US</span>
+<span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+</div>
+</button>
+<!-- Setting Item (Danger) -->
+<button class="w-full glass-card hover:bg-error/10 active:scale-[0.98] transition-all rounded-xl p-4 flex items-center justify-between group">
+<div class="flex items-center gap-4 text-error/80">
+<span class="material-symbols-outlined group-hover:text-error transition-colors">logout</span>
+<span class="font-medium text-sm">Sever Connection</span>
+</div>
+<span class="material-symbols-outlined text-error/40 text-lg">cancel</span>
+</button>
+</div>
+</section>
+<!-- Footer Branding -->
+<footer class="text-center py-6 opacity-40">
+<p class="font-mono text-[10px] tracking-widest uppercase">Version 4.0.2 // StellarOS</p>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full h-20 rounded-t-[32px] z-50 bg-[#161b29]/90 backdrop-blur-2xl border-t border-white/5">
+<div class="flex justify-around items-center px-8 pb-4 w-full h-full">
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#00B4D8] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#00B4D8] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#00B4D8] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] text-white rounded-2xl p-3 shadow-[0_0_15px_rgba(0,180,216,0.5)] active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</button>
+</div>
+</nav>
+</body></html>

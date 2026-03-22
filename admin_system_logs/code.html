@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GALACTIC_OS - ADMIN_LOGS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#4cd6fb",
+                        "primary-fixed": "#b3ebff",
+                        "on-error": "#690005",
+                        "surface-bright": "#343948",
+                        "primary-container": "#00b4d8",
+                        "on-secondary": "#00287c",
+                        "on-tertiary-fixed-variant": "#5b00c5",
+                        "surface-variant": "#303443",
+                        "on-tertiary-container": "#4c00a8",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#dee2f5",
+                        "secondary-container": "#224095",
+                        "on-secondary-fixed-variant": "#224095",
+                        "background": "#0e1320",
+                        "tertiary-fixed": "#ebddff",
+                        "inverse-on-surface": "#2b303e",
+                        "surface-container": "#1a1f2d",
+                        "surface-container-highest": "#303443",
+                        "primary": "#4cd6fb",
+                        "on-primary-fixed": "#001f27",
+                        "tertiary-fixed-dim": "#d3bbff",
+                        "on-surface": "#dee2f5",
+                        "on-surface-variant": "#bcc9ce",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#090e1b",
+                        "outline": "#869398",
+                        "on-tertiary": "#3f008d",
+                        "on-primary": "#003642",
+                        "surface-container-high": "#252a38",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "on-tertiary-fixed": "#250059",
+                        "inverse-primary": "#00677d",
+                        "on-secondary-container": "#9db2ff",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#00164e",
+                        "tertiary": "#d3bbff",
+                        "surface": "#0e1320",
+                        "tertiary-container": "#b692ff",
+                        "surface-container-low": "#161b29",
+                        "secondary-fixed": "#dce1ff",
+                        "surface-dim": "#0e1320",
+                        "secondary": "#b5c4ff",
+                        "on-primary-container": "#00414f",
+                        "inverse-surface": "#dee2f5",
+                        "surface-tint": "#4cd6fb",
+                        "outline-variant": "#3d494d"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+        }
+        .photonic-glow {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+        .atithi-hexagon {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0e1320; }
+        ::-webkit-scrollbar-thumb { background: #303443; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Anchor) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r-0 bg-[#161b29] dark:bg-slate-900 shadow-[4px_0_24px_rgba(0,180,216,0.1)] z-50">
+<div class="p-6">
+<div class="text-2xl font-black text-[#00B4D8] tracking-tighter mb-1 font-headline">COMMAND_CENTER</div>
+<div class="font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-[10px] text-slate-500">Level_04_Access</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 transition-all duration-300 font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-xs hover:bg-[#252a38]" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 transition-all duration-300 font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-xs hover:bg-[#252a38]" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Requests</span>
+</a>
+<!-- Active State Logic Applied: Admin Logs Page maps to Logs Tab -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#00B4D8] bg-[#252a38] rounded-r-full border-l-4 border-[#00B4D8] shadow-[0_0_15px_rgba(0,180,216,0.3)] font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-xs" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>Logs</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pb-8 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 transition-all duration-300 font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-xs hover:bg-[#252a38]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 transition-all duration-300 font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-xs hover:bg-[#252a38]" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span>Support</span>
+</a>
+<div class="mt-6 pt-6 border-t border-white/5">
+<button class="w-full py-3 bg-error-container text-error font-['JetBrains_Mono'] font-bold text-xs rounded-xl active:scale-95 transition-transform">
+                    SYSTEM_SHUTDOWN
+                </button>
+</div>
+</div>
+<!-- Separation Logic Gradient -->
+<div class="absolute right-0 top-0 h-full bg-gradient-to-r from-transparent to-[#161b29] w-[2px]"></div>
+</aside>
+<!-- TopNavBar (Anchor) -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-40 bg-[#0e1320]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold text-white tracking-widest font-headline">GALACTIC_OS</span>
+<div class="h-4 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex gap-4 font-mono text-[10px] tracking-widest text-primary">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> SYSTEM_STATUS:ONLINE</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-all">notifications_active</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-all">sensors</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-all">account_circle</span>
+</div>
+<div class="atithi-hexagon w-10 h-10 bg-surface-container-high p-[1px]">
+<img alt="Admin Profile" class="atithi-hexagon w-full h-full object-cover" data-alt="Futuristic portrait of a high-tech administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-1y-l6A6_JpowpEFkmR5m3jE62zVghVl4LdvaKJ-DDQdvXIODiyKmGhhHIG38D5dGO4YXNpgq4ssyg-hDSRJIele5pw9gsW8e974bfDZmXTcYenHywDB_i5j5UgqTcjtSAwI07Ix_lAD4xtOS1zKetVWXPebANJPgZfgoEuEVrrcUcaYQO2pYWbICx7aUrzQOJqJgyS1mAX0Sm9FVRMYknN-dygGyDwzNOA06dUuOF3B6i6x4v-MLYtzwBTkbcKeOT-IgbMwsHe0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-background p-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h1 class="text-5xl font-bold font-headline tracking-tighter text-on-surface mb-2">SYSTEM_LOGS</h1>
+<p class="text-slate-500 font-mono text-sm tracking-tight uppercase">Central Intelligence Stream // Node_092</p>
+</div>
+<button class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#1A3A8F] to-[#00B4D8] text-white rounded-xl font-mono font-bold text-sm photonic-glow hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">cloud_download</span>
+                EXPORT_DATA_STREAM
+            </button>
+</div>
+<!-- Filter Bar (Bento Module) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="md:col-span-2 glass-panel p-4 rounded-xl border border-white/5 flex items-center gap-3 group focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-slate-500 group-focus-within:text-primary">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-slate-600 font-mono text-sm w-full" placeholder="Search by ID or Username..." type="text"/>
+</div>
+<div class="glass-panel p-4 rounded-xl border border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500">filter_list</span>
+<select class="bg-transparent border-none focus:ring-0 text-on-surface font-mono text-sm w-full appearance-none">
+<option class="bg-surface-container">ALL_ACTIONS</option>
+<option class="bg-surface-container">APPROVALS</option>
+<option class="bg-surface-container">DELETIONS</option>
+<option class="bg-surface-container">BANS</option>
+<option class="bg-surface-container">ACCESS</option>
+</select>
+</div>
+<div class="glass-panel p-4 rounded-xl border border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500">calendar_today</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-mono text-sm w-full [color-scheme:dark]" type="date"/>
+</div>
+</section>
+<!-- Log Table (Surface Stepping) -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 font-mono text-[10px] tracking-widest text-slate-500 uppercase">
+<th class="px-6 py-4 font-medium">Log_ID</th>
+<th class="px-6 py-4 font-medium">Timestamp</th>
+<th class="px-6 py-4 font-medium">User_Entity</th>
+<th class="px-6 py-4 font-medium">Action_Type</th>
+<th class="px-6 py-4 font-medium">Data_Context</th>
+<th class="px-6 py-4 font-medium text-right">System_Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-body">
+<!-- Green (Approval) -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-primary/80">#QX-9821-A</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-400">2024-05-24 14:22:01</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-[10px] flex items-center justify-center font-bold text-secondary">AM</div>
+<span class="text-sm font-medium">@a_mercer</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-green-500/10 text-green-400 border border-green-500/20">APPROVAL</span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-400 max-w-xs truncate">Verified plugin: "Neural_Link_v2.4"</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-green-400 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</td>
+</tr>
+<!-- Red (Deletion) -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-primary/80">#QX-9825-D</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-400">2024-05-24 13:58:44</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-[10px] flex items-center justify-center font-bold text-on-surface">SYS</div>
+<span class="text-sm font-medium">@system_core</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-red-500/10 text-red-400 border border-red-500/20">DELETION</span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-400 max-w-xs truncate">Removed encrypted_cache_0x44.tmp</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-red-400 text-sm" style="font-variation-settings: 'FILL' 1;">delete_forever</span>
+</td>
+</tr>
+<!-- Amber (Ban) -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-primary/80">#QX-9828-B</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-400">2024-05-24 12:15:30</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-on-tertiary-container text-[10px] flex items-center justify-center font-bold text-tertiary">JD</div>
+<span class="text-sm font-medium">@j_doe_99</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">BAN</span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-400 max-w-xs truncate">Suspicious login pattern detected (IP: 192.0.0.1)</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</td>
+</tr>
+<!-- Blue (Access) -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-primary/80">#QX-9832-L</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-400">2024-05-24 11:02:12</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-[10px] flex items-center justify-center font-bold text-on-primary-container">OS</div>
+<span class="text-sm font-medium">@os_admin</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-primary/10 text-primary border border-primary/20">ACCESS</span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-400 max-w-xs truncate">Granting root permissions to Node_B</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">key</span>
+</td>
+</tr>
+<!-- Repeat Access for filling -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 font-mono text-xs text-primary/80">#QX-9835-L</td>
+<td class="px-6 py-5 font-mono text-xs text-slate-400">2024-05-24 10:45:00</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-[10px] flex items-center justify-center font-bold text-on-surface">U3</div>
+<span class="text-sm font-medium">@unknown_agent</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-primary/10 text-primary border border-primary/20">ACCESS</span>
+</td>
+<td class="px-6 py-5 text-sm text-slate-400 max-w-xs truncate">Login successful via Web_Terminal_7</td>
+<td class="px-6 py-5 text-right">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">login</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination (Floating Footer of Table) -->
+<div class="p-6 bg-surface-container flex items-center justify-between">
+<div class="font-mono text-[10px] text-slate-500">SHOWING_RES: 1-15_OF_4.2K</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 glass-panel border border-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-10 h-10 glass-panel border border-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- System Intelligence Cards (Asymmetric Stats) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+<div class="glass-panel p-6 rounded-xl border-l-4 border-green-500 photonic-glow">
+<div class="text-[10px] font-mono text-slate-500 tracking-widest uppercase mb-1">Approval_Rate</div>
+<div class="text-3xl font-bold text-on-surface">94.2% <span class="text-xs font-mono text-green-400 ml-1">↑ 2.1%</span></div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-green-500" style="width: 94%"></div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-l-4 border-amber-500">
+<div class="text-[10px] font-mono text-slate-500 tracking-widest uppercase mb-1">Security_Events</div>
+<div class="text-3xl font-bold text-on-surface">12 <span class="text-xs font-mono text-amber-400 ml-1">STABLE</span></div>
+<div class="mt-4 flex gap-1">
+<div class="h-1 flex-1 bg-amber-500/40"></div>
+<div class="h-1 flex-1 bg-amber-500/40"></div>
+<div class="h-1 flex-1 bg-amber-500"></div>
+<div class="h-1 flex-1 bg-white/5"></div>
+<div class="h-1 flex-1 bg-white/5"></div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-l-4 border-primary">
+<div class="text-[10px] font-mono text-slate-500 tracking-widest uppercase mb-1">Active_Sessions</div>
+<div class="text-3xl font-bold text-on-surface">1,024 <span class="text-xs font-mono text-primary ml-1">LIVE</span></div>
+<div class="mt-4 flex items-center gap-2 overflow-hidden">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-background bg-slate-700"></div>
+<div class="w-6 h-6 rounded-full border-2 border-background bg-slate-600"></div>
+<div class="w-6 h-6 rounded-full border-2 border-background bg-slate-500"></div>
+<div class="w-6 h-6 rounded-full border-2 border-background bg-slate-400 flex items-center justify-center text-[8px] font-bold">+8k</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Visual Enhancer: Ambient Background Glow -->
+<div class="fixed -bottom-32 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-[128px] pointer-events-none"></div>
+<div class="fixed top-32 -left-32 w-64 h-64 bg-secondary/5 rounded-full blur-[96px] pointer-events-none"></div>
+</body></html>

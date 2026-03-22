@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Special Atithi Registration | Chatify Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#303443",
+              "secondary": "#b5c4ff",
+              "on-secondary": "#00287c",
+              "inverse-on-surface": "#2b303e",
+              "tertiary-fixed": "#ebddff",
+              "outline-variant": "#3d494d",
+              "on-primary-fixed-variant": "#004e5f",
+              "surface": "#0e1320",
+              "surface-bright": "#343948",
+              "inverse-surface": "#dee2f5",
+              "primary-container": "#00b4d8",
+              "surface-dim": "#0e1320",
+              "on-error": "#690005",
+              "tertiary-container": "#b692ff",
+              "surface-tint": "#4cd6fb",
+              "error-container": "#93000a",
+              "on-secondary-fixed-variant": "#224095",
+              "background": "#0e1320",
+              "surface-container-lowest": "#090e1b",
+              "on-tertiary-fixed": "#250059",
+              "secondary-fixed": "#dce1ff",
+              "inverse-primary": "#00677d",
+              "primary-fixed": "#b3ebff",
+              "on-secondary-container": "#9db2ff",
+              "on-surface": "#dee2f5",
+              "surface-container-low": "#161b29",
+              "secondary-fixed-dim": "#b5c4ff",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "outline": "#869398",
+              "on-background": "#dee2f5",
+              "error": "#ffb4ab",
+              "on-error-container": "#ffdad6",
+              "on-tertiary": "#3f008d",
+              "on-primary-fixed": "#001f27",
+              "tertiary": "#d3bbff",
+              "on-tertiary-container": "#4c00a8",
+              "primary-fixed-dim": "#4cd6fb",
+              "secondary-container": "#224095",
+              "primary": "#4cd6fb",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container-high": "#252a38",
+              "on-primary-container": "#00414f",
+              "surface-variant": "#303443",
+              "on-secondary-fixed": "#00164e",
+              "surface-container": "#1a1f2d",
+              "on-primary": "#003642"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .atithi-glow {
+            box-shadow: 0 0 40px -10px rgba(109, 40, 217, 0.4), 0 0 40px -10px rgba(0, 180, 216, 0.4);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Top Navigation Shell (Suppressed for transactional focus as per guidelines, but included Brand Anchor for Identity) -->
+<header class="w-full top-0 z-50 bg-[#0e1320] flex justify-between items-center px-8 h-16 shadow-[0_0_16px_rgba(0,180,216,0.1)]">
+<div class="text-2xl font-bold tracking-tighter text-[#00B4D8] font-['Space_Grotesk']">
+            Chatify Cinema
+        </div>
+<div class="flex gap-4 items-center">
+<span class="text-slate-400 font-['JetBrains_Mono'] text-xs uppercase tracking-widest">Secure Terminal</span>
+<div class="h-2 w-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-6 relative overflow-hidden">
+<!-- Atmospheric Background Elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-tertiary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+<!-- Special Atithi Registration Card -->
+<div class="atithi-glow glass-card border border-white/10 rounded-xl p-10 w-full max-w-2xl relative z-10">
+<!-- Header Section -->
+<div class="flex flex-col items-center mb-10">
+<div class="hexagon-mask bg-gradient-to-br from-[#6D28D9] to-[#00B4D8] p-4 mb-6 shadow-[0_0_30px_rgba(109,40,217,0.5)]">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="crown" style="font-variation-settings: 'FILL' 1;">crown</span>
+</div>
+<h1 class="font-headline text-4xl font-bold tracking-tight text-on-background text-center mb-2">
+                    Special Atithi Registration
+                </h1>
+<p class="text-on-surface-variant font-mono text-sm tracking-wider uppercase">High-Tier Access Request</p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Full Name -->
+<div class="space-y-2">
+<label class="block font-mono text-xs text-on-surface-variant px-1 uppercase tracking-tighter">Full Name</label>
+<div class="relative">
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-600" placeholder="Commander Shepard" type="text"/>
+</div>
+</div>
+<!-- Username -->
+<div class="space-y-2">
+<label class="block font-mono text-xs text-on-surface-variant px-1 uppercase tracking-tighter">Username</label>
+<div class="relative">
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-600 font-mono" placeholder="@spectre_01" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="block font-mono text-xs text-on-surface-variant px-1 uppercase tracking-tighter">Email</label>
+<div class="relative">
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-600" placeholder="n7@citadel.hub" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-2">
+<label class="block font-mono text-xs text-on-surface-variant px-1 uppercase tracking-tighter">Password</label>
+<div class="relative">
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-600" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Reason for Access -->
+<div class="space-y-2">
+<label class="block font-mono text-xs text-on-surface-variant px-1 uppercase tracking-tighter">Reason for access</label>
+<textarea class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-slate-600 resize-none" placeholder="Provide justification for administrative review..." rows="3"></textarea>
+</div>
+<!-- Notice Card -->
+<div class="bg-[#252a38]/50 border-l-4 border-tertiary-container p-4 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-container mt-1" data-icon="info">info</span>
+<div>
+<p class="text-sm text-on-surface font-medium">Notice</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Your request will be reviewed by Admin. Access is typically granted within 24 standard cycles.</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="pt-4">
+<button class="w-full py-4 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#00B4D8] text-white font-headline font-bold text-lg shadow-[0_0_20px_rgba(109,40,217,0.3)] hover:shadow-[0_0_30px_rgba(109,40,217,0.5)] active:scale-[0.98] transition-all duration-200 group flex items-center justify-center gap-3" type="button">
+                        Submit Request
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="send">send</span>
+</button>
+</div>
+</form>
+<div class="mt-8 text-center">
+<a class="text-xs font-mono text-slate-500 hover:text-primary transition-colors tracking-widest uppercase" href="#">Return to Standard Terminal</a>
+</div>
+</div>
+</main>
+<!-- Footer decoration (Grid lines to maintain technical feel) -->
+<footer class="h-24 w-full relative overflow-hidden opacity-20 pointer-events-none">
+<div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, #3d494d 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</footer>
+</body></html>

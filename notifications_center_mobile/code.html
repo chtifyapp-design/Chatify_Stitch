@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..700&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#161b29",
+              "outline-variant": "#3d494d",
+              "on-error-container": "#ffdad6",
+              "on-tertiary": "#3f008d",
+              "on-secondary-container": "#9db2ff",
+              "surface-dim": "#0e1320",
+              "on-primary-container": "#00414f",
+              "on-surface-variant": "#bcc9ce",
+              "on-secondary-fixed-variant": "#224095",
+              "on-background": "#dee2f5",
+              "inverse-surface": "#dee2f5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "secondary-container": "#224095",
+              "on-error": "#690005",
+              "inverse-primary": "#00677d",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "tertiary-fixed-dim": "#d3bbff",
+              "background": "#0e1320",
+              "tertiary-fixed": "#ebddff",
+              "surface-bright": "#343948",
+              "on-tertiary-container": "#4c00a8",
+              "error": "#ffb4ab",
+              "primary-container": "#00b4d8",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6fb",
+              "primary": "#4cd6fb",
+              "inverse-on-surface": "#2b303e",
+              "outline": "#869398",
+              "surface": "#0e1320",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-secondary": "#00287c",
+              "surface-container-lowest": "#090e1b",
+              "surface-container": "#1a1f2d",
+              "primary-fixed": "#b3ebff",
+              "on-primary": "#003642",
+              "on-primary-fixed": "#001f27",
+              "on-surface": "#dee2f5",
+              "tertiary-container": "#b692ff",
+              "surface-variant": "#303443",
+              "surface-container-highest": "#303443",
+              "surface-container-high": "#252a38",
+              "on-secondary-fixed": "#00164e",
+              "secondary": "#b5c4ff",
+              "secondary-fixed": "#dce1ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "tertiary": "#d3bbff",
+              "on-tertiary-fixed": "#250059"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .atithi-gradient {
+            background: linear-gradient(135deg, #6D28D9 0%, #00B4D8 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-32 overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-[#0e1320] dark:bg-slate-950 flex justify-between items-center w-full px-6 py-4 shadow-[0_4px_20px_rgba(0,180,216,0.15)]">
+<div class="flex items-center gap-4">
+<button class="text-[#00B4D8] Active: scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-xl text-[#00B4D8]">Notifications</h1>
+</div>
+<button class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-cyan-300 transition-colors duration-300">
+            Clear All
+        </button>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/20 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<main class="px-4 py-6 space-y-4 max-w-md mx-auto">
+<!-- Screenshot Alert (Amber High Priority) -->
+<div class="glass-card rounded-xl p-4 border-l-4 border-amber-500 bg-amber-500/10 flex gap-4 relative overflow-hidden group">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-amber-500/20 rounded-lg">
+<span class="material-symbols-outlined text-amber-500" data-icon="screenshot">screenshot</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-amber-200">SCREENSHOT_ALERT</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-amber-500/70">02:45 PM</span>
+</div>
+<p class="text-sm text-on-background/90 leading-snug">Someone took a screenshot of your private vault!</p>
+</div>
+</div>
+<!-- Friend Request -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4">
+<div class="flex-shrink-0 relative">
+<img class="w-12 h-12 rounded-xl object-cover grayscale brightness-110" data-alt="User avatar for friend request profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAti9HLaRyaI9cSkZ23tmc0CvIl3TT-1w-bR3D6LoH6RjPxCmeWKVOLzy-VlgRlK4I9PRnIQ-89up6XMlEaVB9avge-zoJMS2KmxR4eW3qKv-Asn4F2W_Ppx2VpHTRQxXG9SzwYc5JkFY_NLL9BWU_LDbmodM1SAlki2n5NoqZcsB7q7XxyR6ZQw6SUxQSrNq2wlu4RAXTEeuuJ-r8eA0aG1CQeqi8Zgjf96RZXbuL6eSoup65FK-tZiWl1i4CKnVdnqGCO9RYZDLQ"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full border-2 border-background flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-primary font-bold" data-icon="person_add">person_add</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<span class="font-headline font-bold text-sm tracking-tight text-[#00B4D8]">FRIEND_REQUEST</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">12M AGO</span>
+</div>
+<p class="text-sm text-on-background mb-4"><strong>@vortex_rider</strong> wants to connect with you.</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-lg bg-emerald-500/20 text-emerald-400 font-headline text-xs font-bold uppercase tracking-wider border border-emerald-500/30 hover:bg-emerald-500/30 transition-all">Accept</button>
+<button class="flex-1 py-2 rounded-lg bg-rose-500/20 text-rose-400 font-headline text-xs font-bold uppercase tracking-wider border border-rose-500/30 hover:bg-rose-500/30 transition-all">Reject</button>
+</div>
+</div>
+</div>
+<!-- Message Preview (VIP User) -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4 shadow-[0_0_16px_rgba(109,40,217,0.1)]">
+<div class="flex-shrink-0">
+<div class="w-12 h-12 atithi-gradient hexagon-mask p-[2px]">
+<img class="w-full h-full hexagon-mask object-cover bg-surface-dim" data-alt="VIP user hexagon profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBldaaqDhyGnJMIbxmSYBb92ImgGOE_H5nTKDjUxvsqxz0uWLCR9Top6cd2vBmSKsHFwKosDww011fzoaYxgsf1Ys1RqoVPHY784HnNQnlEgQwY45gGu3365r0Je48BVBq_ntD4oUcqYpND3R06EZ3sHMuKQArICV3FZyhHzyGtmuO11N1EVMLYApNCTHl3Vf8N4eqMo1O0wq2K6hUgYUfcvMi9IRbaS8wINjhGzLvlJhfchPke9CCKvnR3ao-Qvb85VD-fzQ-afUM"/>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-tertiary">VIP_MESSAGE</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">24M AGO</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-1 font-['JetBrains_Mono'] uppercase tracking-tighter">@nova_prime</p>
+<p class="text-sm text-on-background line-clamp-1 italic text-on-background/70">"The galactic council meeting starts at 22:00..."</p>
+</div>
+</div>
+<!-- Snap Received -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-fuchsia-500/10 rounded-xl">
+<span class="material-symbols-outlined text-fuchsia-400" data-icon="photo_camera" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-fuchsia-400">SNAP_RECEIVED</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">1H AGO</span>
+</div>
+<p class="text-sm text-on-background">New snap from <strong>@zero_gravity</strong></p>
+<p class="text-[10px] text-fuchsia-400/60 uppercase tracking-widest mt-1">Tap to view • 10s</p>
+</div>
+</div>
+<!-- Story Viewed -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4 opacity-80">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-[#00B4D8]" data-icon="visibility">visibility</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-slate-400">STORY_INSIGHT</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">3H AGO</span>
+</div>
+<p class="text-sm text-on-surface-variant"><strong>@pixel_perfect</strong> and 14 others viewed your story.</p>
+</div>
+</div>
+<!-- Call Missed -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-rose-500/10 rounded-xl">
+<span class="material-symbols-outlined text-rose-500" data-icon="phone_missed">phone_missed</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-rose-500">MISSED_VOICE_LINK</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">4H AGO</span>
+</div>
+<p class="text-sm text-on-background">Encrypted call missed from <strong>@commander_k</strong></p>
+<button class="mt-2 text-rose-500 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-1">
+                    Call Back <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Location Shared -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary-container/10 rounded-xl">
+<span class="material-symbols-outlined text-primary-container" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-primary-container">COORDINATES_SYNC</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">5H AGO</span>
+</div>
+<p class="text-sm text-on-background"><strong>@wayfinder</strong> shared their live location with you.</p>
+<div class="mt-3 h-24 w-full rounded-lg overflow-hidden border border-white/5 relative">
+<div class="absolute inset-0 bg-slate-900 flex items-center justify-center" data-location="New York City" style="">
+<span class="text-[10px] font-['JetBrains_Mono'] text-white/20">LOADING_MAP_DATA...</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Admin Approval Notice -->
+<div class="glass-card rounded-xl p-4 border border-outline-variant/15 flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-cyan-500/10 rounded-xl border border-cyan-500/20">
+<span class="material-symbols-outlined text-cyan-400" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-headline font-bold text-sm tracking-tight text-cyan-400">SYSTEM_AUTH</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-slate-500">8H AGO</span>
+</div>
+<p class="text-sm text-on-background">Your request for <strong>"Galaxy Tier"</strong> status has been approved by CHATIFY_CORE admins.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#0e1320]/80 backdrop-blur-2xl rounded-t-[32px] border-t border-white/5 shadow-[0_-8px_32px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#00B4D8] drop-shadow-[0_0_8px_rgba(0,180,216,0.6)] scale-110 animate-pulse" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Chats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:opacity-100 hover:text-cyan-200" href="#">
+<span class="material-symbols-outlined" data-icon="amp_stories">amp_stories</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Stories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:opacity-100 hover:text-cyan-200" href="#">
+<span class="material-symbols-outlined" data-icon="theaters">theaters</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Cinema</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:opacity-100 hover:text-cyan-200" href="#">
+<span class="material-symbols-outlined" data-icon="enhanced_encryption">enhanced_encryption</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:opacity-100 hover:text-cyan-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

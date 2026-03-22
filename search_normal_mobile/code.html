@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#b3ebff",
+              "tertiary": "#d3bbff",
+              "surface-container-lowest": "#090e1b",
+              "secondary-fixed-dim": "#b5c4ff",
+              "secondary-fixed": "#dce1ff",
+              "tertiary-container": "#b692ff",
+              "on-primary-fixed": "#001f27",
+              "on-background": "#dee2f5",
+              "primary-fixed-dim": "#4cd6fb",
+              "surface-container-high": "#252a38",
+              "surface-bright": "#343948",
+              "on-error-container": "#ffdad6",
+              "surface-dim": "#0e1320",
+              "surface": "#0e1320",
+              "on-secondary-container": "#9db2ff",
+              "surface-variant": "#303443",
+              "error": "#ffb4ab",
+              "surface-container": "#1a1f2d",
+              "secondary": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6fb",
+              "surface-container-highest": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "on-secondary": "#00287c",
+              "primary": "#4cd6fb",
+              "outline": "#869398",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-secondary-fixed-variant": "#224095",
+              "on-tertiary": "#3f008d",
+              "on-error": "#690005",
+              "surface-container-low": "#161b29",
+              "secondary-container": "#224095",
+              "on-secondary-fixed": "#00164e",
+              "on-primary": "#003642",
+              "background": "#0e1320",
+              "primary-container": "#00b4d8",
+              "on-surface": "#dee2f5",
+              "outline-variant": "#3d494d",
+              "tertiary-fixed": "#ebddff",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "on-tertiary-container": "#4c00a8",
+              "on-tertiary-fixed": "#250059",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-primary-container": "#00414f",
+              "inverse-surface": "#dee2f5",
+              "inverse-on-surface": "#2b303e"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glow-sm { text-shadow: 0 0 10px rgba(0, 180, 216, 0.5); }
+        .glass-card { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(24px); }
+        .hexagon-mask { clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-background font-body selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e1320]/80 backdrop-blur-3xl flex justify-between items-center px-6 h-16 w-full shadow-[0_0_16px_rgba(0,180,216,0.2)]">
+<div class="flex items-center gap-3 active:scale-95 transition-transform">
+<div class="w-10 h-10 bg-primary-container hexagon-mask flex items-center justify-center">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="User profile avatar in futuristic hexagon shape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAef6wvDpHCTnZ4D2uYr7tbJKIWKOviCY_mDDJdbs16g6Ry64loadzrSKMeBudj33TGJT55uxwKmQx0qSEqPq0o3y4ZABH6pXi53NYUSrwh1Di4CP2NziBOxDZtRl_ZBA_XV0cK-QIfy7mGFjfdYk4LLdf8rXAVU7v0MmzbQdajstTn1N-mKpzi_5zm4_rsxexyhNm4c6fK2BuxDmSDqTBYIqhWvHKaalszdr5X9NOkk2Se9gtp7vzUxudRbUoCw5nVNmluSf80Z2k"/>
+</div>
+<span class="font-['Space_Grotesk'] tracking-tighter uppercase font-bold text-xl text-[#00B4D8]">COMMAND_CENTER</span>
+</div>
+<button class="text-[#00B4D8] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/20 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto min-h-screen relative">
+<!-- Search Input Module -->
+<div class="mb-8 relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary-container/20 to-tertiary/20 rounded-xl blur opacity-25 group-focus-within:opacity-50 transition duration-1000"></div>
+<div class="relative glass-card border border-white/5 rounded-xl flex items-center px-4 py-3 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+<span class="material-symbols-outlined text-primary mr-3" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-mono text-sm tracking-widest placeholder:text-outline/50 text-primary" placeholder="LOCATE_USER_ID..." type="text"/>
+<span class="material-symbols-outlined text-outline/30 text-sm">filter_list</span>
+</div>
+</div>
+<!-- Section Title -->
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline text-xs tracking-[0.2em] text-outline uppercase font-bold">Search Results</h2>
+<div class="h-px flex-1 bg-gradient-to-r from-outline/20 to-transparent ml-4"></div>
+</div>
+<!-- Results Grid -->
+<div class="space-y-4">
+<!-- Result Card 1 -->
+<div class="glass-card rounded-xl p-4 border border-white/5 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="absolute -inset-0.5 bg-primary/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Avatar" class="w-12 h-12 rounded-full border border-white/10 relative" data-alt="Circular user profile avatar with abstract pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB-EDZQN8rjeHv8AQJ4QDYSuRDiJt8Ja5k6OaMzSFREoQ_w6tjbjEj-QUKiipHc7vIL1q0xmfzZ3gphUde1KTnm9ve506bMxta2JSd3KmAHZiyvRzJzCTER3IW1lV8_Jf_ayl177pxMvmduLrzRAmuUTOzq4RIwf2LtADdVoq-SSM1ydfCubQ6kor8sI3NwZ8_cs4AS5Q1AD9CMX4T-08I9u6T5pTov31Z9Uklqzj0QrkPxEWN-73pw-oONV1fco1IM2h2tfwpj5M"/>
+</div>
+<div>
+<div class="font-mono text-primary text-sm tracking-tight">@NEO_PULSE_88</div>
+<div class="text-[10px] text-outline uppercase tracking-tighter">Sector 7-G</div>
+</div>
+</div>
+<button class="bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] text-white text-[10px] font-headline font-bold uppercase px-4 py-2 rounded-lg shadow-[0_0_12px_rgba(0,180,216,0.3)] active:scale-90 transition-transform">
+                    Add Friend
+                </button>
+</div>
+<!-- Result Card 2 -->
+<div class="glass-card rounded-xl p-4 border border-white/5 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Avatar" class="w-12 h-12 rounded-full border border-white/10 relative" data-alt="Circular user profile avatar with geometric pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpBhan3H4YTbEf22z-zNrqaMXmwHss90LZoCyz27Lw4CU3db9HBMX4YnAs2oDrVep7MF8syzpcOTpD95L5LOtGZmzsryIjepZc24L6YI-xUDzcKjEDk605_UxwWkxH0Iq_xzkWR6TvVXN4ZLbnjKkCqtC5U7n_kSKdAz8t9slYtCSElYaUcc4IEmivC9jcKoXw64-wDM7ELaV_4_avBUbnxUil5qAJcpJcsM603NFDXFR9eINSY1Nt_oPypBMoXBprgfK0DOalGSs"/>
+</div>
+<div>
+<div class="font-mono text-primary text-sm tracking-tight">@CYBER_GHOST</div>
+<div class="text-[10px] text-outline uppercase tracking-tighter">Orbital Hub</div>
+</div>
+</div>
+<button class="bg-surface-container-high border border-outline-variant text-outline text-[10px] font-headline font-bold uppercase px-4 py-2 rounded-lg active:scale-95 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">pending</span>
+                    Requested
+                </button>
+</div>
+<!-- Result Card 3 -->
+<div class="glass-card rounded-xl p-4 border border-white/5 flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Avatar" class="w-12 h-12 rounded-full border border-white/10 relative" data-alt="Circular user profile avatar with tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqwSMoDhbM0M9TmE6OdKct3qoeOObvm8khmSqUWNdTaVDJonNDgRJKeu9TAeHpC5Weoxco5MT7MpfWzumbUhl2N7NMXsg1sHKaBbgzAqCZdHNPNXcCxTD2hHUseLfPe0xoUadN-5cfWAuK05nrQAyZncppOcdmKE4gfOwgnPq9u8bf31oUw5h33Bp_res9Q-P0r47sWjEgH__PRw5ReKYffL9DUi7g6wqzz5Gurxyh1tOAw5oxg-zjnG6zq-8Nj8syRwtx9MoWXXU"/>
+</div>
+<div>
+<div class="font-mono text-primary text-sm tracking-tight">@VOID_RUNNER</div>
+<div class="text-[10px] text-outline uppercase tracking-tighter">Deep Space</div>
+</div>
+</div>
+<button class="bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] text-white text-[10px] font-headline font-bold uppercase px-4 py-2 rounded-lg shadow-[0_0_12px_rgba(0,180,216,0.3)] active:scale-90 transition-transform">
+                    Add Friend
+                </button>
+</div>
+<!-- Result Card 4 -->
+<div class="glass-card rounded-xl p-4 border border-white/5 flex items-center justify-between group hover:border-primary/30 transition-all duration-300 opacity-60">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Avatar" class="w-12 h-12 rounded-full border border-white/10 relative" data-alt="Circular user profile avatar muted" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPkT5xv5BTUDIQp4GngjSeV1UGWRyhvJvVh3zAERTdQZu1JIaLHDvbmOlVSRi7HSfUrqDl8ADN3UiSit3Rbl-9vTgGUqoPiiCVxi-CX6-f5d_UU7gbplxIsVSJvny0ue13lYn8MpFsWSSTdktdpgJ1pX7_BJTZvm_SI7f-nB5JfQGlrFW2reMuQI-gPjCB8MDhhO54tdH3qMy6kY2ci5PTZlnqEU1jLGt1aDlI07X40z4iKpHANqUP8MIFkJ_F-EXTCxnRvRu86nA"/>
+</div>
+<div>
+<div class="font-mono text-primary text-sm tracking-tight">@SIGMA_ZERO</div>
+<div class="text-[10px] text-outline uppercase tracking-tighter">Surface Level</div>
+</div>
+</div>
+<button class="bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] text-white text-[10px] font-headline font-bold uppercase px-4 py-2 rounded-lg shadow-[0_0_12px_rgba(0,180,216,0.3)] active:scale-90 transition-transform">
+                    Add Friend
+                </button>
+</div>
+</div>
+<!-- Ambient Glow Decorations -->
+<div class="fixed -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed top-40 -right-20 w-48 h-48 bg-tertiary/5 rounded-full blur-[80px] pointer-events-none"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full h-20 rounded-t-[32px] z-50 bg-[#161b29]/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-8px_32px_rgba(0,0,0,0.4)] flex justify-around items-center px-8 pb-4">
+<!-- Inactive: grid_view -->
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#00B4D8] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<!-- Active: search -->
+<button class="flex flex-col items-center justify-center bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] text-white rounded-2xl p-3 shadow-[0_0_15px_rgba(0,180,216,0.5)] active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+</button>
+<!-- Inactive: notifications -->
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#00B4D8] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<!-- Inactive: person -->
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#00B4D8] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+</body></html>

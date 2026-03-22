@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up | Chatify</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ebddff",
+              "primary": "#4cd6fb",
+              "on-background": "#dee2f5",
+              "inverse-surface": "#dee2f5",
+              "surface-tint": "#4cd6fb",
+              "on-primary-fixed": "#001f27",
+              "surface-container-highest": "#303443",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-primary-container": "#00414f",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-dim": "#0e1320",
+              "tertiary-container": "#b692ff",
+              "on-error": "#690005",
+              "on-surface": "#dee2f5",
+              "on-secondary": "#00287c",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-tertiary-container": "#4c00a8",
+              "surface-container-lowest": "#090e1b",
+              "secondary-container": "#224095",
+              "on-secondary-fixed-variant": "#224095",
+              "on-secondary-container": "#9db2ff",
+              "on-tertiary-fixed": "#250059",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "outline": "#869398",
+              "secondary-fixed": "#dce1ff",
+              "error": "#ffb4ab",
+              "surface-variant": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "surface-container-high": "#252a38",
+              "surface": "#0e1320",
+              "primary-container": "#00b4d8",
+              "surface-container": "#1a1f2d",
+              "on-error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#004e5f",
+              "secondary": "#b5c4ff",
+              "on-primary": "#003642",
+              "secondary-fixed-dim": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "primary-fixed": "#b3ebff",
+              "on-tertiary": "#3f008d",
+              "tertiary": "#d3bbff",
+              "surface-container-low": "#161b29",
+              "inverse-on-surface": "#2b303e",
+              "error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .nebula-bg {
+            background: radial-gradient(circle at 20% 30%, rgba(76, 214, 251, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(182, 146, 255, 0.15) 0%, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-primary-container selection:text-on-primary-container nebula-bg">
+<!-- TopAppBar Execution -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0e1320] dark:bg-[#0e1320] flex items-center justify-between px-6 py-4 shadow-[0_0_16px_rgba(0,180,216,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00B4D8] active:scale-95 duration-200 transition-opacity hover:opacity-80" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-['Space_Grotesk'] tracking-tight font-bold text-headline-sm text-[#00B4D8]">Chatify</h1>
+</div>
+<div class="style_brand_logo text-2xl font-bold tracking-tighter text-[#00B4D8]">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<!-- Separation Logic -->
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/10 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<main class="pt-24 pb-12 px-6 max-w-md mx-auto">
+<!-- Hero Branding Section -->
+<section class="mb-10 text-center">
+<div class="inline-block p-[2px] rounded-full bg-gradient-to-tr from-primary to-tertiary mb-6">
+<div class="bg-background rounded-full p-4">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="person_add" style="font-variation-settings: 'FILL' 1;">person_add</span>
+</div>
+</div>
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-2">Initialize Core</h2>
+<p class="text-on-surface-variant text-sm font-mono uppercase tracking-widest">Entry Protocol: Normal User</p>
+</section>
+<!-- Sign Up Form -->
+<form class="space-y-6">
+<!-- Full Name -->
+<div class="space-y-2">
+<label class="font-mono text-[10px] uppercase tracking-widest text-outline ml-1">Full Name</label>
+<div class="relative group">
+<input class="w-full glass-panel border-none rounded-xl py-4 pl-12 pr-4 focus:ring-1 focus:ring-primary text-on-surface placeholder:text-outline/40 transition-all" placeholder="Commander Shepard" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="badge">badge</span>
+</div>
+</div>
+<!-- Username with Live Check -->
+<div class="space-y-2">
+<label class="font-mono text-[10px] uppercase tracking-widest text-outline ml-1">System Username</label>
+<div class="relative group">
+<input class="w-full glass-panel border-none rounded-xl py-4 pl-12 pr-12 focus:ring-1 focus:ring-primary text-on-surface placeholder:text-outline/40 transition-all" placeholder="n7_spectre" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="alternate_email">alternate_email</span>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary drop-shadow-[0_0_8px_rgba(76,214,251,0.5)]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="font-mono text-[10px] uppercase tracking-widest text-outline ml-1">Neural ID (Email)</label>
+<div class="relative group">
+<input class="w-full glass-panel border-none rounded-xl py-4 pl-12 pr-4 focus:ring-1 focus:ring-primary text-on-surface placeholder:text-outline/40 transition-all" placeholder="alliance@citadel.hub" type="email"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="mail">mail</span>
+</div>
+</div>
+<!-- Password & Strength Bar -->
+<div class="space-y-2">
+<label class="font-mono text-[10px] uppercase tracking-widest text-outline ml-1">Access Cipher</label>
+<div class="relative group">
+<input class="w-full glass-panel border-none rounded-xl py-4 pl-12 pr-4 focus:ring-1 focus:ring-primary text-on-surface placeholder:text-outline/40 transition-all" type="password" value="••••••••"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="key">key</span>
+</div>
+<!-- 4-Segment Strength Bar -->
+<div class="pt-2 px-1">
+<div class="flex gap-1.5 h-1">
+<div class="flex-1 rounded-full bg-error"></div>
+<div class="flex-1 rounded-full bg-error"></div>
+<div class="flex-1 rounded-full bg-surface-container-highest"></div>
+<div class="flex-1 rounded-full bg-surface-container-highest"></div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-mono text-[9px] uppercase text-error tracking-tighter">Strength: Vulnerable</span>
+<span class="font-mono text-[9px] uppercase text-outline tracking-tighter">8/16 Symbols</span>
+</div>
+</div>
+</div>
+<!-- Verification Note -->
+<div class="glass-panel p-4 rounded-xl border border-primary/10 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="info">info</span>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">
+                    Security Protocol: A verification transmission will be sent to your Neural ID. Identity confirmation is required to access the Vault.
+                </p>
+</div>
+<!-- CTA -->
+<div class="pt-4">
+<button class="w-full py-4 rounded-xl bg-gradient-to-r from-secondary-container to-primary-container text-white font-headline font-bold text-lg neon-glow-primary active:scale-95 transition-all">
+                    Create Account
+                </button>
+</div>
+</form>
+<!-- Footer Links -->
+<footer class="mt-8 text-center space-y-4">
+<p class="text-xs text-outline">
+                By initiating connection, you agree to our 
+                <a class="text-primary hover:underline" href="#">Galactic Protocols</a>
+</p>
+<div class="flex justify-center items-center gap-2">
+<div class="h-[1px] w-8 bg-outline/20"></div>
+<span class="font-mono text-[10px] uppercase text-outline/40">Already Synchronized?</span>
+<div class="h-[1px] w-8 bg-outline/20"></div>
+</div>
+<a class="inline-block text-primary font-headline font-medium transition-opacity hover:opacity-80" href="#">
+                Execute Sign In
+            </a>
+</footer>
+</main>
+<!-- BottomNavBar Suppression Check: Suppressed for Transactional/Focused Sign-up Flow -->
+<!-- Navigation Shell suppressed per UX Goal: Focused journey prioritizes the Canvas -->
+<div class="fixed top-1/4 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -left-20 w-64 h-64 bg-tertiary/5 rounded-full blur-[100px] pointer-events-none"></div>
+</body></html>

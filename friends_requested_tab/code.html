@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nebula Network - Friend Requests</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#1a1f2d",
+              "background": "#0e1320",
+              "secondary-container": "#224095",
+              "surface-bright": "#343948",
+              "surface": "#0e1320",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-error": "#690005",
+              "on-secondary-fixed-variant": "#224095",
+              "on-error-container": "#ffdad6",
+              "tertiary-container": "#b692ff",
+              "outline": "#869398",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#d3bbff",
+              "tertiary-fixed": "#ebddff",
+              "primary-fixed": "#b3ebff",
+              "on-secondary-container": "#9db2ff",
+              "inverse-surface": "#dee2f5",
+              "error": "#ffb4ab",
+              "on-primary": "#003642",
+              "surface-variant": "#303443",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-secondary": "#00287c",
+              "surface-container-highest": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "surface-dim": "#0e1320",
+              "secondary-fixed": "#dce1ff",
+              "on-tertiary": "#3f008d",
+              "on-background": "#dee2f5",
+              "on-tertiary-container": "#4c00a8",
+              "surface-container-high": "#252a38",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-primary-fixed": "#001f27",
+              "on-surface": "#dee2f5",
+              "tertiary": "#d3bbff",
+              "primary": "#4cd6fb",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "inverse-primary": "#00677d",
+              "secondary": "#b5c4ff",
+              "primary-container": "#00b4d8",
+              "on-tertiary-fixed": "#250059",
+              "surface-container-low": "#161b29",
+              "on-primary-container": "#00414f",
+              "surface-container-lowest": "#090e1b",
+              "surface-tint": "#4cd6fb",
+              "inverse-on-surface": "#2b303e"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(15, 24, 40, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-avatar {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#0e1320] dark:bg-[#0e1320] shadow-[0_0_16px_rgba(0,180,216,0.15)]">
+<div class="flex items-center gap-4">
+<button class="text-[#00B4D8] active:scale-95 transition-transform hover:bg-white/5 p-2 rounded-xl">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline font-bold tracking-tight text-xl tracking-tighter text-[#00B4D8]">NEBULA_NETWORK</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="User profile avatar male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiTR9x3wv86iJDbs188eOk-mVJ1mayK7aKtcCYldwYQBy1zdE3f3u5kGu5l_gtbcqsF5veoeYn6S0tyVKqzhiN00wLj8gXm07DGwY1xXX4G3nlQzfDmaU9SF7ucaiAJ3N_PgPDYX5yp7qf94HP5ok5LKwzvi787W_7wjiVz15LGqmS7p9HozGRE47MK18hZzsJfMPR_QwwG1v9j5uvdE6cSxKNiZ-Vcb84vxr2Oqt7-02SYkeYzG5agM_RG-KC5o437_bePxuEu6E"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/10 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-4xl mx-auto">
+<!-- Tabs Section -->
+<div class="flex gap-2 mb-8 items-center overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2.5 rounded-xl font-label text-sm font-medium transition-all duration-300 text-slate-400 hover:bg-white/5">
+                Accepted
+            </button>
+<button class="px-6 py-2.5 rounded-xl font-label text-sm font-bold transition-all duration-300 text-[#00B4D8] bg-white/5 shadow-[0_0_12px_rgba(0,180,216,0.2)]">
+                Requested
+            </button>
+<button class="px-6 py-2.5 rounded-xl font-label text-sm font-medium transition-all duration-300 text-slate-400 hover:bg-white/5">
+                Suggested
+            </button>
+</div>
+<!-- Section Title & Meta -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline text-3xl font-bold tracking-tight">Friend Requests</h2>
+<p class="font-mono text-[10px] uppercase tracking-widest text-primary/60 mt-1">Status: Pending_Validation</p>
+</div>
+<div class="font-mono text-[10px] text-slate-500 bg-surface-container-low px-3 py-1 rounded-full border border-white/5">
+                ACTIVE_QUEUE: 08
+            </div>
+</div>
+<!-- Bento Grid / Cards List -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Request Card 1 -->
+<div class="glass-card rounded-xl p-5 border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex items-start gap-4">
+<div class="relative">
+<div class="hexagon-avatar w-14 h-14 bg-surface-container-highest overflow-hidden p-0.5">
+<img class="w-full h-full object-cover hexagon-avatar" data-alt="Avatar of user Kaelen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsXU-5WQdASIPFoLZAnaVW16UBLI-kewMzlBu2SIP3NU_1BrPGCzaGmxlLrkd6qLa8AyaA_Zvg_hokucV2yqUljbgDliGApH0SNCCGOnHsEQt4SB2a-RYe3g9EP1mD6NHevqtHK0R_M7VLicEJpNBTpEcDhY8DG4YivArSsHyrTVhMvd4dAOMR5EFS5F9XLs-SDFIJZBnbJX1sVen_ngQh6cZm9XgGgPmAl7OrTzPQ3ElgtKZfMs_MBkrTbf5_ValLLgQR9-jknUI"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-background shadow-[0_0_8px_rgba(76,214,251,0.5)]"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg leading-tight">Kaelen_Void</h3>
+<p class="font-mono text-[10px] text-slate-500 mt-0.5">ID: #PX-9920</p>
+</div>
+<span class="font-mono text-[9px] text-slate-500">2H AGO</span>
+</div>
+<div class="flex gap-2 mt-5">
+<button class="flex-1 py-2 rounded-lg bg-gradient-to-r from-secondary-container to-primary-container text-white font-label text-xs font-bold shadow-[0_0_16px_rgba(0,180,216,0.3)] active:scale-95 transition-transform">
+                                Confirm
+                            </button>
+<button class="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-label text-xs font-medium hover:bg-white/10 transition-colors active:scale-95">
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="glass-card rounded-xl p-5 border border-white/5 hover:border-tertiary/30 transition-all duration-500 group relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/5 rounded-full blur-3xl group-hover:bg-tertiary/10 transition-colors"></div>
+<div class="flex items-start gap-4">
+<div class="relative">
+<div class="hexagon-avatar w-14 h-14 bg-surface-container-highest overflow-hidden p-0.5">
+<img class="w-full h-full object-cover hexagon-avatar" data-alt="Avatar of user Lyra" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAldHS-GFvlI6LGzTULNVmhT-UEaLdQNhETAsEZK389F730n9C0DCoGOBydlKD4xnur50bQuuEoku86ymjHfU0PRj_zwgsYPuF-8puGYgXf40hfp0eKUhfISLgLaDgLKXu3cvuCsRHbDG3anXVoRsSw4hyMdUBZUuJ2m2goaQXCrb1HKKH-AzW6A7CStjL72RSdJMwjg_3-rLP09CT3UC0gS7FLBk_bDf90MuR56FB0A0-fFrWPVpZWDlYEkNjVoe9k01tlV43LLN0"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-tertiary rounded-full border-2 border-background shadow-[0_0_8px_rgba(211,187,255,0.5)]"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg leading-tight">Lyra_Nebula</h3>
+<p class="font-mono text-[10px] text-slate-500 mt-0.5">ID: #VX-4402</p>
+</div>
+<span class="font-mono text-[9px] text-slate-500">5H AGO</span>
+</div>
+<div class="flex gap-2 mt-5">
+<button class="flex-1 py-2 rounded-lg bg-gradient-to-r from-secondary-container to-primary-container text-white font-label text-xs font-bold shadow-[0_0_16px_rgba(0,180,216,0.3)] active:scale-95 transition-transform">
+                                Confirm
+                            </button>
+<button class="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-label text-xs font-medium hover:bg-white/10 transition-colors active:scale-95">
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 3 -->
+<div class="glass-card rounded-xl p-5 border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="relative">
+<div class="hexagon-avatar w-14 h-14 bg-surface-container-highest overflow-hidden p-0.5">
+<img class="w-full h-full object-cover hexagon-avatar" data-alt="Avatar of user Orion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd64OzB-yVsbYwn90lhQ0zeHZU0mJkul7Jg_F7rhRd0oa3649Pbylb1nYYm1dWujt1tJNgQw7bxo5-mUiKQyRZMhoCUZtklC84s-SYrWrVBELGNlwix7MOCCuJ-aR7EOdkZ_9MxRU-vxvORRzdpwGolD4vQIP9lFEey6n5romeMIIhRo6EVI-aeXDU6ttGZGE-FOqyS0mSWcbDa44_GFQ04Ell1lt96biS31NLbopayZCxo3FH9y-3gqhDs59QMxG1Yv9m9kdglPE"/>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg leading-tight">Orion_Pulse</h3>
+<p class="font-mono text-[10px] text-slate-500 mt-0.5">ID: #ZX-1109</p>
+</div>
+<span class="font-mono text-[9px] text-slate-500">YESTERDAY</span>
+</div>
+<div class="flex gap-2 mt-5">
+<button class="flex-1 py-2 rounded-lg bg-gradient-to-r from-secondary-container to-primary-container text-white font-label text-xs font-bold shadow-[0_0_16px_rgba(0,180,216,0.3)] active:scale-95 transition-transform">
+                                Confirm
+                            </button>
+<button class="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-label text-xs font-medium hover:bg-white/10 transition-colors active:scale-95">
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 4 -->
+<div class="glass-card rounded-xl p-5 border border-white/5 hover:border-primary/30 transition-all duration-500 group relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="relative">
+<div class="hexagon-avatar w-14 h-14 bg-surface-container-highest overflow-hidden p-0.5">
+<img class="w-full h-full object-cover hexagon-avatar" data-alt="Avatar of user Nova" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-y1-WYqsk42CBXhAZAa1tvAYUbb6V8_huut3cjmnsL9TvobdoMqQEBATkCaNorBUZA1tFEeb040ZBJuz9r3YgWpWLATjye5mrIpIY7U68lr0c8kLw05pyEGt5sx-sBbrageE0isWn3zZNV-4HBOa74tLmb1qIDG8i6VWvrNz2kIyr9_qFW2DlRLaTVuwWcnzhwBk69F4CZEqZ1__Rcdvn4TsPd1mVcf4z3MJm6hhVvE3tKsLkY0jCLlSzPfzbTHaXuZ9txSRHw8Y"/>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg leading-tight">Nova_System</h3>
+<p class="font-mono text-[10px] text-slate-500 mt-0.5">ID: #NX-8831</p>
+</div>
+<span class="font-mono text-[9px] text-slate-500">YESTERDAY</span>
+</div>
+<div class="flex gap-2 mt-5">
+<button class="flex-1 py-2 rounded-lg bg-gradient-to-r from-secondary-container to-primary-container text-white font-label text-xs font-bold shadow-[0_0_16px_rgba(0,180,216,0.3)] active:scale-95 transition-transform">
+                                Confirm
+                            </button>
+<button class="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-label text-xs font-medium hover:bg-white/10 transition-colors active:scale-95">
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Message / Empty State Hint -->
+<div class="mt-12 p-6 rounded-2xl border-dashed border-2 border-white/5 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-slate-600 mb-2">radar</span>
+<p class="font-mono text-[10px] text-slate-500 uppercase tracking-[0.2em]">End of active validation queue</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#0e1320]/80 backdrop-blur-2xl border-t border-white/5">
+<a class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00B4D8] shadow-[0_0_12px_rgba(0,180,216,0.4)] bg-white/5 rounded-xl p-3 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">Friends</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">Setup</span>
+</a>
+</nav>
+</body></html>
