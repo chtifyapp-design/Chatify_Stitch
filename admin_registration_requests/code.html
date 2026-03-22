@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#4cd6fb",
+              "primary-fixed": "#b3ebff",
+              "on-error": "#690005",
+              "surface-bright": "#343948",
+              "primary-container": "#00b4d8",
+              "on-secondary": "#00287c",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "surface-variant": "#303443",
+              "on-tertiary-container": "#4c00a8",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-error-container": "#ffdad6",
+              "on-background": "#dee2f5",
+              "secondary-container": "#224095",
+              "on-secondary-fixed-variant": "#224095",
+              "background": "#0e1320",
+              "tertiary-fixed": "#ebddff",
+              "inverse-on-surface": "#2b303e",
+              "surface-container": "#1a1f2d",
+              "surface-container-highest": "#303443",
+              "primary": "#4cd6fb",
+              "on-primary-fixed": "#001f27",
+              "tertiary-fixed-dim": "#d3bbff",
+              "on-surface": "#dee2f5",
+              "on-surface-variant": "#bcc9ce",
+              "error-container": "#93000a",
+              "surface-container-lowest": "#090e1b",
+              "outline": "#869398",
+              "on-tertiary": "#3f008d",
+              "on-primary": "#003642",
+              "surface-container-high": "#252a38",
+              "on-primary-fixed-variant": "#004e5f",
+              "on-tertiary-fixed": "#250059",
+              "inverse-primary": "#00677d",
+              "on-secondary-container": "#9db2ff",
+              "error": "#ffb4ab",
+              "on-secondary-fixed": "#00164e",
+              "tertiary": "#d3bbff",
+              "surface": "#0e1320",
+              "tertiary-container": "#b692ff",
+              "surface-container-low": "#161b29",
+              "secondary-fixed": "#dce1ff",
+              "surface-dim": "#0e1320",
+              "secondary": "#b5c4ff",
+              "on-primary-container": "#00414f",
+              "inverse-surface": "#dee2f5",
+              "surface-tint": "#4cd6fb",
+              "outline-variant": "#3d494d"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(24px);
+        }
+        .atithi-gradient {
+            background: linear-gradient(135deg, #6D28D9 0%, #00B4D8 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen overflow-x-hidden">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-[#161b29] dark:bg-slate-900 h-screen w-64 border-r-0 shadow-[4px_0_24px_rgba(0,180,216,0.1)] z-50">
+<div class="p-6">
+<div class="text-2xl font-black text-[#00B4D8] tracking-tighter font-headline">COMMAND_CENTER</div>
+<div class="font-['JetBrains_Mono'] tracking-tight font-bold uppercase text-xs text-slate-400 mt-1">Level_04_Access</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-8">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 transition-colors font-mono text-xs uppercase font-bold" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#00B4D8] bg-[#252a38] rounded-r-full border-l-4 border-[#00B4D8] shadow-[0_0_15px_rgba(0,180,216,0.3)] font-mono text-xs uppercase font-bold" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Requests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 transition-colors font-mono text-xs uppercase font-bold" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>Logs</span>
+</a>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-4">
+<div class="flex items-center gap-3 px-4 text-slate-400 font-mono text-xs uppercase font-bold">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</div>
+<div class="flex items-center gap-3 px-4 text-slate-400 font-mono text-xs uppercase font-bold">
+<span class="material-symbols-outlined">help_center</span>
+<span>Support</span>
+</div>
+<button class="w-full mt-4 py-3 bg-error-container text-white rounded-xl font-mono text-xs font-bold active:scale-95 transition-transform">
+                SYSTEM_SHUTDOWN
+            </button>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-40 bg-[#0e1320]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+<div class="text-lg font-bold text-white tracking-widest font-mono">GALACTIC_OS</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-[#00B4D8] transition-all">notifications_active</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-[#00B4D8] transition-all">sensors</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-[#00B4D8] transition-all">account_circle</span>
+</div>
+<div class="px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-primary font-mono text-[10px] font-bold tracking-tighter shadow-[0_0_10px_rgba(0,180,216,0.1)]">
+                SYSTEM_STATUS:ONLINE
+            </div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 p-8 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Page Header -->
+<div class="mb-12">
+<h1 class="font-headline text-4xl font-extrabold tracking-tighter text-white mb-2 uppercase">Atithi Access Requests</h1>
+<p class="font-mono text-sm text-primary uppercase tracking-widest">Awaiting Command Approval [Priority_Level_High]</p>
+</div>
+<!-- Custom Tabs System -->
+<div class="flex gap-2 mb-10 p-1.5 bg-surface-container-low rounded-xl w-fit">
+<button class="px-8 py-2.5 rounded-lg bg-surface-container-high text-[#00B4D8] font-headline font-bold text-sm shadow-[0_0_15px_rgba(0,180,216,0.1)]">Pending</button>
+<button class="px-8 py-2.5 rounded-lg text-slate-500 font-headline font-bold text-sm hover:text-slate-300 transition-all">Approved</button>
+<button class="px-8 py-2.5 rounded-lg text-slate-500 font-headline font-bold text-sm hover:text-slate-300 transition-all">Rejected</button>
+</div>
+<!-- Bento Grid of Requests -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Request Card 1 -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group border border-white/5 hover:border-primary/20 transition-all duration-500">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex items-start gap-6">
+<!-- Hexagon Avatar -->
+<div class="relative">
+<div class="w-16 h-16 atithi-gradient hexagon-mask p-0.5 shadow-[0_0_15px_rgba(109,40,217,0.4)]">
+<img alt="User Profile" class="w-full h-full hexagon-mask object-cover bg-surface" data-alt="High tech neon profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHvAEjLRq29e-3RnR9BhWtwSwa0ZPilHjMmmNAxfpybk6Guiv97i0bdRXKeq8KoqONwPLwhjel7YtsWTCtgHHZ7MBVXDI6suVmq61JdZvGgh7SxE52RXeP3KnjpjwuZfKOoS49RI9CywpSibI6rUNHTbiAb6R4KG9H_UEKZqhSUSuMAQKqAwg004N8LP7W628ekyEHTvV0v572RkcE5GOicJjOGqh6iCrGyTQFjFfyaWbpatOSgbUoZzCFXZluxkPqgHzFe1pghC0"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full border-2 border-background flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-primary font-bold">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline font-bold text-xl tracking-tight">Kaelen_V01</h3>
+<p class="font-mono text-xs text-slate-500">ID: 992-00-XP4</p>
+</div>
+<div class="font-mono text-[10px] text-primary/60 bg-primary/5 px-2 py-1 rounded">2m ago</div>
+</div>
+<div class="mt-4 p-4 bg-surface-container-lowest/50 rounded-lg border border-white/5">
+<p class="text-slate-300 text-sm leading-relaxed">
+                                    "Requesting Atithi clearance for high-bandwidth neural link simulations. Verified identity token attached. Need access to Layer_04 channels."
+                                </p>
+</div>
+<div class="mt-6 flex gap-4">
+<button class="flex-1 py-3 atithi-gradient rounded-xl text-white font-mono text-xs font-black tracking-widest hover:shadow-[0_0_20px_rgba(0,180,216,0.4)] transition-all">
+                                    APPROVE_ACCESS
+                                </button>
+<button class="flex-1 py-3 bg-gradient-to-r from-error-container to-error/20 rounded-xl text-white font-mono text-xs font-black tracking-widest hover:shadow-[0_0_20px_rgba(147,0,10,0.4)] transition-all">
+                                    REJECT_REQUEST
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group border border-white/5 hover:border-primary/20 transition-all duration-500">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors"></div>
+<div class="flex items-start gap-6">
+<!-- Hexagon Avatar -->
+<div class="relative">
+<div class="w-16 h-16 atithi-gradient hexagon-mask p-0.5 shadow-[0_0_15px_rgba(109,40,217,0.4)]">
+<img alt="User Profile" class="w-full h-full hexagon-mask object-cover bg-surface" data-alt="Futuristic man in digital clothing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeHuvf8fr1CwedmJkGejDqwE1RIbbXf4GbVwDqSzOlW4rzQDw6udw99fFk-im6FueCVGD3h0SYCeZKOE7vjlEVdgocdku6rEswBDdkIuelMl_tj6axsMNcaa0DgjfXmTw3CeqMzoXf30GEUYGg90nu1h2FYYkvdS37IXlnGBqIrWDeGKzKPQS-8DTJLfynTATAz_NIJ3usFJ9IgsOAknr_IUHAucN73GKUoum4XReVGVJ6FYIQDJQND-7d1IXTzKmbMfnX8WBjh2M"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full border-2 border-background flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-primary font-bold">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline font-bold text-xl tracking-tight">Xander_Flux</h3>
+<p class="font-mono text-xs text-slate-500">ID: 441-22-LK9</p>
+</div>
+<div class="font-mono text-[10px] text-primary/60 bg-primary/5 px-2 py-1 rounded">15m ago</div>
+</div>
+<div class="mt-4 p-4 bg-surface-container-lowest/50 rounded-lg border border-white/5">
+<p class="text-slate-300 text-sm leading-relaxed">
+                                    "Transfer from Sector 7. Former administrative overseer requesting elevation to Atithi status for encrypted data auditing."
+                                </p>
+</div>
+<div class="mt-6 flex gap-4">
+<button class="flex-1 py-3 atithi-gradient rounded-xl text-white font-mono text-xs font-black tracking-widest hover:shadow-[0_0_20px_rgba(0,180,216,0.4)] transition-all">
+                                    APPROVE_ACCESS
+                                </button>
+<button class="flex-1 py-3 bg-gradient-to-r from-error-container to-error/20 rounded-xl text-white font-mono text-xs font-black tracking-widest hover:shadow-[0_0_20px_rgba(147,0,10,0.4)] transition-all">
+                                    REJECT_REQUEST
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 3 -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group border border-white/5 hover:border-primary/20 transition-all duration-500 lg:col-span-2">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+<div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+<!-- Hexagon Avatar Large -->
+<div class="relative shrink-0">
+<div class="w-32 h-32 atithi-gradient hexagon-mask p-1 shadow-[0_0_30px_rgba(109,40,217,0.5)]">
+<img alt="User Profile" class="w-full h-full hexagon-mask object-cover bg-surface" data-alt="Advanced human interface portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_EZLphNLepXGtOaXWPbifs7UYq369kg7k0NGbfnEwwgqJg4nSeAt5P8PC5jqtcWeEdSVo-GOqrLpiSPRgK49-dtU9kztrrrBA8qgmxnX60_mjXUsmOZTyEKG-gjBG7RJp5yLjRZ_mlPnMbm9PE10fQcXjhTI8x0QP-73pihjfgBD7E2dkjmOjipwU13TNrjTXD3H9NYR0krZ6CPAY4kiTsH4uS8O7coZO1KS_GLQjDOq_AaiicDt6gcaMoVtLCdelNY_0TS6LHpY"/>
+</div>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 bg-tertiary-container rounded-full border-4 border-background flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container font-bold">star</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div>
+<h3 class="text-white font-headline text-3xl font-black tracking-tighter uppercase">Nova_Prime_System</h3>
+<div class="flex items-center gap-3 mt-1">
+<span class="font-mono text-xs text-slate-500">ID: ALPHA-001-CORE</span>
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-mono text-[10px] rounded border border-tertiary/20">LEGACY_USER</span>
+</div>
+</div>
+<div class="font-mono text-xs text-primary/60 bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">Received: 10:42 UTC</div>
+</div>
+<div class="mt-6 p-6 bg-surface-container-lowest/80 rounded-2xl border border-white/5 relative">
+<div class="absolute top-4 left-4 text-primary opacity-20"><span class="material-symbols-outlined text-4xl">format_quote</span></div>
+<p class="text-slate-200 text-lg font-light italic leading-relaxed relative z-10 px-8">
+                                    "I have overseen the Chatify neural networks since the initial launch. My request for Atithi registration is not just a preference, but a systemic necessity for maintaining the deep-space logic gates. Please expedite."
+                                </p>
+</div>
+<div class="mt-8 flex flex-wrap gap-4">
+<button class="px-12 py-4 atithi-gradient rounded-xl text-white font-mono text-sm font-black tracking-[0.2em] hover:shadow-[0_0_30px_rgba(0,180,216,0.5)] transition-all active:scale-95">
+                                    APPROVE_ACCESS
+                                </button>
+<button class="px-12 py-4 bg-gradient-to-r from-error-container to-error/20 rounded-xl text-white font-mono text-sm font-black tracking-[0.2em] hover:shadow-[0_0_30px_rgba(147,0,10,0.5)] transition-all active:scale-95">
+                                    REJECT_REQUEST
+                                </button>
+<button class="px-6 py-4 glass-card border border-white/10 text-slate-400 rounded-xl font-mono text-sm font-bold hover:text-white transition-all">
+                                    VIEW_DOSSIER
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta Info -->
+<div class="mt-12 flex justify-between items-center border-t border-white/5 pt-8">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">Active Monitoring: 3 Pending Objects</span>
+</div>
+<div class="font-mono text-[10px] text-slate-500">
+                    GALACTIC_OS v.4.0.2 // ENCRYPTION_AES_256
+                </div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only for Home/Dashboard, so we hide here per rules) -->
+<!-- SUPPRESSED -->
+</body></html>

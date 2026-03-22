@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nebula Network - Sent Requests</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#1a1f2d",
+                        "background": "#0e1320",
+                        "secondary-container": "#224095",
+                        "surface-bright": "#343948",
+                        "surface": "#0e1320",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#224095",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#b692ff",
+                        "outline": "#869398",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#d3bbff",
+                        "tertiary-fixed": "#ebddff",
+                        "primary-fixed": "#b3ebff",
+                        "on-secondary-container": "#9db2ff",
+                        "inverse-surface": "#dee2f5",
+                        "error": "#ffb4ab",
+                        "on-primary": "#003642",
+                        "surface-variant": "#303443",
+                        "primary-fixed-dim": "#4cd6fb",
+                        "on-secondary": "#00287c",
+                        "surface-container-highest": "#303443",
+                        "on-surface-variant": "#bcc9ce",
+                        "surface-dim": "#0e1320",
+                        "secondary-fixed": "#dce1ff",
+                        "on-tertiary": "#3f008d",
+                        "on-background": "#dee2f5",
+                        "on-tertiary-container": "#4c00a8",
+                        "surface-container-high": "#252a38",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "on-primary-fixed": "#001f27",
+                        "on-surface": "#dee2f5",
+                        "tertiary": "#d3bbff",
+                        "primary": "#4cd6fb",
+                        "on-tertiary-fixed-variant": "#5b00c5",
+                        "on-secondary-fixed": "#00164e",
+                        "outline-variant": "#3d494d",
+                        "inverse-primary": "#00677d",
+                        "secondary": "#b5c4ff",
+                        "primary-container": "#00b4d8",
+                        "on-tertiary-fixed": "#250059",
+                        "surface-container-low": "#161b29",
+                        "on-primary-container": "#00414f",
+                        "surface-container-lowest": "#090e1b",
+                        "surface-tint": "#4cd6fb",
+                        "inverse-on-surface": "#2b303e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(15, 24, 40, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hexagon-mask {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#0e1320] dark:bg-[#0e1320] shadow-[0_0_16px_rgba(0,180,216,0.15)]">
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-xl hover:bg-white/5 transition-all duration-300 active:scale-95 text-[#00B4D8]">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tighter text-[#00B4D8] font-['Space_Grotesk']">NEBULA_NETWORK</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="User avatar profile picture circular placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEYYm1zliCFGrcGNQzK4SU1TueVwnoYZ4bgEktT2S3Qdiar9JWmwGyiHuJw73NSeOO_xmDafM0p7fzV6ihCnWtdbETzvr2Z5ejnghSgwBlD-o9R07wjW1LdLC3mJFLX51994tRNTQy8wJsI09-GKi48g4Q0qyLFyan5fzgOMbLWHxpb8eHFoG27giQUyPt-WyRLn2hJ-1Grz5s608xiOjcIhzuQ1GIEfG2yE3Ju1VXaT-sr2xizKh-tusVEYDQ8A7nf2Eze37PoJg"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#00B4D8]/10 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-4xl mx-auto">
+<!-- Sub-navigation Tabs -->
+<div class="flex items-center gap-1 p-1 bg-surface-container-low rounded-xl mb-8 w-fit mx-auto border border-outline-variant/10">
+<button class="px-6 py-2 rounded-lg font-headline text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors">
+                Accepted
+            </button>
+<button class="px-6 py-2 rounded-lg font-headline text-sm font-bold bg-primary/10 text-primary shadow-[0_0_12px_rgba(0,180,216,0.2)]">
+                Sent
+            </button>
+<button class="px-6 py-2 rounded-lg font-headline text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors">
+                Recieved
+            </button>
+</div>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline text-2xl font-bold tracking-tight text-on-background">
+                Outgoing Requests <span class="text-primary font-mono text-sm ml-2 opacity-60">[04]</span>
+</h2>
+</div>
+<!-- Request Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all duration-300 group">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 bg-surface-container-highest hexagon-mask p-[2px]">
+<img alt="Profile" class="w-full h-full object-cover hexagon-mask" data-alt="High tech abstract avatar of a user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDynu9vmK36I-RSLhtucjch-MOA4UWOcyDECRqLJlFTJAb_AS1sdEmoQxbW6F32Nmjhs9i97PqNVGxDr3VbU-rcS98YW60IGW-ZPLeij1A58cl6ijcPArelY3h2hJLhKzGfyqBno8DalaxmXhQcTjXiK2Fkvb0QRG0XHnMSwcXDTFL8lbFJWmTHRyge2XxlgnqRNKgagerRsUJ_72Qa8Q42nXxB-s8MwoOuYT2O_o8kptHAtTTBOczPRkIS-nBL69cMeeRmvJBLneo"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-amber-500/20 border border-amber-500/40 rounded-full p-1 shadow-[0_0_8px_rgba(245,158,11,0.3)]">
+<span class="material-symbols-outlined text-[14px] text-amber-500" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+</div>
+<div>
+<div class="font-headline font-bold text-on-surface">ZEPHYR_X</div>
+<div class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">ID: 992-044-B</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-mono bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded border border-amber-500/20">PENDING</span>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-error/20 bg-error/5 hover:bg-error/10 text-error text-sm font-medium transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">close</span>
+                        Cancel
+                    </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all duration-300 group">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 bg-surface-container-highest hexagon-mask p-[2px]">
+<img alt="Profile" class="w-full h-full object-cover hexagon-mask" data-alt="Abstract gradient user portrait in tech frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsyxCVoHe07MVPcYYQkUeY3GJJGqhAWYSq7mZTdkUqYw_A-l6z1z1RqtU4CQv2t3L1uFxMwMkaji2zp2JNm-jvk7lULsZT5FCANAKzBzZagAZG28GdUDlkgfx-_JraAtod8FrOU_OFVAJ2bvI_nhRDZgwdSwEXBG682_LyEWhyk5smEmkSraKoGyMVdXgRknrvWMaFNlr7ZhI-mbJpQt7e8dngivZbIPPWQuibKu9OOC1EEWPAoCNfI4LMbH2XkuJfbLoCpozyPIU"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-amber-500/20 border border-amber-500/40 rounded-full p-1">
+<span class="material-symbols-outlined text-[14px] text-amber-500" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+</div>
+<div>
+<div class="font-headline font-bold text-on-surface">NOVA_VOYAGER</div>
+<div class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">ID: 112-884-C</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-mono bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded border border-amber-500/20">PENDING</span>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-error/20 bg-error/5 hover:bg-error/10 text-error text-sm font-medium transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">close</span>
+                        Cancel
+                    </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all duration-300 group">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 bg-surface-container-highest hexagon-mask p-[2px]">
+<img alt="Profile" class="w-full h-full object-cover hexagon-mask" data-alt="Cybernetic stylized profile icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqO4LOKiZsIR48CPRHGx4W4M4HiECCeCVOFmhIFb3A5vOwIfT1yW36rqMwW3Sjd7BtTmWo612L3oJ05vwjHyWzkphDHy5PcyvlYNDy8ICDcNF7_5dGb5kUffq_RIlekoHUVlS1-vhXBPrAMO6ifftcjmDMsCR1Qmcf6FvzsVLPIbF87yZNlrCH4-PTRthxzHPLgVO1MIOAkXT9aUzh-j9mFwy09_zGHd_NYGT2W6NuNl8tk9C129uSmGKz2jJOEd2_ZKIZxrDFuvQ"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-amber-500/20 border border-amber-500/40 rounded-full p-1">
+<span class="material-symbols-outlined text-[14px] text-amber-500" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+</div>
+<div>
+<div class="font-headline font-bold text-on-surface">COSMIC_STORM</div>
+<div class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">ID: 440-201-A</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-mono bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded border border-amber-500/20">PENDING</span>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-error/20 bg-error/5 hover:bg-error/10 text-error text-sm font-medium transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">close</span>
+                        Cancel
+                    </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 hover:border-primary/20 transition-all duration-300 group">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 bg-surface-container-highest hexagon-mask p-[2px]">
+<img alt="Profile" class="w-full h-full object-cover hexagon-mask" data-alt="Futuristic neon face illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr870DdeGG209T4mtibaRXdAKMVI3wTeNwbWsPUb9dBgGSZx4bByDuJnA5xIY7qAH9zjRZ3QVXpZy2naxxPRd4DviTP-jkJq-CzV1FYAfJPffgJb5dFRVqTz1yWhm5LFdVO_T-IQOoA6wFXUX6Ml2tDYfmQMhmUQ8rg9_muA5i8idpKYlLmnveYkcU5_nY99X6uicJMniUMNp0UPpVhVx3RSiUF74QspP9FeIAKorUjDZ30VFAxRzrj1X_KSrgPO8nh69_D_uhSKA"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-amber-500/20 border border-amber-500/40 rounded-full p-1">
+<span class="material-symbols-outlined text-[14px] text-amber-500" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+</div>
+<div>
+<div class="font-headline font-bold text-on-surface">LYRA_SYSTEM</div>
+<div class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">ID: 009-511-Z</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-mono bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded border border-amber-500/20">PENDING</span>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-error/20 bg-error/5 hover:bg-error/10 text-error text-sm font-medium transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">close</span>
+                        Cancel
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#0e1320]/80 backdrop-blur-2xl border-t border-white/5">
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#00B4D8] shadow-[0_0_12px_rgba(0,180,216,0.4)] bg-white/5 rounded-xl p-3 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Friends</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 p-3 hover:text-[#6D28D9] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest mt-1">Settings</span>
+</button>
+</nav>
+</body></html>

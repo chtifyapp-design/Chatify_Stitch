@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chatify - Chats</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#4c00a8",
+              "on-tertiary": "#3f008d",
+              "on-surface-variant": "#bcc9ce",
+              "surface-container-highest": "#303443",
+              "surface-dim": "#0e1320",
+              "on-secondary-fixed-variant": "#224095",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "outline": "#869398",
+              "tertiary": "#d3bbff",
+              "on-surface": "#dee2f5",
+              "surface-container-high": "#252a38",
+              "on-background": "#dee2f5",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed-dim": "#b5c4ff",
+              "on-secondary": "#00287c",
+              "surface-container": "#1a1f2d",
+              "on-secondary-fixed": "#00164e",
+              "on-primary-container": "#00414f",
+              "primary": "#4cd6fb",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-primary": "#003642",
+              "surface-container-low": "#161b29",
+              "tertiary-fixed": "#ebddff",
+              "surface-container-lowest": "#090e1b",
+              "on-error": "#690005",
+              "surface-tint": "#4cd6fb",
+              "primary-container": "#00b4d8",
+              "on-primary-fixed": "#001f27",
+              "on-secondary-container": "#9db2ff",
+              "on-tertiary-fixed": "#250059",
+              "surface-variant": "#303443",
+              "secondary-fixed": "#dce1ff",
+              "surface": "#0e1320",
+              "inverse-surface": "#dee2f5",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-primary-fixed-variant": "#004e5f",
+              "inverse-primary": "#00677d",
+              "inverse-on-surface": "#2b303e",
+              "tertiary-container": "#b692ff",
+              "on-error-container": "#ffdad6",
+              "outline-variant": "#3d494d",
+              "secondary-container": "#224095",
+              "secondary": "#b5c4ff",
+              "primary-fixed": "#b3ebff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(24px);
+      }
+      .waveform-bar {
+        width: 2px;
+        background: #00B4D8;
+        border-radius: 1px;
+      }
+      .typing-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #4cd6fb;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container antialiased">
+<!-- Top Navigation Anchor -->
+<header class="bg-[#0e1320] flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl overflow-hidden shadow-[0_0_16px_rgba(0,180,216,0.3)]">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up of a professional male portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfPa6Al2yNEdUK1VyIJjW9-CXHfVhjzfGHrhLaDWzb66saaAmv-YMdCdpakev14fUPVYnHOZTTt-VAzpT6HG9Se-LkoGIIlHio7iQKvij8aFvElwWaXsW5gCXc8pFEXrm_mhLUhr2dUuRX5hPqerk5piabeUccPKw6RNbT0NWAgQU6ItIjs0h1O5La8MdajwvzGFDrclb1sy0kr7mPX0sYvmJvJZVzxGzXYJG82GmhppyE_93WfcHpIH6fOvQt3CAavPLLV5tjN6I"/>
+</div>
+<h1 class="text-2xl font-['Space_Grotesk'] font-bold tracking-tight text-[#00B4D8]">Chats</h1>
+</div>
+<button class="text-slate-400 hover:opacity-80 transition-opacity duration-200 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="bg-gradient-to-b from-transparent to-[#161b29] h-px w-full absolute bottom-0 left-0"></div>
+</header>
+<main class="pt-24 pb-32 px-4 max-w-[390px] mx-auto min-h-screen">
+<!-- Search Bar -->
+<div class="mb-6">
+<div class="glass-card rounded-xl px-4 py-3 flex items-center gap-3 outline outline-1 outline-outline-variant/20 focus-within:outline-primary transition-all">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline/50 font-label" placeholder="Search transmissions..." type="text"/>
+</div>
+</div>
+<!-- Filter Pills -->
+<div class="flex gap-2 mb-8 overflow-x-auto no-scrollbar">
+<button class="px-4 py-1.5 rounded-xl text-xs font-semibold bg-primary-container text-on-primary-container whitespace-nowrap shadow-[0_0_16px_rgba(0,180,216,0.3)]">All</button>
+<button class="px-4 py-1.5 rounded-xl text-xs font-semibold glass-card text-on-surface-variant outline outline-1 outline-outline-variant/15 whitespace-nowrap">Unread</button>
+<button class="px-4 py-1.5 rounded-xl text-xs font-semibold glass-card text-on-surface-variant outline outline-1 outline-outline-variant/15 whitespace-nowrap">Voice</button>
+<button class="px-4 py-1.5 rounded-xl text-xs font-semibold glass-card text-on-surface-variant outline outline-1 outline-outline-variant/15 whitespace-nowrap">Groups</button>
+</div>
+<!-- Chat List -->
+<div class="space-y-6">
+<!-- Chat Item: Online + Typing -->
+<div class="flex items-center gap-4 group">
+<div class="relative">
+<div class="w-12 h-12 rounded-xl overflow-hidden outline outline-2 outline-primary/20">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Modern portrait of a woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhUy0z0JaQWh2LUorimKQS5JyRl-DORNlOi2yxidraINByRt5gxVA_pI__AaSArhy92AsGO9r0nBF1AS6QHx_f-kiXbJWpKByoWGPJzm9PJ78xoMjGYYHjgwhMom4uDLRIR-JKk2asWqgotl5yJxPy8FiDizCNk4yCpOHPu0kY0I_28XYqbKotZdRrlTv9_y6br3B6mVplhcthM8uMcE3FkltoRqTRkIthoYG6-tVzBdY0yr8ECDphxkdyh86eBArJDUlBBlB1KEU"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-dim shadow-[0_0_8px_rgba(76,214,251,0.6)]"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h3 class="font-semibold text-on-surface truncate">Nova Vance</h3>
+<span class="font-mono text-[10px] text-primary">09:41</span>
+</div>
+<div class="flex items-center gap-1.5 h-5">
+<div class="flex gap-1">
+<div class="typing-dot animate-pulse"></div>
+<div class="typing-dot animate-pulse delay-75"></div>
+<div class="typing-dot animate-pulse delay-150"></div>
+</div>
+<p class="text-xs text-primary/80 font-medium">typing...</p>
+</div>
+</div>
+</div>
+<!-- Chat Item: Unread + Text -->
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-xl overflow-hidden grayscale">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Portrait of a man with minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKBimdSp_U9ylgOQ2lLIYp3gQVGXANV5grH6UBZAk8mirLVBjzcjpkGXvdmQSwTqNpMnnOi1ozcyu4mHv_DCDU4Tf4SZVQumqdKeJ8yQ6suMsamK97HYHv-1LANKeSnu1kumMExiTMQtkZAY2rEkZrcqfo1b91MOyTy3JkYnRmNzPQbh7jS_qdZNsG6mFUrIuprseQc-s54yfzDtTHvToS20KrGk4BeR5G8LYt1luUVK0SPeyit2J_bvX4pDJ5R3VP2RCFrMJZz0"/>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h3 class="font-semibold text-on-surface truncate">Command Center</h3>
+<span class="font-mono text-[10px] text-outline">08:24</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-xs text-on-surface-variant truncate">Sector 7 reports are clear. Awaiting further commands.</p>
+<div class="ml-2 px-1.5 py-0.5 bg-primary-container text-on-primary-container text-[10px] font-bold rounded-full min-w-[18px] text-center shadow-[0_0_8px_rgba(0,180,216,0.4)]">3</div>
+</div>
+</div>
+</div>
+<!-- Chat Item: Voice Preview -->
+<div class="flex items-center gap-4">
+<div class="relative">
+<!-- Hexagon Frame for VIP -->
+<div class="w-12 h-12 bg-primary-container flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+<img alt="VIP Avatar" class="w-[90%] h-[90%] object-cover" data-alt="Portrait of a stylized tech professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO0exjSdS--SXVUe-SbfZdfyBSnhEWyb2GH2xZ-qufT7_pbf0QEuFUW2gbKRCNiM3YB8lWHC9-1S3bfmIWuaLSm-gkibe4bl5dVJEFHlZypWO23doljFdoQoSHdxIb1LL1mlx4B6Q2bcRnXjP7oUH8azChcZ1vOGQBBZweemGR97mJFveuS-zewRO2XuArJ3xgrxXYMY71Q8QFjKrLZVKzgrdJeq4dF2ImtttVKHQCk4qUQcOnxhQT8D-EE_UAsywoQXHXSqfRc9Q" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"/>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-semibold text-on-surface truncate">Atithi Prime</h3>
+<span class="font-mono text-[10px] text-outline">04:12</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+<div class="flex items-end gap-[2px] h-4">
+<div class="waveform-bar h-1"></div>
+<div class="waveform-bar h-3"></div>
+<div class="waveform-bar h-2"></div>
+<div class="waveform-bar h-4"></div>
+<div class="waveform-bar h-2.5"></div>
+<div class="waveform-bar h-1.5"></div>
+<div class="waveform-bar h-3"></div>
+<div class="waveform-bar h-1"></div>
+</div>
+<span class="text-[10px] text-outline font-mono">0:42</span>
+</div>
+</div>
+</div>
+<!-- Chat Item: Simple Text -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl overflow-hidden opacity-80">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Candid portrait of a young creative professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5dbPVpg0gnW-Y3_Cna4RF6qccl2XtcW1LNy3GJRFSQ1VLQwslzlovp7sat1dSYC0R9PZki1lSZjskg6gWtZwEJ92rZTKTHn8drsO8WjEM0Oi2VvPg6pHf2nc5B7mGNnGBt9cdzH00TQRFE1jXxd807erI7JwaUiDjRRuiSZprV4oRWLV0dPIv6hE-R7pwJ3JtYt5BnxpI6Ouyi5couoTMxY0HkmRIpHFSCZT1w4c4CSZsOjZ9PcCDgOr-hjGzvlXQyFuH6eT0lts"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h3 class="font-semibold text-on-surface truncate">Lyra Belacqua</h3>
+<span class="font-mono text-[10px] text-outline">Yesterday</span>
+</div>
+<p class="text-xs text-outline truncate">Did you see the latest transmission from the nebula?</p>
+</div>
+</div>
+<!-- Chat Item: Group -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center outline outline-1 outline-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary" data-icon="groups">groups</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-0.5">
+<h3 class="font-semibold text-on-surface truncate">The High Council</h3>
+<span class="font-mono text-[10px] text-outline">Sat</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate"><span class="text-tertiary font-medium">Xen:</span> The meeting has been postponed.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB: New Chat -->
+<button class="fixed bottom-28 right-6 w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1A3A8F] to-[#00B4D8] text-white shadow-[0_0_24px_rgba(0,180,216,0.5)] flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#161b29]/80 backdrop-blur-3xl border-t border-white/5 rounded-t-[16px] shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#00B4D8] drop-shadow-[0_0_8px_rgba(0,180,216,0.5)]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider font-bold">Chats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="amp_stories">amp_stories</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider">Stories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="movie">movie</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider">Cinema</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="lock">lock</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

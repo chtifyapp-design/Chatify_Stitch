@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Watch Cinema - Chatify</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#00b4d8",
+              "surface": "#0e1320",
+              "surface-container-high": "#252a38",
+              "surface-variant": "#303443",
+              "on-surface-variant": "#bcc9ce",
+              "on-tertiary-fixed-variant": "#5b00c5",
+              "secondary-fixed": "#dce1ff",
+              "error": "#ffb4ab",
+              "outline": "#869398",
+              "on-tertiary-fixed": "#250059",
+              "on-secondary-fixed": "#00164e",
+              "outline-variant": "#3d494d",
+              "surface-container-low": "#161b29",
+              "inverse-on-surface": "#2b303e",
+              "error-container": "#93000a",
+              "tertiary": "#d3bbff",
+              "secondary-fixed-dim": "#b5c4ff",
+              "inverse-primary": "#00677d",
+              "primary-fixed": "#b3ebff",
+              "on-tertiary": "#3f008d",
+              "secondary": "#b5c4ff",
+              "on-primary": "#003642",
+              "on-primary-fixed-variant": "#004e5f",
+              "surface-container": "#1a1f2d",
+              "on-error-container": "#ffdad6",
+              "surface-dim": "#0e1320",
+              "on-primary-container": "#00414f",
+              "tertiary-fixed-dim": "#d3bbff",
+              "surface-container-highest": "#303443",
+              "surface-bright": "#343948",
+              "background": "#0e1320",
+              "on-primary-fixed": "#001f27",
+              "surface-tint": "#4cd6fb",
+              "inverse-surface": "#dee2f5",
+              "tertiary-fixed": "#ebddff",
+              "primary": "#4cd6fb",
+              "on-background": "#dee2f5",
+              "on-secondary-fixed-variant": "#224095",
+              "on-secondary-container": "#9db2ff",
+              "surface-container-lowest": "#090e1b",
+              "secondary-container": "#224095",
+              "on-secondary": "#00287c",
+              "primary-fixed-dim": "#4cd6fb",
+              "on-tertiary-container": "#4c00a8",
+              "on-surface": "#dee2f5",
+              "tertiary-container": "#b692ff",
+              "on-error": "#690005"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+      .glow-primary {
+        box-shadow: 0 0 16px rgba(0, 180, 216, 0.3);
+      }
+      .hexagon-clip {
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen overflow-hidden selection:bg-primary/30">
+<!-- Video Canvas Layer -->
+<div class="fixed inset-0 z-0 bg-surface-container-lowest">
+<div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+<!-- Simulated Video Frame -->
+<img alt="Cinematic space nebula and stars background" class="w-full h-full object-cover opacity-80" data-alt="Cinematic high resolution view of a nebula in space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqTfi5DI4UzOlhZpcB0hJnEoux3sPdambZkPSIy-QrtaF6cPHU-q2dZAvf1yIADitj1IKmLQOGVeINtRFLhFW22X2ojLaoHC9lW4b6gwYy87cGALtPzpBKWdoXUWGcrISaYmdELg2CLdhFRogahh3UzzaRXXGCGeW-9jCYYR0TeECeljkwZiE3E8PiieHkUk3Qs4--Upkph9EHxhyN4Rs5VgIrup5z33qm6E3tmee91mx06B5BKb2ac0z4w5i77QjhBwiSVpjA9MM"/>
+<!-- Video UI Overlays -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/40"></div>
+<!-- Playback Controls (Center) -->
+<div class="absolute inset-0 flex items-center justify-center gap-12 group">
+<button class="w-16 h-16 rounded-full glass-panel flex items-center justify-center border border-white/5 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-4xl text-on-surface">fast_rewind</span>
+</button>
+<button class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center glow-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-5xl text-on-primary" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="w-16 h-16 rounded-full glass-panel flex items-center justify-center border border-white/5 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-4xl text-on-surface">fast_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Top Navigation Shell (Shared TopAppBar Context) -->
+<header class="fixed top-0 left-0 w-full z-40">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center border border-white/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg tracking-tight text-white">Cinema</span>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary-container">Live Sync</span>
+</div>
+</div>
+</div>
+<!-- Sync Badge -->
+<div class="flex items-center gap-3 bg-surface-container-high/60 backdrop-blur-xl px-4 py-2 rounded-full border border-white/5 glow-primary">
+<div class="w-6 h-6 hexagon-clip bg-gradient-to-br from-tertiary to-primary-container p-0.5">
+<div class="w-full h-full hexagon-clip bg-surface overflow-hidden">
+<img alt="Friend avatar" class="w-full h-full object-cover" data-alt="User profile portrait for sync session" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv52w2gLQQypzP7VBr8DLsp3rR52moOEsg2TOTJZVRvicnfZQ7fTJkCOP9oNkv_Sg9p2Pk_kyjjOfthHVvIAflOaYDRVFOsFdhXwB74TR2nsIwxnfZw0nk2O8ocv1G0YwpOL__Hs7CcFCXay8wmE9v6ASzetXKdqoVaUxlkLnk3o93aQa_Xk4iSetc3JbA4Y_dIxGTXhWgL3yPVNRUMonILyZmnvFMP31PxvHE1bKaNm_9SlmWAjIe6YabZYYrpxejQX89tTInpNA"/>
+</div>
+</div>
+<span class="font-mono text-[11px] font-medium text-white">Synced with Alex</span>
+</div>
+</div>
+<!-- Source Tabs (Custom Context Component) -->
+<div class="flex justify-center mt-2 px-6">
+<div class="flex p-1 gap-1 glass-panel rounded-xl border border-white/5">
+<button class="px-5 py-1.5 rounded-lg bg-primary/10 text-primary font-label text-xs font-semibold shadow-[0_0_8px_rgba(0,180,216,0.2)] border border-primary/20">YouTube</button>
+<button class="px-5 py-1.5 rounded-lg text-slate-400 font-label text-xs font-medium hover:text-white transition-colors">URL</button>
+<button class="px-5 py-1.5 rounded-lg text-slate-400 font-label text-xs font-medium hover:text-white transition-colors">Device</button>
+</div>
+</div>
+</header>
+<!-- PiP Camera (Friend View) -->
+<div class="fixed top-32 right-6 z-30">
+<div class="relative w-32 h-44 rounded-2xl overflow-hidden border-2 border-primary/40 glow-primary shadow-2xl">
+<img alt="Friend PiP camera feed" class="w-full h-full object-cover" data-alt="Friend sitting in front of a computer screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmqcwlbcaU_OQIfpPXXal99TxjBEE98uM_4yBxDbFrvK_BlPhuSPnky3De6oHWY_0wG2S4QNARa-wIAkZY0aqwl51TDPAIS1XprphPE7W7JDwuYeGnN4aOR6ZtpzuR1gaCRpib6UMQKOnOpSIVHD-3oNmzbOmZnVdktMLNZVoXeXK4XawL4w062unE1LNbgDeG2aheEDc_Ccg75qNvG2go0ZmKW5p2PzXImqxFjZnHXu1ao8PyGazjpXp19VDVQGXe8_CA-sf3ynM"/>
+<div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[9px] font-mono text-white/80">ALEX_LIVE</div>
+<div class="absolute top-2 right-2 flex gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="fixed bottom-[320px] left-0 w-full px-6 z-30">
+<div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden relative group cursor-pointer">
+<div class="absolute top-0 left-0 h-full w-[45%] bg-gradient-to-r from-primary to-primary-container glow-primary rounded-full"></div>
+<div class="absolute top-1/2 left-[45%] -translate-y-1/2 w-4 h-4 bg-white rounded-full border-4 border-primary shadow-lg hidden group-hover:block"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-mono text-[10px] text-slate-500">24:12</span>
+<span class="font-mono text-[10px] text-slate-500">58:00</span>
+</div>
+</div>
+<!-- Slide-up Chat Drawer -->
+<div class="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-white/10 rounded-t-[32px] h-[300px] flex flex-col">
+<!-- Drawer Handle -->
+<div class="w-full py-3 flex justify-center">
+<div class="w-12 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto px-6 py-2 space-y-4">
+<!-- System Message -->
+<div class="flex justify-center">
+<span class="bg-surface-container-high/40 px-3 py-1 rounded-full text-[10px] font-mono text-slate-500 uppercase tracking-tighter">Sync stabilized at 12ms</span>
+</div>
+<!-- Message (Friend) -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="w-8 h-8 hexagon-clip bg-surface-container-high shrink-0 overflow-hidden">
+<img alt="Alex avatar" class="w-full h-full object-cover" data-alt="Male avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUFrEQfW_NmHRIpKtvmj9GpL6uPua5KrpUF3FvfHVXVvPD3tbh77zPeqBGK5A99xuadmO7UK6de9Mbn8X86Efy9xWkAndoUyw5Tuibd52IjsGmlLRIo4uK41h6LCvJziq1XPed9Aenykang6xYO-BrP7b8cEAF8IZZa-Qommy388w3sjRA2yHopUrOnHdYyrdnFHyzkd0WlSYjjv-vhGr03T82-AJ2-9MfcuUF2n_b_uDKpa0KQ6ZisaFzagWfVyGwLzx4-Pxu3T4"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-surface-container-high text-white text-sm px-4 py-2.5 rounded-2xl rounded-bl-none border-l-2 border-primary/30">
+                        This sequence is absolutely mind-blowing! The visuals... 🤯
+                    </div>
+<span class="font-mono text-[9px] text-slate-600 self-start">ALEX • 22:45</span>
+</div>
+</div>
+<!-- Message (Self) -->
+<div class="flex items-end gap-3 max-w-[85%] self-end flex-row-reverse">
+<div class="w-8 h-8 rounded-xl bg-primary-container shrink-0 flex items-center justify-center font-bold text-on-primary text-xs">ME</div>
+<div class="flex flex-col gap-1 items-end">
+<div class="bg-primary/10 text-primary-fixed-dim text-sm px-4 py-2.5 rounded-2xl rounded-br-none border border-primary/20 glow-primary">
+                        Wait until the soundtrack drops at 25:00!
+                    </div>
+<span class="font-mono text-[9px] text-primary/40">SENT • 22:46</span>
+</div>
+</div>
+</div>
+<!-- Input Terminal -->
+<div class="px-6 pb-8 pt-4">
+<div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-2 focus-within:border-primary/50 transition-colors">
+<button class="text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-600 text-white font-body" placeholder="Transmit thought..." type="text"/>
+<button class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center glow-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Hidden Navigation Context (Not rendered as per task flow priority, but logic applied) -->
+<!-- BottomNavBar is suppressed due to Task-Focused 'Fullscreen Cinema' mode -->
+<script>
+        // Custom interaction behaviors would go here
+        // No JS per instructions, purely structural and visual
+    </script>
+</body></html>
